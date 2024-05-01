@@ -15,9 +15,8 @@ export function Header() {
     return (
         <div>
             <img src="https://plus.unsplash.com/premium_photo-1671070687931-ee34e2b67bfc?q=80&w=3326&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="chair" />
-            <div className="flex items-center w-full p-4">
+            <div className="flex items-center w-full p-4 justify-between">
                 <img src="images/logo.png" alt="logo " className='w-6/12' />
-                <IoBagOutline className="w-3/12" />
                 <IoBagOutline className="w-3/12" />
                 <Dropdown>
                     <MenuButton
