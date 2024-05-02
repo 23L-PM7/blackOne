@@ -11,7 +11,7 @@ import Divider from '@mui/joy/Divider';
 import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
-import { Favorite, Search, UserPro } from './items/HeaderIcons';
+import { Bag, Favorite, Search, UserPro } from './items/HeaderIcons';
 
 
 export function Header() {
@@ -20,22 +20,22 @@ export function Header() {
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     return (
         <div>
-            <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }}>
+            <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
-                    <Stack direction='row' justifyContent='end' alignContent='center'>
+                    <div className='p-2 flex  bg-[#EDECE9] items-center justify-between'>
+                        <img src='images/logo.png' className='w-[200px]' />
+                        <Bag />
                         <IconButton
                             size="large"
                             edge="start"
                             color="inherit"
                             aria-label="menu"
-                            sx={{ mr: 2, }}
+                            // sx={{ mr: 2, }}
                             onClick={toggleDrawer}
                         >
                             <MenuIcon />
                         </IconButton>
-
-                    </Stack>
-                    <img src='images/logo.png' />
+                    </div>
                 </AppBar>
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
             </Stack>
@@ -62,27 +62,29 @@ function Drawer(props: DrawerProps) {
             <JoyDrawer open={open} onClose={onToggleDrawer} slotProps={{
                 content: {
                     sx: {
-                        width: "100%"
+                        width: "100%",
+                        backgroundColor: 'rgba(237, 236, 233, 1)'
                     }
                 }
-            }}>
-                <Box
+            }}
+            >
+                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
                     onClick={onToggleDrawer}
                     onKeyDown={onToggleDrawer}
                 >
-                    <div className='flex items-center'>
+                    <div className='flex items-center gap-4'>
                         <Search />
                         <UserPro />
                         <Favorite />
                     </div>
                     <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text) => (
+                    <div className='flex-col flex font-narmol text-xl mt-[20px] gap-y-4'>
+                        {['Shop', 'orders', 'About', 'Projects'].map((text) => (
                             <ListItem key={text}>
                                 <ListItemButton>{text}</ListItemButton>
                             </ListItem>
                         ))}
-                    </List>
+                    </div>
                 </Box>
             </JoyDrawer>
         </Box>
