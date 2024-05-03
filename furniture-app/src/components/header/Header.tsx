@@ -11,8 +11,8 @@ import Divider from '@mui/joy/Divider';
 import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
-import { Bag, Favorite, Remove, Search, UserPro } from './items/HeaderIcons';
-import { Anchor } from '@mui/icons-material';
+import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
+
 
 
 import AspectRatio from '@mui/joy/AspectRatio';
@@ -123,7 +123,7 @@ function DrawerMobile(props: BagDrawerProps) {
 
     const data = [
         {
-            src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236',
+            src: 'https://plus.unsplash.com/premium_photo-1676638154798-904c8f6282d6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWluaW1hbHxlbnwwfHwwfHx8MA%3D%3D',
             title: 'Chair',
             price: 1000,
             icon: <Remove />
@@ -132,6 +132,24 @@ function DrawerMobile(props: BagDrawerProps) {
             src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
             title: 'Table',
             price: 1000,
+            icon: <Remove />
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
+            title: 'Table',
+            price: 900,
+            icon: <Remove />
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
+            title: 'Sofa',
+            price: 900,
+            icon: <Remove />
+        },
+        {
+            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
+            title: 'Print',
+            price: 900,
             icon: <Remove />
         },
         {
