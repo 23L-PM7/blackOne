@@ -1,0 +1,19 @@
+BLACK #343434
+WHITE #F5F5F5
+BROWN #A18565
+GREY #EDECE9
+
+// TOAST
+
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast('Here is your toast.');
+
+const App = () => {
+  return (
+    <div>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+    </div>
+  );
+};
