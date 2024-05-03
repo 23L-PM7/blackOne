@@ -1,4 +1,4 @@
-import { quicksand } from "@/app/layout";
+import { quicksand } from "@/app/theme";
 
 export function Title() {
   return (

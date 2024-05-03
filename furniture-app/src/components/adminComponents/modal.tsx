@@ -5,7 +5,8 @@ import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
-import { quicksand } from "@/app/layout";
+import Input from "@mui/joy/Input";
+import { cinzel } from "@/app/theme";
 
 export default function AdminModal() {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function AdminModal() {
     <div>
       <button
         onClick={() => setOpen(true)}
-        className={`bg-[#A18565] text-[#F5F5F5] ${quicksand.className} py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
+        className={`bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
       >
         + Add new item
       </button>
@@ -22,7 +23,11 @@ export default function AdminModal() {
         aria-describedby="modal-desc"
         open={open}
         onClose={() => setOpen(false)}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <Sheet
           variant="outlined"
@@ -31,23 +36,24 @@ export default function AdminModal() {
             borderRadius: "md",
             p: 3,
             boxShadow: "lg",
+            backgroundColor: "#EDECE9",
+
+            ...cinzel.style,
           }}
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
-          <Typography
-            component="h2"
-            id="modal-title"
-            level="h4"
-            textColor="inherit"
-            fontWeight="lg"
-            mb={1}
-          >
-            This is the modal title
-          </Typography>
-          <Typography id="modal-desc" textColor="text.tertiary">
-            Make sure to use <code>aria-labelledby</code> on the modal dialog
-            with an optional <code>aria-describedby</code> attribute.
-          </Typography>
+          <div>
+            <h1 id="modal-title">NEW ITEM FORM</h1>
+            <h1 id="modal-desc">This is the modal desc</h1>
+          </div>
+          <div>
+            <Input
+              sx={{
+                ...cinzel.style,
+              }}
+              placeholder="Name of Product"
+            />
+          </div>
         </Sheet>
       </Modal>
     </div>
