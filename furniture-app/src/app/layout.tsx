@@ -9,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <CssVarsProvider theme={customTheme}>
-        <body>{children}</body>
-      </CssVarsProvider>
+      {/* <CssVarsProvider theme={customTheme}> */}
+      <body>{children}</body>
+      {/* </CssVarsProvider> */}
     </html>
   );
 }
