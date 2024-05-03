@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Quicksand, Cinzel } from "next/font/google";
 import "./globals.css";
 
-const quicksand = Quicksand({ subsets: ["latin"] });
-const cinzel = Cinzel({ subsets: ["latin"] });
+export const quicksand = Quicksand({ subsets: ["latin"] });
+export const cinzel = Cinzel({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Le Croissant",
