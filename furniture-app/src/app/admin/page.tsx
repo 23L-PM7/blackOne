@@ -3,6 +3,7 @@ import { Title } from "@/components/adminComponents/title";
 import Button from "@mui/joy/Button";
 import Add from "@mui/icons-material/Add";
 import { quicksand } from "../layout";
+import AdminModal from "@/components/adminComponents/modal";
 
 export default function Home() {
   return (
@@ -19,11 +20,7 @@ export default function Home() {
           size="md"
           variant="soft"
         /> */}
-        <button
-          className={`bg-[#A18565] text-[#F5F5F5] ${quicksand.className} py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
-        >
-          Add new item
-        </button>
+        <AdminModal />
       </div>
     </div>
   );
