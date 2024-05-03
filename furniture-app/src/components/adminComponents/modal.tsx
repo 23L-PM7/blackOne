@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
 import Input from "@mui/joy/Input";
-import { cinzel } from "@/app/theme";
+import { cinzel, quicksand } from "@/app/theme";
 
 export default function AdminModal() {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function AdminModal() {
     <div>
       <button
         onClick={() => setOpen(true)}
-        className={`bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
+        className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
       >
         + Add new item
       </button>
