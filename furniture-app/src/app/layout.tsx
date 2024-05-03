@@ -1,8 +1,6 @@
-import { Quicksand, Cinzel } from "next/font/google";
+import { CssVarsProvider } from "@mui/joy";
 import "./globals.css";
-
-export const quicksand = Quicksand({ subsets: ["latin"] });
-export const cinzel = Cinzel({ subsets: ["latin"] });
+import customTheme from "./theme";
 
 export default function RootLayout({
   children,
@@ -11,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.className} ${cinzel.className}`}>
-        {children}
-      </body>
+      <CssVarsProvider theme={customTheme}>
+        <body>{children}</body>
+      </CssVarsProvider>
     </html>
   );
 }

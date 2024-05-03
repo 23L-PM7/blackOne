@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fontsource-variable/cinzel": "^5.0.13",
+    "@fontsource-variable/quicksand": "^5.0.18",
     "@fontsource/inter": "^5.0.18",
     "@mui/icons-material": "^5.15.15",
     "@mui/joy": "^5.0.0-beta.36",
