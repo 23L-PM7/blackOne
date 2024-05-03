@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={`${quicksand.className} ${cinzel.className}`}>
+        {children}
+      </body>
     </html>
   );
 }

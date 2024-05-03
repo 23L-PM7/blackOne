@@ -2,8 +2,11 @@ import { Header } from "@/components/Header";
 
 export default function Home() {
   return (
-    <div>
-      <div>Hello</div>
+    <div className="bg-[#EDECE9]">
+      <div className="h-screen">
+        <h2>Admin</h2>
+        <h1>Dashboard</h1>
+      </div>
     </div>
   );
 }
