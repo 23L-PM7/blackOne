@@ -38,10 +38,10 @@ export function Header() {
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
     return (
-        <div>
+        <div className='xl:hidden'>
             <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
-                    <div className='px-[30px] py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
+                    <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
                         <a href='http://localhost:3000/'>
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
@@ -95,7 +95,7 @@ type DrawerProps = {
 
 
 
-function Drawer(props: DrawerProps) {
+export function Drawer(props: DrawerProps) {
     const { open, onToggleDrawer } = props
 
 
@@ -128,8 +128,8 @@ function Drawer(props: DrawerProps) {
                         ))}
                     </div>
                 </Box>
-            </JoyDrawer>
-        </Box>
+            </JoyDrawer >
+        </Box >
 
     );
 }
@@ -140,7 +140,7 @@ type BagDrawerProps = {
 }
 
 
-function DrawerMobile(props: BagDrawerProps) {
+export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props
 
     const data = [
