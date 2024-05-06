@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
   console.log({ body });
 
-  const data = await dbRequest("categories", "insertOne", {
+  const data = await dbRequest("furniture", "insertOne", {
     document: {
       name: name,
       description: description,
