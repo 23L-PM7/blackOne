@@ -1,19 +1,30 @@
 "use client";
-import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
 import Input from "@mui/joy/Input";
 import { cinzel, quicksand } from "@/app/theme";
 import { useFurnitures } from "../utility/utils";
+import { Textarea } from "@mui/joy";
 
 export default function AdminModal() {
+  // modal open close
   const [open, setOpen] = useState(false);
+
+  // modal input fields
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [details, setDetails] = useState("");
+  const [price, setPrice] = useState(0);
+  const [category, setCategory] = useState("");
+  const [dimensions, setDimensions] = useState("");
+
+  // fetching furnitures
   const loadfurnitures: any = useFurnitures(
     (state: any) => state.loadFurnitures
   );
+
   return (
     <div>
       <button
@@ -46,17 +57,85 @@ export default function AdminModal() {
           }}
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
-          <div>
-            <h1 id="modal-title">NEW ITEM FORM</h1>
-            <h1 id="modal-desc">This is the modal desc</h1>
+          <div className="flex flex-col py-4">
+            <h1 id="modal-title" className={`${cinzel.className}`}>
+              NEW ITEM FORM
+            </h1>
+            <h1 id="modal-desc" className={`${quicksand.className}`}>
+              This is the modal desc
+            </h1>
           </div>
-          <div>
-            <Input
-              sx={{
-                ...cinzel.style,
-              }}
-              placeholder="Name of Product"
-            />
+          <div className="flex flex-col gap-4">
+            {/* input fields */}
+            <div>
+              <label className={`${quicksand.className}`}>Name</label>
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Name of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Category</label>
+              <Input
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Category of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Description</label>
+              <Textarea
+                minRows={3}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Description of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Details</label>
+              <Textarea
+                minRows={2}
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Details of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Dimensions</label>
+              <Input
+                value={dimensions}
+                onChange={(e) => setDimensions(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Dimensions of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Price</label>
+              <Input
+                value={price}
+                type="number"
+                onChange={(e) => setPrice(e.target.valueAsNumber)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Price of Product in $"
+              />
+            </div>
           </div>
         </Sheet>
       </Modal>
