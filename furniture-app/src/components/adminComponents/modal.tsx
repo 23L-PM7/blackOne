@@ -273,6 +273,7 @@ export default function AdminModal() {
             </Button>
 
             <button
+              onClick={submit}
               className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
             >
               Create
