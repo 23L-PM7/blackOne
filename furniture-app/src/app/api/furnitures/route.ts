@@ -11,16 +11,26 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  // obtain info from body
   const body = await request.json();
-  const { name, description } = body;
+  const { name, description, details, price, category, dimensions, picture } =
+    body;
 
   console.log({ body });
 
+  //   create
   const data = await dbRequest("furniture", "insertOne", {
     document: {
       name: name,
       description: description,
+      details: details,
+      price: price,
+      category: category,
+      dimensions: dimensions,
+      picture: picture,
     },
   });
+
+  //   response
   return Response.json(data);
 }

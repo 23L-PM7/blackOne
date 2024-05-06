@@ -1,21 +1,117 @@
 "use client";
-import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
 import Input from "@mui/joy/Input";
 import { cinzel, quicksand } from "@/app/theme";
 import { useFurnitures } from "../utility/utils";
+import { Button, SvgIcon, Textarea, styled } from "@mui/joy";
+import axios from "axios";
+import { Toaster, toast } from "sonner";
+
+const VisuallyHiddenInput = styled("input")`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  width: 1px;
+`;
 
 export default function AdminModal() {
+  // modal open close
   const [open, setOpen] = useState(false);
+
+  // modal input fields
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [details, setDetails] = useState("");
+  const [price, setPrice] = useState(0);
+  const [category, setCategory] = useState("");
+  const [dimensions, setDimensions] = useState("");
+  const [picture, setPicture] = useState(
+    "https://www.karageorgiou.gr/wp-content/uploads/2024/03/1.jpg"
+  );
+
+  // loading
+  const [loading, setLoading] = useState(false);
+
+  // fetching furnitures
   const loadfurnitures: any = useFurnitures(
     (state: any) => state.loadFurnitures
   );
+
+  // create furniture
+  function submit() {
+    // check fields
+    if (name == null || name == "") {
+      toast.error(`Name is empty please fill all forms`);
+      return;
+    }
+    if (description == null || description == "") {
+      toast.error(`Description is empty please fill all forms`);
+      return;
+    }
+    if (details == null || details == "") {
+      toast.error(`Details is empty please fill all forms`);
+      return;
+    }
+    if (price <= 25 || !price) {
+      toast.error(`Price is not provided please fill all forms`);
+      return;
+    }
+    if (category == null || category == "") {
+      toast.error(`Category is empty please fill all forms`);
+      return;
+    }
+    if (dimensions == null || dimensions == "") {
+      toast.error(`Dimensions are not provided please fill all forms`);
+      return;
+    }
+    if (picture == null || picture == "") {
+      toast.error(`Picture is not uploaded`);
+      return;
+    }
+
+    // if fields are okay then submit
+    setLoading(true);
+    axios
+      .post("/api/furnitures", {
+        name,
+        description,
+        details,
+        price,
+        category,
+        dimensions,
+        picture,
+      })
+      .then(() => {
+        setOpen(false);
+        reset();
+        toast.success(`"${name}" category created successfully.`);
+        loadfurnitures();
+      });
+  }
+
+  // reset and fetch the new product
+  function reset() {
+    setLoading(false);
+    setName("");
+    setDetails("");
+    setDescription("");
+    setCategory("");
+    setDimensions("");
+    setPrice(0);
+    // setPicture("")
+  }
+
   return (
     <div>
+      <Toaster position="top-center" />
       <button
         onClick={() => setOpen(true)}
         className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
@@ -46,17 +142,125 @@ export default function AdminModal() {
           }}
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
-          <div>
-            <h1 id="modal-title">NEW ITEM FORM</h1>
-            <h1 id="modal-desc">This is the modal desc</h1>
+          <div className="flex flex-col py-4">
+            <h1 id="modal-title" className={`${cinzel.className}`}>
+              NEW ITEM FORM
+            </h1>
+            <h1 id="modal-desc" className={`${quicksand.className}`}>
+              Please input the product information
+            </h1>
           </div>
-          <div>
-            <Input
+          <div className="flex flex-col gap-4">
+            {/* input fields */}
+            <div>
+              <label className={`${quicksand.className}`}>Name</label>
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Name of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Category</label>
+              <Input
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Category of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Description</label>
+              <Textarea
+                minRows={3}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Description of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Details</label>
+              <Textarea
+                minRows={2}
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Details of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Dimensions</label>
+              <Input
+                value={dimensions}
+                onChange={(e) => setDimensions(e.target.value)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Dimensions of Product"
+              />
+            </div>
+            <div>
+              <label className={`${quicksand.className}`}>Price</label>
+              <Input
+                value={price}
+                type="number"
+                onChange={(e) => setPrice(e.target.valueAsNumber)}
+                sx={{
+                  ...quicksand.style,
+                }}
+                placeholder="Price of Product in $"
+              />
+            </div>
+            {/* upload area */}
+            <Button
               sx={{
-                ...cinzel.style,
+                backgroundColor: "#F5F5F5",
+                color: "#343434",
+                ...quicksand.style,
               }}
-              placeholder="Name of Product"
-            />
+              component="label"
+              role={undefined}
+              tabIndex={-1}
+              variant="outlined"
+              color="neutral"
+              startDecorator={
+                <SvgIcon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                    />
+                  </svg>
+                </SvgIcon>
+              }
+            >
+              Upload a Photo
+              <VisuallyHiddenInput type="file" />
+            </Button>
+
+            <button
+              onClick={submit}
+              className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
+            >
+              Create
+            </button>
           </div>
         </Sheet>
       </Modal>
