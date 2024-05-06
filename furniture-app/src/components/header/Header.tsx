@@ -45,7 +45,7 @@ export function Header() {
                         <a href='http://localhost:3000/'>
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
-                        <div className='hidden lg:flex font-narmol text-[25px] mt-[20px] justify-around w-[600px]'>
+                        <div className='hidden lg:flex font-narmol text-[25px]  justify-around w-[600px]'>
                             {['Shop', 'orders', 'About', 'Projects'].map((text) => (
                                 <ListItem key={text}>
                                     <ListItemButton>{text}</ListItemButton>
