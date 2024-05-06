@@ -7,6 +7,8 @@ import Input from "@mui/joy/Input";
 import { cinzel, quicksand } from "@/app/theme";
 import { useFurnitures } from "../utility/utils";
 import { Button, SvgIcon, Textarea, styled } from "@mui/joy";
+import axios from "axios";
+import { toast } from "sonner";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -31,11 +33,85 @@ export default function AdminModal() {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [dimensions, setDimensions] = useState("");
+  const [picture, setPicture] = useState(
+    "https://www.karageorgiou.gr/wp-content/uploads/2024/03/1.jpg"
+  );
+
+  // loading
+  const [loading, setLoading] = useState(false);
 
   // fetching furnitures
   const loadfurnitures: any = useFurnitures(
     (state: any) => state.loadFurnitures
   );
+
+  // create furniture
+  function submit() {
+    if (name == null || name == "") {
+      toast.error(`Name is empty please fill all forms`);
+      return;
+    }
+
+    if (description == null || description == "") {
+      toast.error(`Description is empty please fill all forms`);
+      return;
+    }
+
+    if (details == null || details == "") {
+      toast.error(`Details is empty please fill all forms`);
+      return;
+    }
+
+    if (price == null) {
+      toast.error(`Price is not provided please fill all forms`);
+      return;
+    }
+
+    if (category == null || category == "") {
+      toast.error(`Category is empty please fill all forms`);
+      return;
+    }
+
+    if (dimensions == null || dimensions == "") {
+      toast.error(`Picture is empty please fill all forms`);
+      return;
+    }
+
+    if (picture == null || picture == "") {
+      toast.error(`Picture is not uploaded`);
+      return;
+    }
+
+    setLoading(true);
+    axios
+      .post("http://localhost:4000/categories", {
+        name,
+        description,
+        details,
+        price,
+        category,
+        dimensions,
+        picture,
+      })
+      .then(() => {
+        setOpen(false);
+        reset();
+        toast.success(`"${name}" category created successfully.`);
+        loadfurnitures();
+      });
+  }
+
+  // reset and fetch the new product
+  function reset() {
+    setLoading(false);
+    setName("");
+    setDetails("");
+    setDescription("");
+    setCategory("");
+    setDimensions("");
+    setPrice(0);
+    // setPicture("")
+  }
 
   return (
     <div>
@@ -74,7 +150,7 @@ export default function AdminModal() {
               NEW ITEM FORM
             </h1>
             <h1 id="modal-desc" className={`${quicksand.className}`}>
-              This is the modal desc
+              Please input the product information
             </h1>
           </div>
           <div className="flex flex-col gap-4">
