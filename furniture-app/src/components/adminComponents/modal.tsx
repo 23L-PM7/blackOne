@@ -8,7 +8,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import { useFurnitures } from "../utility/utils";
 import { Button, SvgIcon, Textarea, styled } from "@mui/joy";
 import axios from "axios";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -47,44 +47,40 @@ export default function AdminModal() {
 
   // create furniture
   function submit() {
+    // check fields
     if (name == null || name == "") {
       toast.error(`Name is empty please fill all forms`);
       return;
     }
-
     if (description == null || description == "") {
       toast.error(`Description is empty please fill all forms`);
       return;
     }
-
     if (details == null || details == "") {
       toast.error(`Details is empty please fill all forms`);
       return;
     }
-
-    if (price == null) {
+    if (price <= 25 || !price) {
       toast.error(`Price is not provided please fill all forms`);
       return;
     }
-
     if (category == null || category == "") {
       toast.error(`Category is empty please fill all forms`);
       return;
     }
-
     if (dimensions == null || dimensions == "") {
-      toast.error(`Picture is empty please fill all forms`);
+      toast.error(`Dimensions are not provided please fill all forms`);
       return;
     }
-
     if (picture == null || picture == "") {
       toast.error(`Picture is not uploaded`);
       return;
     }
 
+    // if fields are okay then submit
     setLoading(true);
     axios
-      .post("http://localhost:4000/categories", {
+      .post("http://localhost:3000/api/furniture", {
         name,
         description,
         details,
@@ -115,6 +111,7 @@ export default function AdminModal() {
 
   return (
     <div>
+      <Toaster position="top-center" />
       <button
         onClick={() => setOpen(true)}
         className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
@@ -214,20 +211,6 @@ export default function AdminModal() {
             </div>
             <div>
               <label className={`${quicksand.className}`}>Price</label>
-              <Input
-                value={price}
-                type="number"
-                onChange={(e) => setPrice(e.target.valueAsNumber)}
-                sx={{
-                  ...quicksand.style,
-                }}
-                placeholder="Price of Product in $"
-              />
-            </div>
-            <div>
-              <label className={`${quicksand.className}`}>
-                Photo of Product
-              </label>
               <Input
                 value={price}
                 type="number"
