@@ -174,12 +174,7 @@ function DrawerMobile(props: BagDrawerProps) {
             price: 900,
             icon: <Remove />
         },
-        {
-            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-            title: 'Table',
-            price: 900,
-            icon: <Remove />
-        },
+
 
     ];
 
