@@ -21,6 +21,8 @@ import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
 import ListDivider from '@mui/joy/ListDivider';
 import ListItemContent from '@mui/joy/ListItemContent';
+import { colors } from '@mui/joy';
+import Link from 'next/link';
 
 
 
@@ -39,22 +41,41 @@ export function Header() {
         <div>
             <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
-                    <div className='p-2 flex  bg-[#EDECE9] items-center justify-between'>
-                        <img src='images/logo.png' className='w-[200px]' />
-                        <button onClick={toggleDrawerBag}> <Bag /></button>
-                        {/* <Drawer anchor="right">
-                            
-                        </Drawer> */}
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            // sx={{ mr: 2, }}
-                            onClick={toggleDrawer}
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                    <div className='px-[30px] py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
+                        <a href='http://localhost:3000/'>
+                            <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
+                        </a>
+                        <div className='hidden lg:flex font-narmol text-[25px] mt-[20px] justify-around w-[600px]'>
+                            {['Shop', 'orders', 'About', 'Projects'].map((text) => (
+                                <ListItem key={text}>
+                                    <ListItemButton>{text}</ListItemButton>
+                                </ListItem>
+                            ))}
+                        </div>
+                        <div className='items-center flex gap-4'>
+
+                            <div className='items-center gap-6 hidden md:flex text-[40px]'>
+                                <Search />
+                                <UserPro />
+                                <Favorite />
+                            </div>
+
+                            <button className='p-2 flex items-center text-black' onClick={toggleDrawerBag}> <Bag />(0)</button>
+                            <div className='lg:hidden'>
+                                <IconButton
+                                    edge="start"
+                                    sx={{
+                                        color: 'black',
+                                    }}
+                                    aria-label="menu"
+                                    // sx={{ mr: 2, }}
+                                    onClick={toggleDrawer}
+                                >
+                                    <MenuIcon sx={{ fontSize: '50px', }} />
+                                </IconButton>
+                            </div>
+
+                        </div>
                     </div>
                 </AppBar>
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
@@ -93,13 +114,13 @@ function Drawer(props: DrawerProps) {
                     onClick={onToggleDrawer}
                     onKeyDown={onToggleDrawer}
                 >
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-4 md:hidden'>
                         <Search />
                         <UserPro />
                         <Favorite />
                     </div>
                     <Divider />
-                    <div className='flex-col flex font-narmol text-xl mt-[20px] gap-y-4'>
+                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
                         {['Shop', 'orders', 'About', 'Projects'].map((text) => (
                             <ListItem key={text}>
                                 <ListItemButton>{text}</ListItemButton>
@@ -153,7 +174,6 @@ function DrawerMobile(props: BagDrawerProps) {
             price: 900,
             icon: <Remove />
         },
-
     ];
 
     return (
