@@ -174,8 +174,6 @@ function DrawerMobile(props: BagDrawerProps) {
             price: 900,
             icon: <Remove />
         },
-
-
     ];
 
     return (

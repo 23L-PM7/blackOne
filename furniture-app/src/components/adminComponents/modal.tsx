@@ -7,9 +7,13 @@ import Sheet from "@mui/joy/Sheet";
 import { useState } from "react";
 import Input from "@mui/joy/Input";
 import { cinzel, quicksand } from "@/app/theme";
+import { useFurnitures } from "../utility/utils";
 
 export default function AdminModal() {
   const [open, setOpen] = useState(false);
+  const loadfurnitures: any = useFurnitures(
+    (state: any) => state.loadFurnitures
+  );
   return (
     <div>
       <button
