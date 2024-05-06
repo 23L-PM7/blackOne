@@ -80,7 +80,7 @@ export default function AdminModal() {
     // if fields are okay then submit
     setLoading(true);
     axios
-      .post("http://localhost:3000/api/furniture", {
+      .post("/api/furnitures", {
         name,
         description,
         details,
