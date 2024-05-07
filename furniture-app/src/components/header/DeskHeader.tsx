@@ -8,14 +8,9 @@ import * as React from 'react';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
-<<<<<<< HEAD
-import { CiCircleRemove } from "react-icons/ci";
-
-import JoyDrawer from '@mui/joy/Drawer';
-=======
->>>>>>> c721d755e6cdaba82fbe8096a9b4218afb145a01
 import { Drawer, DrawerMobile } from './Header';
 import { Box, Divider, Input } from '@mui/joy';
+import JoyDrawer from '@mui/joy/Drawer';
 
 
 
