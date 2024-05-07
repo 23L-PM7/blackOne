@@ -23,6 +23,7 @@ import ListDivider from '@mui/joy/ListDivider';
 import ListItemContent from '@mui/joy/ListItemContent';
 import { colors } from '@mui/joy';
 import Link from 'next/link';
+import { TESTER } from './test';
 
 
 
@@ -58,6 +59,7 @@ export function Header() {
                                 <Search />
                                 <UserPro />
                                 <Favorite />
+                                <TESTER />
                             </div>
 
                             <button className='p-2 flex items-center text-black' onClick={toggleDrawerBag}> <Bag />(0)</button>
