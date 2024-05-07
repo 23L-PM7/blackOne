@@ -9,15 +9,19 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
 import { Drawer, DrawerMobile } from './Header';
+import { Box, Divider, Input } from '@mui/joy';
+import JoyDrawer from '@mui/joy/Drawer';
 
 
 
 export function DeskHeader() {
     const [isOpenDrawer, setIsOpenDrawer] = React.useState(false);
     const [bagOpenDrawer, setBagOpenDrawer] = React.useState(false);
+    const [isOpenDrawerTop, setIsOpenDrawerTop] = React.useState(false);
 
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
+    const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
         <div className=' hidden xl:flex'>
             <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
@@ -36,7 +40,7 @@ export function DeskHeader() {
                         <div className='items-center flex gap-4'>
 
                             <div className='items-center gap-6 hidden md:flex text-[40px]'>
-                                <Search />
+                                <button onClick={toggleDrawerBagTop}><Search /></button>
                                 <UserPro />
                                 <Favorite />
                             </div>
@@ -58,10 +62,59 @@ export function DeskHeader() {
 
                         </div>
                     </div>
-                </AppBar>
+                </AppBar >
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
                 <DrawerMobile open={bagOpenDrawer} onToggleDrawerBag={toggleDrawerBag} />
-            </Stack>
-        </div>
+                <TopDrawer open={isOpenDrawerTop} onToggleDrawerTop={toggleDrawerBagTop} />
+            </Stack >
+        </div >
     );
 }
+
+type TopDrawerProps = {
+    open: boolean;
+    onToggleDrawerTop: () => void
+}
+
+
+export function TopDrawer(props: TopDrawerProps) {
+    const { open, onToggleDrawerTop } = props
+
+
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <JoyDrawer open={open} onClose={onToggleDrawerTop} slotProps={{
+                content: {
+                    sx: {
+                        width: "100%",
+                        backgroundColor: 'rgba(237, 236, 233, 1)'
+                    }
+                }
+            }}
+            >
+                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                    onClick={onToggleDrawerTop}
+                    onKeyDown={onToggleDrawerTop}
+                >
+                    <div className='flex items-center gap-4 md:hidden'>
+                        <Search />
+                        <UserPro />
+                        <Favorite />
+                    </div>
+                    <Divider />
+                    <div className='flex justify-center'>
+                        <Input
+                            color="neutral"
+                            disabled={false}
+                            placeholder="Search Products..."
+                            size="lg"
+                            variant="plain"
+                        />
+                    </div>
+                </Box>
+            </JoyDrawer >
+        </Box >
+
+    );
+}
+
