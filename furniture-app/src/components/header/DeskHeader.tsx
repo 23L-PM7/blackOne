@@ -5,34 +5,25 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import List from '@mui/joy/List';
-import Divider from '@mui/joy/Divider';
-import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
 import { CiCircleRemove } from "react-icons/ci";
 
-
-
-import AspectRatio from '@mui/joy/AspectRatio';
-import Typography from '@mui/joy/Typography';
-import Card from '@mui/joy/Card';
-import ListDivider from '@mui/joy/ListDivider';
-import ListItemContent from '@mui/joy/ListItemContent';
-import { colors } from '@mui/joy';
-import Link from 'next/link';
+import JoyDrawer from '@mui/joy/Drawer';
 import { Drawer, DrawerMobile } from './Header';
+import { Box, Divider, Input } from '@mui/joy';
 
 
 
 export function DeskHeader() {
     const [isOpenDrawer, setIsOpenDrawer] = React.useState(false);
     const [bagOpenDrawer, setBagOpenDrawer] = React.useState(false);
+    const [isOpenDrawerTop, setIsOpenDrawerTop] = React.useState(false);
 
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
+    const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
         <div className=' hidden xl:flex'>
             <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
@@ -51,7 +42,7 @@ export function DeskHeader() {
                         <div className='items-center flex gap-4'>
 
                             <div className='items-center gap-6 hidden md:flex text-[40px]'>
-                                <Search />
+                                <button onClick={toggleDrawerBagTop}><Search /></button>
                                 <UserPro />
                                 <Favorite />
                             </div>
@@ -73,10 +64,59 @@ export function DeskHeader() {
 
                         </div>
                     </div>
-                </AppBar>
+                </AppBar >
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
                 <DrawerMobile open={bagOpenDrawer} onToggleDrawerBag={toggleDrawerBag} />
-            </Stack>
-        </div>
+                <TopDrawer open={isOpenDrawerTop} onToggleDrawerTop={toggleDrawerBagTop} />
+            </Stack >
+        </div >
     );
 }
+
+type TopDrawerProps = {
+    open: boolean;
+    onToggleDrawerTop: () => void
+}
+
+
+export function TopDrawer(props: TopDrawerProps) {
+    const { open, onToggleDrawerTop } = props
+
+
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <JoyDrawer open={open} onClose={onToggleDrawerTop} slotProps={{
+                content: {
+                    sx: {
+                        width: "100%",
+                        backgroundColor: 'rgba(237, 236, 233, 1)'
+                    }
+                }
+            }}
+            >
+                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                    onClick={onToggleDrawerTop}
+                    onKeyDown={onToggleDrawerTop}
+                >
+                    <div className='flex items-center gap-4 md:hidden'>
+                        <Search />
+                        <UserPro />
+                        <Favorite />
+                    </div>
+                    <Divider />
+                    <div className='flex justify-center'>
+                        <Input
+                            color="neutral"
+                            disabled={false}
+                            placeholder="Search Products..."
+                            size="lg"
+                            variant="plain"
+                        />
+                    </div>
+                </Box>
+            </JoyDrawer >
+        </Box >
+
+    );
+}
+

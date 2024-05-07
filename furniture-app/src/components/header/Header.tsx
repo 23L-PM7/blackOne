@@ -74,13 +74,13 @@ export function Header() {
                                     <MenuIcon sx={{ fontSize: '50px', }} />
                                 </IconButton>
                             </div>
-
                         </div>
                     </div>
                 </AppBar>
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
                 <DrawerMobile open={bagOpenDrawer} onToggleDrawerBag={toggleDrawerBag} />
             </Stack>
+
         </div>
     );
 }
