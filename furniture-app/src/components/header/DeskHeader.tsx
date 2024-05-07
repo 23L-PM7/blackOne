@@ -5,24 +5,9 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import List from '@mui/joy/List';
-import Divider from '@mui/joy/Divider';
-import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
-import { CiCircleRemove } from "react-icons/ci";
-
-
-
-import AspectRatio from '@mui/joy/AspectRatio';
-import Typography from '@mui/joy/Typography';
-import Card from '@mui/joy/Card';
-import ListDivider from '@mui/joy/ListDivider';
-import ListItemContent from '@mui/joy/ListItemContent';
-import { colors } from '@mui/joy';
-import Link from 'next/link';
 import { Drawer, DrawerMobile } from './Header';
 
 
