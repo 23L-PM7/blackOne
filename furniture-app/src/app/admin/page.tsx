@@ -26,8 +26,8 @@ export default function Home() {
         <Title />
         <div className="w-[90%] border-y-[1px] border-[#343434] flex flex-col gap-y-4">
           <h1 className={cinzel.className}>Content</h1>
-          {furnitures.map((item: any) => (
-            <TemplateMain item={item} />
+          {furnitures.map((item: any, index: number) => (
+            <TemplateMain key={1000 - index} item={item} />
           ))}
         </div>
         <AdminModal />
