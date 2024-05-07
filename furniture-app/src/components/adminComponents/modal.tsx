@@ -34,10 +34,7 @@ export default function AdminModal() {
     (state: any) => state.loadFurnitures
   );
 
-  // create furniture
-  function handlePicture(data: string) {
-    setPicture(data);
-  }
+  // create furnitures
 
   function submit() {
     // check fields
