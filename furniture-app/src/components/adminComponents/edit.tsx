@@ -10,8 +10,9 @@ import { Button, SvgIcon, Textarea, styled } from "@mui/joy";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { ImageField } from "./photos";
+import { EditIcon } from "../vectors/editIcon";
 
-export default function AdminModal() {
+export default function EditModal() {
   // modal open close
   const [open, setOpen] = useState(false);
 
@@ -68,7 +69,7 @@ export default function AdminModal() {
     // if fields are okay then submit
     setLoading(true);
     axios
-      .post("/api/furnitures", {
+      .put("/api/furnitures", {
         name,
         description,
         details,
@@ -99,12 +100,22 @@ export default function AdminModal() {
 
   return (
     <div>
-      <button
+      <Toaster position="top-center" />
+      <Button
+        color="primary"
         onClick={() => setOpen(true)}
-        className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
+        size="sm"
+        variant="solid"
+        sx={{
+          width: "30px",
+          height: "30px",
+          padding: "8px",
+          backgroundColor: "#A18565",
+          ...quicksand.style,
+        }}
       >
-        + Add new item
-      </button>
+        <EditIcon />
+      </Button>
       <Modal
         aria-labelledby="modal-title"
         aria-describedby="modal-desc"
