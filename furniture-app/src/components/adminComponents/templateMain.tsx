@@ -28,7 +28,6 @@ export function TemplateMain(props: MainInfo) {
 
   return (
     <div>
-      <Toaster position="top-center" closeButton />
       <div className="w-full flex justify-between items-center">
         <div>
           <h1 className={quicksand.className}>{item.name}</h1>
