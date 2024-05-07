@@ -215,7 +215,7 @@ export default function AdminModal() {
               />
             </div>
             {/* upload area */}
-            <ImageField value={handlePicture} />
+            <ImageField value={picture} onChange={setPicture} />
 
             <button
               onClick={submit}
