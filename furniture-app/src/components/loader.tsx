@@ -1,3 +1,5 @@
+import { quicksand } from "@/app/theme";
+
 export function Loader() {
   return (
     <div className="h-screen w-screen bg-[#EDECE9] flex flex-col justify-center items-center">
