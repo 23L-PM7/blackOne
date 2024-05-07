@@ -4,6 +4,7 @@ import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useFurnitures } from "../utility/utils";
 import { EditIcon } from "../vectors/editIcon";
+import EditModal from "./edit";
 
 type MainInfo = {
   item: any;
@@ -45,6 +46,7 @@ export function TemplateMain(props: MainInfo) {
           <h1 className={quicksand.className}>{item.dimensions}</h1>
         </div>
         <div className="flex gap-x-1">
+          <EditModal item={item} />
           <Button
             color="primary"
             onClick={confirm}
