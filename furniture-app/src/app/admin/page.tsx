@@ -8,6 +8,7 @@ import { TemplateMain } from "@/components/adminComponents/templateMain";
 import { useFurnitures } from "@/components/utility/utils";
 import { useEffect, useState } from "react";
 import { Loader } from "@/components/loader";
+import { Toaster } from "sonner";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#EDECE9]">
+      <Toaster position="top-center" />
       <div className="h-screen w-screen flex flex-col items-center gap-y-4">
         <Title />
         <div className="w-[90%] border-y-[1px] border-[#343434] flex flex-col gap-y-4">

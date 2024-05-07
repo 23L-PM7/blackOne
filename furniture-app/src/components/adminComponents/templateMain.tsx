@@ -3,6 +3,7 @@ import { Button } from "@mui/joy";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useFurnitures } from "../utility/utils";
+import { EditIcon } from "../vectors/editIcon";
 
 type MainInfo = {
   item: any;
@@ -43,20 +44,22 @@ export function TemplateMain(props: MainInfo) {
           <h1 className={quicksand.className}>{item.category}</h1>
           <h1 className={quicksand.className}>{item.dimensions}</h1>
         </div>
-        <Button
-          color="primary"
-          onClick={confirm}
-          size="sm"
-          variant="solid"
-          sx={{
-            width: "30px",
-            height: "30px",
-            backgroundColor: "#A18565",
-            ...quicksand.style,
-          }}
-        >
-          X
-        </Button>
+        <div className="flex gap-x-1">
+          <Button
+            color="primary"
+            onClick={confirm}
+            size="sm"
+            variant="solid"
+            sx={{
+              width: "30px",
+              height: "30px",
+              backgroundColor: "#A18565",
+              ...quicksand.style,
+            }}
+          >
+            X
+          </Button>
+        </div>
       </div>
     </div>
   );
