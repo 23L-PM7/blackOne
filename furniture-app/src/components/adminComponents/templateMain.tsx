@@ -16,14 +16,16 @@ export function TemplateMain(props: MainInfo) {
     toast("Are you sure you want to delete?", {
       action: {
         label: "Confirm",
-        onClick: () => confirmed,
+        onClick: () => confirmed(),
       },
     });
   }
 
   function confirmed() {
-    axios.delete(`/api/furnitures/${item._id}`);
-    loadFurnitures();
+    const id = item._id;
+    axios.delete(`/api/furnitures/${id}`).then(() => {
+      loadFurnitures();
+    });
   }
 
   return (

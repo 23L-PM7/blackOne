@@ -34,16 +34,3 @@ export async function POST(request: Request) {
   //   response
   return Response.json(data);
 }
-
-// delete
-
-export async function DELETE(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const id = searchParams.get("id");
-
-  const data = await dbRequest("furniture", "deleteOne", {
-    id: id,
-  });
-
-  return Response.json(data);
-}
