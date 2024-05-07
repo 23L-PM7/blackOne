@@ -41,6 +41,15 @@ export default function EditModal(props: EditProps) {
 
   // create furnitures
 
+  function confirm() {
+    toast("Are you sure you want to update?", {
+      action: {
+        label: "Yes",
+        onClick: () => submit(),
+      },
+    });
+  }
+
   function submit() {
     // check fields
     if (name == null || name == "") {
@@ -217,10 +226,10 @@ export default function EditModal(props: EditProps) {
             <ImageField value={picture} onChange={setPicture} />
 
             <button
-              onClick={submit}
+              onClick={confirm}
               className={`${quicksand.className} bg-[#A18565] text-[#F5F5F5] py-1 px-5 rounded-sm hover:bg-[#F5F5F5] hover:text-[#343434]`}
             >
-              Create
+              Update
             </button>
           </div>
         </Sheet>

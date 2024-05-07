@@ -31,7 +31,8 @@ export async function PUT(
 
   //   create
   const data = await dbRequest("furniture", "updateOne", {
-    document: {
+    filter: { _id: { $oid: id } },
+    update: {
       name: name,
       description: description,
       details: details,
