@@ -12,18 +12,24 @@ import { Toaster, toast } from "sonner";
 import { ImageField } from "./photos";
 import { EditIcon } from "../vectors/editIcon";
 
-export default function EditModal() {
+type EditProps = {
+  item: any;
+};
+
+export default function EditModal(props: EditProps) {
+  const { item } = props;
+
   // modal open close
   const [open, setOpen] = useState(false);
 
   // modal input fields
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [details, setDetails] = useState("");
-  const [price, setPrice] = useState(0);
-  const [category, setCategory] = useState("");
-  const [dimensions, setDimensions] = useState("");
-  const [picture, setPicture] = useState("");
+  const [name, setName] = useState(item.name);
+  const [description, setDescription] = useState(item.description);
+  const [details, setDetails] = useState(item.details);
+  const [price, setPrice] = useState(item.price);
+  const [category, setCategory] = useState(item.category);
+  const [dimensions, setDimensions] = useState(item.dimensions);
+  const [picture, setPicture] = useState(item.picture);
 
   // loading
   const [loading, setLoading] = useState(false);
@@ -68,8 +74,10 @@ export default function EditModal() {
 
     // if fields are okay then submit
     setLoading(true);
+    const id = item._id;
+
     axios
-      .put("/api/furnitures", {
+      .put(`/api/furnitures/${id}`, {
         name,
         description,
         details,
@@ -80,27 +88,13 @@ export default function EditModal() {
       })
       .then(() => {
         setOpen(false);
-        reset();
-        toast.success(`"${name}" category created successfully.`);
+        toast.success(`"${name}" category updated successfully.`);
         loadfurnitures();
       });
   }
 
-  // reset and fetch the new product
-  function reset() {
-    setLoading(false);
-    setName("");
-    setDetails("");
-    setDescription("");
-    setCategory("");
-    setDimensions("");
-    setPrice(0);
-    setPicture("");
-  }
-
   return (
     <div>
-      <Toaster position="top-center" />
       <Button
         color="primary"
         onClick={() => setOpen(true)}
