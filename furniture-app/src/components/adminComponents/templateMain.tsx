@@ -2,12 +2,14 @@ import { quicksand } from "@/app/theme";
 import { Button } from "@mui/joy";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
+import { useFurnitures } from "../utility/utils";
 
 type MainInfo = {
   item: any;
 };
 
 export function TemplateMain(props: MainInfo) {
+  const { loadFurnitures }: any = useFurnitures();
   const { item } = props;
 
   function confirm() {
@@ -21,6 +23,7 @@ export function TemplateMain(props: MainInfo) {
 
   function confirmed() {
     axios.delete(`/api/furnitures/${item._id}`);
+    loadFurnitures();
   }
 
   return (
