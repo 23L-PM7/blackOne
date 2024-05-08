@@ -13,7 +13,7 @@ export default function Home() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(5);
+  const [perPage, setPerPage] = useState(4);
   const [pages, setPages] = useState(3);
 
   // logic
@@ -31,6 +31,8 @@ export default function Home() {
 
   const mainLoad = async () => {
     await loadFurnitures();
+    const length = furnitures.length / 4;
+    console.log(length);
   };
 
   useEffect(() => {
