@@ -26,7 +26,7 @@ export function DeskHeader() {
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
-        <div className=' hidden xl:flex'>
+        <div className=' hidden'>
             <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
