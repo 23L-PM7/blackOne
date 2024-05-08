@@ -30,6 +30,7 @@ export default function EditModal(props: EditProps) {
   const [category, setCategory] = useState(item.category);
   const [dimensions, setDimensions] = useState(item.dimensions);
   const [picture, setPicture] = useState(item.picture);
+  const [pictureTwo, setPictureTwo] = useState(item.pictureTwo);
 
   // loading
   const [loading, setLoading] = useState(false);
@@ -94,6 +95,7 @@ export default function EditModal(props: EditProps) {
         category,
         dimensions,
         picture,
+        pictureTwo,
       })
       .then(() => {
         setOpen(false);
@@ -145,7 +147,7 @@ export default function EditModal(props: EditProps) {
           <ModalClose variant="plain" sx={{ m: 1 }} />
           <div className="flex flex-col py-4">
             <h1 id="modal-title" className={`${cinzel.className}`}>
-              NEW ITEM FORM
+              UPDATE ITEM FORM
             </h1>
             <h1 id="modal-desc" className={`${quicksand.className}`}>
               Please input the product information
@@ -224,6 +226,7 @@ export default function EditModal(props: EditProps) {
             </div>
             {/* upload area */}
             <ImageField value={picture} onChange={setPicture} />
+            <ImageField value={pictureTwo} onChange={setPictureTwo} />
 
             <button
               onClick={confirm}
