@@ -13,7 +13,7 @@ export default function Home() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(4);
+  const [perPage, setPerPage] = useState(5);
   const [pages, setPages] = useState(3);
 
   // logic
@@ -39,11 +39,11 @@ export default function Home() {
 
   useEffect(() => {
     if (furnitures) {
-      if (furnitures.length % 4 == 0) {
-        const temporary = Math.round(furnitures.length / 4);
+      if (furnitures.length % perPage == 0) {
+        const temporary = Math.round(furnitures.length / perPage);
         setPages(temporary);
       } else {
-        const temporary = Math.ceil(furnitures.length / 4);
+        const temporary = Math.ceil(furnitures.length / perPage);
         setPages(temporary);
       }
     }

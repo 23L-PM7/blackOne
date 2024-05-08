@@ -1,6 +1,7 @@
 "use client";
 import { cinzel, quicksand } from "@/app/theme";
 import { Button, IconButton } from "@mui/joy";
+import { CartDeleteIcon } from "../vectors/cartDelete";
 
 export function CartItem() {
   return (
@@ -34,7 +35,9 @@ export function CartItem() {
           <h1 className={`${cinzel.className} font-medium text-xl`}>x3</h1>
         </div>
       </div>
-      <IconButton variant="outlined"></IconButton>
+      <IconButton variant="outlined">
+        <CartDeleteIcon />
+      </IconButton>
     </div>
   );
 }
