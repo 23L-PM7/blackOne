@@ -41,8 +41,8 @@ export function Header() {
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
     return (
-        <div className='xl:hidden'>
-            <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
+        <div>
+            <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
                         <a href='/'>
