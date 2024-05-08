@@ -2,6 +2,7 @@
 import { Button, SvgIcon, styled } from "@mui/joy";
 import { useState } from "react";
 import { quicksand } from "@/app/theme";
+import { Loader } from "../loader";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -17,6 +18,7 @@ const VisuallyHiddenInput = styled("input")`
 
 export function ImageField({ value, onChange }: any) {
   const [uploading, setUploading] = useState(false);
+  const [button, setButton] = useState("Upload a photo");
 
   async function handleUpload(e: any) {
     setUploading(true);
@@ -45,6 +47,14 @@ export function ImageField({ value, onChange }: any) {
       alert("An Error Occured While Uploading");
       console.log(e);
     }
+  }
+
+  if (uploading) {
+    setButton("Loading... >.<");
+  }
+
+  if (!uploading) {
+    setButton("Completed Upload T-T");
   }
 
   return (
@@ -78,7 +88,7 @@ export function ImageField({ value, onChange }: any) {
           </SvgIcon>
         }
       >
-        Upload a Photo
+        {button}
         <VisuallyHiddenInput
           disabled={uploading}
           onChange={handleUpload}
