@@ -11,7 +11,9 @@ import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
 import { Drawer, DrawerMobile } from './Header';
 import { Box, Divider, Input } from '@mui/joy';
 import JoyDrawer from '@mui/joy/Drawer';
-import { DropDown } from './dropdown';
+import { DropDowns } from './dropdown';
+import { sectionlists } from './HeaderList';
+import Link from 'next/link';
 
 
 
@@ -32,10 +34,16 @@ export function DeskHeader() {
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
                         <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[25px]  justify-around w-[600px] cursor-pointer text-black '>
-                            <a className='transition hover:underline'><DropDown /></a>
-                            <a className='hover:underline '>Orders</a>
-                            <a className='hover:underline'>About</a>
-                            <a className='hover:underline'>Project</a>
+                            <a className='transition hover:underline'><DropDowns /></a>
+                            {sectionlists.map((sectionlist) => (
+                                <Link
+                                    key={sectionlist.id}
+                                    href={sectionlist.link}>
+                                    <div className='hover:underline'>
+                                        {sectionlist.title}
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                         <div className='items-center flex gap-4'>
 

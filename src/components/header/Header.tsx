@@ -23,7 +23,8 @@ import ListDivider from '@mui/joy/ListDivider';
 import ListItemContent from '@mui/joy/ListItemContent';
 import { colors } from '@mui/joy';
 import Link from 'next/link';
-import { TESTER } from './test';
+import { sectionlists } from './HeaderList';
+
 
 
 
@@ -46,20 +47,12 @@ export function Header() {
                         <a href='http://localhost:3000/'>
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
-                        <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[25px]  justify-around w-[600px]'>
-                            {['Shop', 'orders', 'About', 'Projects'].map((text) => (
-                                <ListItem key={text}>
-                                    <ListItemButton>{text}</ListItemButton>
-                                </ListItem>
-                            ))}
-                        </div>
                         <div className='items-center flex gap-4'>
 
                             <div className='items-center gap-6 hidden md:flex text-[40px]'>
                                 <Search />
                                 <UserPro />
                                 <Favorite />
-                                <TESTER />
                             </div>
 
                             <button className='p-2 flex items-center text-black' onClick={toggleDrawerBag}> <Bag />(0)</button>
@@ -101,6 +94,8 @@ export function Drawer(props: DrawerProps) {
     const { open, onToggleDrawer } = props
 
 
+
+
     return (
         <Box sx={{ display: 'flex' }}>
             <JoyDrawer open={open} onClose={onToggleDrawer} slotProps={{
@@ -123,10 +118,12 @@ export function Drawer(props: DrawerProps) {
                     </div>
                     <Divider />
                     <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
-                        {['Shop', 'orders', 'About', 'Projects'].map((text) => (
-                            <ListItem key={text}>
-                                <ListItemButton>{text}</ListItemButton>
-                            </ListItem>
+                        {sectionlists.map((sectionlist) => (
+                            <Link
+                                key={sectionlist.id}
+                                href={sectionlist.link}>
+                                {sectionlist.title}
+                            </Link>
                         ))}
                     </div>
                 </Box>

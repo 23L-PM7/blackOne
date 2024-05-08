@@ -10,7 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 
-export function DropDown() {
+export function DropDowns() {
     const [open, setOpen] = useState(false)
 
     const handleMouseEnter = () => {
@@ -21,7 +21,7 @@ export function DropDown() {
     }
     return (
         <Dropdown open={open}>
-            <MenuButton variant="plain" className='text-[25px]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Shop</MenuButton>
+            <MenuButton variant="plain" className='text-[20px]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Shop</MenuButton>
             <Menu className='p-6' variant="plain">
                 <Grow onMouseEnter={handleMouseEnter}
                     in={open}
