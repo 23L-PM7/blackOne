@@ -14,6 +14,7 @@ export default function Home() {
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
+  const [pages, setPages] = useState(3);
 
   // logic
   const indexOfLastPost = currentPage * perPage;
@@ -24,15 +25,16 @@ export default function Home() {
     currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
   }
 
-  function handlePage(page: string) {
-    const length = page.length;
-    const realpage = parseInt(page[length - 1]);
-    // console.log(realpage);
-    setCurrentPage(realpage);
-  }
+  const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentPage(value);
+  };
+
+  const mainLoad = async () => {
+    await loadFurnitures();
+  };
 
   useEffect(() => {
-    loadFurnitures();
+    mainLoad();
   }, []);
 
   return (
@@ -48,10 +50,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <Pagination
-          onChange={(e: any) => handlePage(e.target.ariaLabel)}
-          count={3}
-        />
+        <Pagination page={currentPage} onChange={handlePage} count={pages} />
         <AdminModal />
       </div>
     </div>
