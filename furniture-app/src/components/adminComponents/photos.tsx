@@ -21,6 +21,7 @@ export function ImageField({ value, onChange }: any) {
   const [button, setButton] = useState("Upload a photo");
 
   async function handleUpload(e: any) {
+    setButton("Loading... T-T");
     setUploading(true);
 
     const file = e.target.files[0];
@@ -41,20 +42,13 @@ export function ImageField({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
+        setButton("Upload complete >.<");
         setUploading(false);
       }
     } catch (e) {
       alert("An Error Occured While Uploading");
       console.log(e);
     }
-  }
-
-  if (uploading) {
-    setButton("Loading... >.<");
-  }
-
-  if (!uploading) {
-    setButton("Completed Upload T-T");
   }
 
   return (
