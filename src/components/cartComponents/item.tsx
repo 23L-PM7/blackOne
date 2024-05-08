@@ -35,9 +35,9 @@ export function CartItem() {
           <h1 className={`${cinzel.className} font-medium text-xl`}>x3</h1>
         </div>
       </div>
-      <IconButton variant="outlined">
-        <CartDeleteIcon />
-      </IconButton>
+      <button className="w-10 h-10 border-[1px] border-[#343434] rounded-full p-1 mt-4 hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]">
+        X
+      </button>
     </div>
   );
 }

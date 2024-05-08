@@ -13,6 +13,12 @@ export default function Home() {
         <div className="w-[90%]">
           <CartItem />
         </div>
+        <div className="w-[90%] flex flex-col items-center">
+          <h1 className={`${cinzel.className} text-[25px]`}>CART TOTALS</h1>
+          <div className="w-[90%]">
+            <h1 className="text-[20px]">Subtotal : </h1>
+          </div>
+        </div>
       </div>
     </div>
   );
