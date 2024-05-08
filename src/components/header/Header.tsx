@@ -44,7 +44,7 @@ export function Header() {
             <Stack sx={{ flexGrow: 1, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
-                        <a href='http://localhost:3000/'>
+                        <a href='/'>
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
                         <div className='items-center flex gap-4'>
