@@ -24,6 +24,7 @@ import ListItemContent from '@mui/joy/ListItemContent';
 import { colors } from '@mui/joy';
 import Link from 'next/link';
 import { sectionlists } from './HeaderList';
+import { DropDowns } from './dropdown';
 
 
 
@@ -118,6 +119,7 @@ export function Drawer(props: DrawerProps) {
                     </div>
                     <Divider />
                     <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
+                        <DropDowns />
                         {sectionlists.map((sectionlist) => (
                             <Link
                                 key={sectionlist.id}
