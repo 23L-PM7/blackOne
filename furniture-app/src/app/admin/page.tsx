@@ -30,14 +30,24 @@ export default function Home() {
   };
 
   const mainLoad = async () => {
-    await loadFurnitures();
-    const length = furnitures.length / 4;
-    console.log(length);
+    loadFurnitures();
   };
 
   useEffect(() => {
     mainLoad();
   }, []);
+
+  useEffect(() => {
+    if (furnitures) {
+      if (furnitures.length % 4 == 0) {
+        const temporary = Math.round(furnitures.length / 4);
+        setPages(temporary);
+      } else {
+        const temporary = Math.ceil(furnitures.length / 4);
+        setPages(temporary);
+      }
+    }
+  }, [furnitures]);
 
   return (
     <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll ">
