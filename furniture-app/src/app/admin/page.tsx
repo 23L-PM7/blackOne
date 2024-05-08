@@ -13,7 +13,7 @@ export default function Home() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(3);
+  const [perPage, setPerPage] = useState(5);
 
   // logic
   const indexOfLastPost = currentPage * perPage;
@@ -24,8 +24,11 @@ export default function Home() {
     currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
   }
 
-  function handlePage(page: number) {
-    setCurrentPage(page);
+  function handlePage(page: string) {
+    const length = page.length;
+    const realpage = parseInt(page[length - 1]);
+    // console.log(realpage);
+    setCurrentPage(realpage);
   }
 
   useEffect(() => {
@@ -33,17 +36,22 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll">
+    <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll ">
       <Toaster position="top-center" />
-      <div className="h-screen w-screen flex flex-col items-center gap-y-4">
+      <div className="mt-[100px] h-full w-full flex flex-col items-center gap-y-4">
         <Title />
-        <div className="w-[90%] border-y-[1px] border-[#343434] flex flex-col gap-y-4">
+        <div className="w-[90%] h-[60%] border-y-[1px] border-[#343434] flex flex-col gap-y-4">
           <h1 className={cinzel.className}>Content</h1>
-          {currentPosts.map((item: any, index: number) => (
-            <TemplateMain key={1000 - index} item={item} />
-          ))}
+          <div className="grow flex flex-col justify-around">
+            {currentPosts.map((item: any, index: number) => (
+              <TemplateMain key={1000 - index} item={item} />
+            ))}
+          </div>
         </div>
-        <Pagination onChange={(e) => handlePage(e.target.value)} count={10} />
+        <Pagination
+          onChange={(e: any) => handlePage(e.target.ariaLabel)}
+          count={3}
+        />
         <AdminModal />
       </div>
     </div>
