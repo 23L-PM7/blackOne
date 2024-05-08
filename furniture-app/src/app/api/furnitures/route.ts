@@ -4,8 +4,6 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
 
-  console.log({ id });
-
   const { documents } = await dbRequest("furniture", "find");
   return Response.json(documents);
 }
@@ -13,10 +11,16 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   // obtain info from body
   const body = await request.json();
-  const { name, description, details, price, category, dimensions, picture } =
-    body;
-
-  console.log({ body });
+  const {
+    name,
+    description,
+    details,
+    price,
+    category,
+    dimensions,
+    picture,
+    pictureTwo,
+  } = body;
 
   //   create
   const data = await dbRequest("furniture", "insertOne", {
@@ -28,6 +32,7 @@ export async function POST(request: Request) {
       category: category,
       dimensions: dimensions,
       picture: picture,
+      pictureTwo: pictureTwo,
     },
   });
 

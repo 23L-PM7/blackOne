@@ -77,6 +77,7 @@ export default function AdminModal() {
         category,
         dimensions,
         picture,
+        pictureTwo,
       })
       .then(() => {
         setOpen(false);
