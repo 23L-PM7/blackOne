@@ -1,7 +1,3 @@
 export default function Footer() {
-    return (
-        <div color="red" >
-            our newsletter
-        </div>
-    )
+  return <footer className="pt-[90px] text-[#a18565] bg-[#edece9]">our newsletter</footer>;
 }

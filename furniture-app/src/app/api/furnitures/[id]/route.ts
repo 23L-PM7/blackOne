@@ -24,14 +24,21 @@ export async function PUT(
   const { id } = params;
   // obtain info from body
   const body = await request.json();
-  const { name, description, details, price, category, dimensions, picture } =
-    body;
-
-  console.log({ body });
+  const {
+    name,
+    description,
+    details,
+    price,
+    category,
+    dimensions,
+    picture,
+    pictureTwo,
+  } = body;
 
   //   create
   const data = await dbRequest("furniture", "updateOne", {
-    document: {
+    filter: { _id: { $oid: id } },
+    update: {
       name: name,
       description: description,
       details: details,
@@ -39,6 +46,7 @@ export async function PUT(
       category: category,
       dimensions: dimensions,
       picture: picture,
+      pictureTwo: pictureTwo,
     },
   });
 

@@ -31,7 +31,7 @@ export function TemplateMain(props: MainInfo) {
   }
 
   return (
-    <div>
+    <div className="border-y-[1px] border-[#343434]">
       <div className="w-full flex justify-between items-center">
         <div>
           <h1 className={quicksand.className}>{item.name}</h1>

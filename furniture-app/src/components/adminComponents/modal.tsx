@@ -23,6 +23,7 @@ export default function AdminModal() {
   const [category, setCategory] = useState("");
   const [dimensions, setDimensions] = useState("");
   const [picture, setPicture] = useState("");
+  const [pictureTwo, setPictureTwo] = useState("");
 
   // loading
   const [loading, setLoading] = useState(false);
@@ -76,11 +77,12 @@ export default function AdminModal() {
         category,
         dimensions,
         picture,
+        pictureTwo,
       })
       .then(() => {
         setOpen(false);
         reset();
-        toast.success(`"${name}" category created successfully.`);
+        toast.success(`"${name}" created successfully.`);
         loadfurnitures();
       });
   }
@@ -210,6 +212,8 @@ export default function AdminModal() {
             </div>
             {/* upload area */}
             <ImageField value={picture} onChange={setPicture} />
+
+            <ImageField value={pictureTwo} onChange={setPictureTwo} />
 
             <button
               onClick={submit}
