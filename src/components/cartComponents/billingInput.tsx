@@ -5,6 +5,7 @@ import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import { getData } from "country-list";
 import Textarea from "@mui/joy/Textarea";
+import { YourOrder } from "./yourOrder";
 
 export function BillingInput() {
   // input states
@@ -163,6 +164,11 @@ export function BillingInput() {
           minRows={2}
         />
       </div>
+
+      <YourOrder />
+      <button className="w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
+        PLACE ORDER
+      </button>
     </div>
   );
 }

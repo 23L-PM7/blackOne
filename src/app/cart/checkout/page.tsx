@@ -2,7 +2,6 @@
 
 import { quicksand, cinzel } from "@/app/theme";
 import { BillingInput } from "@/components/cartComponents/billingInput";
-import { YourOrder } from "@/components/cartComponents/yourOrder";
 
 export default function Home() {
   return (
@@ -21,10 +20,6 @@ export default function Home() {
         </div>
       </div>
       <BillingInput />
-      <YourOrder />
-      <button className="w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
-        PLACE ORDER
-      </button>
     </div>
   );
 }
