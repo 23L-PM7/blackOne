@@ -1,12 +1,28 @@
 "use client";
 import { quicksand } from "@/app/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
+import countries from "./countries.json";
 
 export function BillingInput() {
+  // input states
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [street, setStreet] = useState("");
+  const [town, setTown] = useState("");
+  const [county, setCounty] = useState("");
+  const [zip, setZip] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [notes, setNotes] = useState("");
+
+  // countries
+  const [countriesMain, setCountriesMain] = useState("");
+
+  useEffect(() => {
+    setCountriesMain(countries);
+  }, []);
 
   return (
     <div className="w-[90%] flex flex-col gap-y-4">
