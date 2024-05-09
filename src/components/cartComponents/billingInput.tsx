@@ -35,13 +35,21 @@ export function BillingInput() {
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           FIRST NAME<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={firstname}
+          onChange={(e) => setFirstname(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           LAST NAME<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div>
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
@@ -78,39 +86,69 @@ export function BillingInput() {
           STREET ADDRESS<span className="text-[#FF0000]"> *</span>
         </h1>
         <input
+          value={street}
+          onChange={(e) => setStreet(e.target.value)}
           placeholder="House number and Street name"
           className="bg-[#EDECE9] placeholder:text-[#343434] placeholder:text-[15px] required:border-[#FF0000] text-[20px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
         />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
-          TOWN /CITY<span className="text-[#FF0000]"> *</span>
+          TOWN / CITY<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={town}
+          onChange={(e) => setTown(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
+      </div>
+      <div className="">
+        <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
+          STATE / COUNTY<span className="text-[#FF0000]"> *</span>
+        </h1>
+        <input
+          value={county}
+          onChange={(e) => setCounty(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           POSTCODE / ZIP<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={zip}
+          onChange={(e) => setZip(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           PHONE<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           EMAIL ADDRESS<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           ORDER NOTES (OPTIONAL)
         </h1>
         <Textarea
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
           placeholder="Notes about your order, e.g. special notes for delivery."
           sx={{
             background: "transparent",
