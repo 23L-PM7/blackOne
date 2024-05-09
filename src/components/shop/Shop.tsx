@@ -21,7 +21,7 @@ import { data } from './ShopList';
 
 export function Shopping() {
     return (
-        <div className="container mx-auto bg-[#EDECE9]">
+        <div className="scroll-smooth bg-[#EDECE9]">
             <div className="py-[50px] px-[20px]">
                 <div className="text-black flex justify-center items-center text-[46px] ">OUR <br></br>PRODUCTS</div>
                 <Stack spacing={2} className="bg-[#EDECE9]">
@@ -86,7 +86,7 @@ export function Shopping() {
                                 </Typography>
                             </AspectRatio>
 
-                            <h1 className='py-[20px] border-t-2 text-[20px border-current divide-y'>ARM CHAIR</h1>
+                            <h1 className='py-[20px] border-t-2 text-[20px border-current divide-y'>{item.title}</h1>
                             <div className='text-[20px]'>{item.price}</div>
                             <div className='flex items-center gap-4 mt-[20px]'>
                                 <Button

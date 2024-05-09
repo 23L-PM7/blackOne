@@ -21,7 +21,7 @@ import Typography from '@mui/joy/Typography';
 import Card from '@mui/joy/Card';
 import ListDivider from '@mui/joy/ListDivider';
 import ListItemContent from '@mui/joy/ListItemContent';
-import { colors } from '@mui/joy';
+import { Input, colors } from '@mui/joy';
 import Link from 'next/link';
 import { sectionlists } from './HeaderList';
 import { DropDowns } from './dropdown';
@@ -38,9 +38,12 @@ import { data } from '../shop/ShopList';
 export function Header() {
     const [isOpenDrawer, setIsOpenDrawer] = React.useState(false);
     const [bagOpenDrawer, setBagOpenDrawer] = React.useState(false);
+    const [isOpenDrawerTop, setIsOpenDrawerTop] = React.useState(false);
+
 
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer)
+    const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
         <div>
             <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
@@ -49,10 +52,21 @@ export function Header() {
                         <a href='/'>
                             <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
+                        <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[25px]  justify-around w-[600px] cursor-pointer text-black '>
+                            <a className='transition hover:underline'><DropDowns /></a>
+                            {sectionlists.map((sectionlist) => (
+                                <Link
+                                    key={sectionlist.id}
+                                    href={sectionlist.link}>
+                                    <div className='hover:underline'>
+                                        {sectionlist.title}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                         <div className='items-center flex gap-4'>
-
                             <div className='items-center gap-6 hidden md:flex text-[40px]'>
-                                <Search />
+                                <button onClick={toggleDrawerBagTop}><Search /></button>
                                 <UserPro />
                                 <Favorite />
                             </div>
@@ -76,11 +90,60 @@ export function Header() {
                 </AppBar>
                 <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
                 <DrawerMobile open={bagOpenDrawer} onToggleDrawerBag={toggleDrawerBag} />
+                <TopDrawer open={isOpenDrawerTop} onToggleDrawerTop={toggleDrawerBagTop} />
             </Stack>
 
-        </div>
+        </div >
     );
 }
+
+type TopDrawerProps = {
+    open: boolean;
+    onToggleDrawerTop: () => void
+}
+
+
+export function TopDrawer(props: TopDrawerProps) {
+    const { open, onToggleDrawerTop } = props
+
+
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <JoyDrawer open={open} onClose={onToggleDrawerTop} slotProps={{
+                content: {
+                    sx: {
+                        width: "100%",
+                        backgroundColor: 'rgba(237, 236, 233, 1)'
+                    }
+                }
+            }}
+            >
+                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                    onClick={onToggleDrawerTop}
+                    onKeyDown={onToggleDrawerTop}
+                >
+                    <div className='flex items-center gap-4 md:hidden'>
+                        <Search />
+                        <UserPro />
+                        <Favorite />
+                    </div>
+                    <Divider />
+                    <div className='flex justify-center'>
+                        <Input
+                            color="neutral"
+                            disabled={false}
+                            placeholder="Search Products..."
+                            size="lg"
+                            variant="plain"
+                        />
+                    </div>
+                </Box>
+            </JoyDrawer >
+        </Box >
+
+    );
+}
+
 
 
 
