@@ -51,7 +51,7 @@ export function Header() {
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
                         <a href='/'>
-                            <img src='images/logo.png' className='w-[200px] h-[50px] lg:w-[300px]  lg:h-[60px] text-6xl' />
+                            <img src='images/logo.png' className='w-[150px] h-[40px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
                         <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[25px]  justify-around w-[600px] cursor-pointer text-black '>
                             <a className='transition hover:underline'><DropDowns /></a>
@@ -73,7 +73,7 @@ export function Header() {
                             </div>
 
                             <button className='p-2 flex items-center text-black' onClick={toggleDrawerBag}> <Bag />(0)</button>
-                            <div className='2xl:hidden'>
+                            <div className='2xl:hidden '>
                                 <IconButton
                                     edge="start"
                                     sx={{
@@ -83,7 +83,7 @@ export function Header() {
                                     // sx={{ mr: 2, }}
                                     onClick={toggleDrawer}
                                 >
-                                    <MenuIcon sx={{ fontSize: '50px', }} />
+                                    <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[50px]' />
                                 </IconButton>
                             </div>
                         </div>
