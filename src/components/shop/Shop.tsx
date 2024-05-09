@@ -36,27 +36,46 @@ import { useFurnitures } from "@/components/utility/utils";
 
 export function Shopping() {
     const router = useRouter();
-    const [name, setName] = React.useState("");
-    const [price, setPrice] = React.useState("");
-    const [picture, setPicture] = React.useState("");
+    // const [name, setName] = React.useState("");
+    // const [price, setPrice] = React.useState("");
+    // const [picture, setPicture] = React.useState("");
     const { furnitures, loadFurnitures }: any = useFurnitures();
+    const [currentPage, setCurrentPage] = React.useState(1);
+    const [perPage, setPerPage] = React.useState(5);
+    const [pages, setPages] = React.useState(3);
 
+
+    const indexOfLastPost = currentPage * perPage;
+    const indexOfFirstPost = indexOfLastPost - perPage;
+    var currentPosts = [];
+
+    if (furnitures) {
+        currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
+    }
+
+    const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
+        setCurrentPage(value);
+    };
+
+    const mainLoad = async () => {
+        loadFurnitures();
+    };
 
     React.useEffect(() => {
         loadFurnitures();
     }, []);
 
-    // React.useEffect() => {
-    //     if (furnitures) {
-    //         if (furnitures.length % perPage == 0) {
-    //             const temporary = Math.round(furnitures.length / perPage);
-    //             setPages(temporary);
-    //         } else {
-    //             const temporary = Math.ceil(furnitures.length / perPage);
-    //             setPages(temporary);
-    //         }
-    //     }
-    // }, [furnitures]);
+    React.useEffect(() => {
+        if (furnitures) {
+            if (furnitures.length % perPage == 0) {
+                const temporary = Math.round(furnitures.length / perPage);
+                setPages(temporary);
+            } else {
+                const temporary = Math.ceil(furnitures.length / perPage);
+                setPages(temporary);
+            }
+        }
+    }, [furnitures]);
 
 
 
