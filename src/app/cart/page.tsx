@@ -1,6 +1,7 @@
 "use client";
 import { CartItem } from "@/components/cartComponents/item";
 import { cinzel, quicksand } from "../theme";
+import { CartTotals } from "@/components/cartComponents/cartTotals";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <div className="w-[90%]">
           <CartItem />
         </div>
+        <CartTotals />
       </div>
     </div>
   );
