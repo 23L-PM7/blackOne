@@ -25,6 +25,8 @@ import AccordionSummary from '@mui/joy/AccordionSummary';
 import Done from '@mui/icons-material/Done';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useFurnitures } from "@/components/utility/utils";
+
 
 // sx={{
 //     ...quicksand.style
@@ -37,18 +39,24 @@ export function Shopping() {
     const [name, setName] = React.useState("");
     const [price, setPrice] = React.useState("");
     const [picture, setPicture] = React.useState("");
+    const { furnitures, loadFurnitures }: any = useFurnitures();
 
 
-    //     axios
-    //         .get(`/api/furnitures/${id}`, {
-    //             name,
-    //             price,
-    //             picture,
-    //         })
-    //         .then(() => {
+    React.useEffect(() => {
+        loadFurnitures();
+    }, []);
 
-    //         });
-    // }
+    // React.useEffect() => {
+    //     if (furnitures) {
+    //         if (furnitures.length % perPage == 0) {
+    //             const temporary = Math.round(furnitures.length / perPage);
+    //             setPages(temporary);
+    //         } else {
+    //             const temporary = Math.ceil(furnitures.length / perPage);
+    //             setPages(temporary);
+    //         }
+    //     }
+    // }, [furnitures]);
 
 
 
@@ -146,8 +154,8 @@ export function Shopping() {
                             </div>
                         </Dropdown>
                         <a className='xl:grid grid-cols-2 gap-20'>
-                            {data.map((item, index) => (
-                                <div className='flex flex-col mb-[40px] lg:mt-[140px] '>
+                            {furnitures.map((item: any, index: any) => (
+                                <div key={7000 - index} className='flex flex-col mb-[40px] lg:mt-[140px] '>
                                     <AspectRatio
                                         variant="outlined"
                                         ratio="4/3"
@@ -159,7 +167,7 @@ export function Shopping() {
                                         }}
                                     >
                                         <img
-                                            srcSet={`${item.src}?w=120&fit=crop&auto=format&dpr=2 2x`}
+                                            srcSet={`${item.picture}?w=120&fit=crop&auto=format&dpr=2 2x`}
                                             src={`${item.src}?w=120&fit=crop&auto=format`}
                                             alt={item.title}
                                         />
@@ -168,8 +176,8 @@ export function Shopping() {
                                         </Typography>
                                     </AspectRatio>
 
-                                    <h1 className='py-[20px] border-t-2 text-[40px] border-current divide-y'>{item.title}</h1>
-                                    <div className='text-[30px]'>{item.price}</div>
+                                    <h1 className='py-[20px] border-t-2 text-[40px] border-current divide-y'>{item.name}</h1>
+                                    <div className='text-[30px]'>{item.price}$</div>
                                     <div className='flex items-center gap-4 mt-[20px] lg:justify-between'>
                                         <Button
                                             variant='outlined'
