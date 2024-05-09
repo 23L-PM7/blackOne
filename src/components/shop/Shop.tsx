@@ -1,8 +1,5 @@
 'use client'
 import * as React from 'react';
-import Select from '@mui/joy/Select';
-import Stack from '@mui/joy/Stack';
-import Option from '@mui/joy/Option';
 import { GoPlus } from "react-icons/go";
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
@@ -16,7 +13,6 @@ import Button from '@mui/joy/Button';
 import IconButton from '@mui/joy/IconButton';
 import { MdFavoriteBorder } from "react-icons/md";
 import { data } from './ShopList';
-import Grid from '@mui/joy/Grid';
 import { cinzel, quicksand } from '@/app/theme';
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
@@ -26,6 +22,9 @@ import Accordion from '@mui/joy/Accordion';
 import AccordionDetails from '@mui/joy/AccordionDetails';
 import AccordionGroup from '@mui/joy/AccordionGroup';
 import AccordionSummary from '@mui/joy/AccordionSummary';
+import Done from '@mui/icons-material/Done';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 // sx={{
 //     ...quicksand.style
@@ -34,6 +33,23 @@ import AccordionSummary from '@mui/joy/AccordionSummary';
 
 
 export function Shopping() {
+    const router = useRouter();
+    const [name, setName] = React.useState("");
+    const [price, setPrice] = React.useState("");
+    const [picture, setPicture] = React.useState("");
+
+
+    //     axios
+    //         .get(`/api/furnitures/${id}`, {
+    //             name,
+    //             price,
+    //             picture,
+    //         })
+    //         .then(() => {
+
+    //         });
+    // }
+
 
 
     return (
@@ -68,15 +84,44 @@ export function Shopping() {
                         <Accordion>
                             <AccordionSummary>COLOR</AccordionSummary>
                             <AccordionDetails>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.
+                                <Checkbox
+                                    uncheckedIcon={<Done />}
+                                    label="BLACK"
+                                    slotProps={{
+                                        root: ({ checked, focusVisible }) => ({
+                                            sx: !checked
+                                                ? {
+                                                    '& svg': { opacity: focusVisible ? 1 : 0 },
+                                                    '&:hover svg': {
+                                                        opacity: 1,
+                                                    },
+                                                }
+                                                : undefined,
+                                        }),
+                                    }}
+                                >Beige, Blue, Brown , Gold</Checkbox>
+                                <Checkbox
+                                    uncheckedIcon={<Done />}
+                                    label="Beige"
+                                    slotProps={{
+                                        root: ({ checked, focusVisible }) => ({
+                                            sx: !checked
+                                                ? {
+                                                    '& svg': { opacity: focusVisible ? 1 : 0 },
+                                                    '&:hover svg': {
+                                                        opacity: 1,
+                                                    },
+                                                }
+                                                : undefined,
+                                        }),
+                                    }}
+                                />
                             </AccordionDetails>
                         </Accordion>
                     </AccordionGroup>
                     <div className='lg:w-7/12 lg:scroll-smooth '>
                         <Dropdown>
                             <div className='mt-[30px] flex border-b border-current items-center w-6/12   mx-auto justify-between'>
-
                                 <MenuButton
                                     variant="plain"
                                     size="lg"
@@ -100,7 +145,7 @@ export function Shopping() {
 
                             </div>
                         </Dropdown>
-                        <a className='xl:grid grid-cols-2 gap-4'>
+                        <a className='xl:grid grid-cols-2 gap-20'>
                             {data.map((item, index) => (
                                 <div className='flex flex-col mb-[40px] lg:mt-[140px] '>
                                     <AspectRatio
@@ -129,12 +174,12 @@ export function Shopping() {
                                         <Button
                                             variant='outlined'
                                             color="warning"
-                                            className='p-4 lg:w-6/12 lg:text-[30px]' >VIEW PRODUCT
+                                            className='p-4 lg:w-8/12 lg:text-[15px] xl:text-[20px] xl:w-8/12' >VIEW PRODUCT
                                         </Button>
                                         <IconButton
                                             color='warning'
                                         >
-                                            <MdFavoriteBorder className='text-[40px] lg:text-[50px]' />
+                                            <MdFavoriteBorder className='text-[40px] lg:text-[40px]' />
                                         </IconButton>
                                     </div>
                                 </div>
@@ -147,9 +192,6 @@ export function Shopping() {
                                         <Tab>3</Tab>
                                         <Tab>4</Tab>
                                         <Tab>5</Tab>
-                                        <Tab>6</Tab>
-                                        <Tab>7</Tab>
-                                        <Tab>8</Tab>
                                     </TabList>
                                     <TabPanel value={0}>
                                         <b>First</b> tab panel
