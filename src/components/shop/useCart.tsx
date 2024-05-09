@@ -7,11 +7,12 @@ type Cart = {
 
 type CartItem = {
   tempId: string;
-  foodId: number;
+  furnitureId: number;
   price: number;
   amount: number;
   name: string;
-  ingredient: string;
+  description: string;
+  details: string;
   image: string;
 };
 
@@ -20,7 +21,7 @@ type State = {
 };
 
 type Action = {
-  addCart: (food: CartItem) => void;
+  addCart: (furniture: CartItem) => void;
   removeCart: (id: string) => void;
   clearCart: () => void;
   subtractCartItem: (id: string) => void;
