@@ -17,3 +17,13 @@ const App = () => {
     </div>
   );
 };
+
+const [checked, setChecked] = React.useState([true, false]);
+
+ slotProps={{ action: { className: checkboxClasses.focusVisible } }}
+
+<Checkbox checked={checked[0]} onChange={handleChange2} label="Child 1" />
+
+ const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, event.target.checked]);
+  };
