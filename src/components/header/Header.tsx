@@ -12,7 +12,7 @@ import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
-import { CiCircleRemove } from "react-icons/ci";
+
 
 
 
@@ -25,6 +25,7 @@ import { colors } from '@mui/joy';
 import Link from 'next/link';
 import { sectionlists } from './HeaderList';
 import { DropDowns } from './dropdown';
+import { data } from '../shop/ShopList';
 
 
 
@@ -144,38 +145,7 @@ type BagDrawerProps = {
 export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props
 
-    const data = [
-        {
-            src: 'https://plus.unsplash.com/premium_photo-1676638154798-904c8f6282d6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWluaW1hbHxlbnwwfHwwfHx8MA%3D%3D',
-            title: 'Chair',
-            price: 1000,
-            icon: <CiCircleRemove />
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782',
-            title: 'Table',
-            price: 1000,
-            icon: <CiCircleRemove />
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-            title: 'Table',
-            price: 900,
-            icon: <CiCircleRemove />
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-            title: 'Sofa',
-            price: 900,
-            icon: <CiCircleRemove />
-        },
-        {
-            src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36',
-            title: 'Print',
-            price: 900,
-            icon: <Remove />
-        },
-    ];
+
 
     return (
         <Box sx={{ display: 'flex' }} >
