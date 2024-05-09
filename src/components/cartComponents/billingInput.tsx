@@ -35,13 +35,13 @@ export function BillingInput() {
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           FIRST NAME<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           LAST NAME<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div>
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
@@ -77,31 +77,34 @@ export function BillingInput() {
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           STREET ADDRESS<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input
+          placeholder="House number and Street name"
+          className="bg-[#EDECE9] placeholder:text-[#343434] placeholder:text-[15px] required:border-[#FF0000] text-[20px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]"
+        />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           TOWN /CITY<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           POSTCODE / ZIP<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           PHONE<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           EMAIL ADDRESS<span className="text-[#FF0000]"> *</span>
         </h1>
-        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[34px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
+        <input className="bg-[#EDECE9] required:border-[#FF0000] text-[15px] border-[#343434] focus:outline-none border-b-[1px] w-full h-[35px]" />
       </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
