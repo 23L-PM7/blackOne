@@ -26,6 +26,7 @@ import Link from 'next/link';
 import { sectionlists } from './HeaderList';
 import { DropDowns } from './dropdown';
 import { data } from '../shop/ShopList';
+import { cinzel, quicksand } from '@/app/theme';
 
 
 
@@ -46,7 +47,7 @@ export function Header() {
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
         <div>
-            <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000 }} >
+            <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000, ...cinzel.style }} >
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
                         <a href='/'>
