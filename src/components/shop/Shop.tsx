@@ -11,6 +11,13 @@ import Dropdown from '@mui/joy/Dropdown';
 import Link from 'next/link';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Typography from '@mui/joy/Typography';
+import { ButtonGroup } from '@mui/joy';
+import Button from '@mui/joy/Button';
+import IconButton from '@mui/joy/IconButton';
+import { MdFavoriteBorder } from "react-icons/md";
+import { data } from './ShopList';
+
+
 
 export function Shopping() {
     return (
@@ -57,27 +64,45 @@ export function Shopping() {
                     </div>
                 </Dropdown>
                 <a>
-                    <AspectRatio
-                        variant="outlined"
-                        ratio="4/3"
-                        sx={{
-                            width: '100%',
-                            bgcolor: 'background.level2',
-                            marginBottom: '35px',
+                    {data.map((item, index) => (
+                        <div className='flex flex-col mb-[40px]'>
+                            <AspectRatio
+                                variant="outlined"
+                                ratio="4/3"
+                                sx={{
+                                    width: '100%',
+                                    bgcolor: 'background.level2',
+                                    marginBottom: '35px',
 
-                        }}
-                    >
-                        <img
-                            src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800"
-                            srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x"
-                            alt="A beautiful landscape."
-                        />
-                        <Typography level="h2" component="div">
-                            4/3
-                        </Typography>
-                    </AspectRatio>
+                                }}
+                            >
+                                <img
+                                    srcSet={`${item.src}?w=120&fit=crop&auto=format&dpr=2 2x`}
+                                    src={`${item.src}?w=120&fit=crop&auto=format`}
+                                    alt={item.title}
+                                />
+                                <Typography level="h2" component="div">
+                                    4/3
+                                </Typography>
+                            </AspectRatio>
+
+                            <h1 className='py-[20px] border-t-2 text-[20px border-current divide-y'>ARM CHAIR</h1>
+                            <div className='text-[20px]'>{item.price}</div>
+                            <div className='flex items-center gap-4 mt-[20px]'>
+                                <Button
+                                    variant='outlined'
+                                    color="warning"
+                                    className='p-4' >VIEW PRODUCT
+                                </Button>
+                                <IconButton
+                                    color='warning'
+                                >
+                                    <MdFavoriteBorder className='text-[40px]' />
+                                </IconButton>
+                            </div>
+                        </div>
+                    ))}
                 </a>
-
             </div>
         </div >
     );
