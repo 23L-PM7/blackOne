@@ -2,6 +2,7 @@
 
 import { quicksand, cinzel } from "@/app/theme";
 import { BillingInput } from "@/components/cartComponents/billingInput";
+import { YourOrder } from "@/components/cartComponents/yourOrder";
 
 export default function Home() {
   return (
@@ -16,10 +17,11 @@ export default function Home() {
           </h2>
         </div>
         <div className="w-full my-[50px]">
-          <h1 className={`${cinzel.className} text-[30px]`}>BILLING DETAILS</h1>
+          <h1 className={`${cinzel.className} text-[26px]`}>BILLING DETAILS</h1>
         </div>
       </div>
       <BillingInput />
+      <YourOrder />
     </div>
   );
 }
