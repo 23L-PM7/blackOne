@@ -25,7 +25,7 @@ export function BillingInput() {
 
   const handleCountry = (
     event: React.SyntheticEvent | null,
-    newValue: string | null
+    newValue: string | any
   ) => {
     setCountry(newValue);
   };
