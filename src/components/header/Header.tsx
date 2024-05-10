@@ -93,7 +93,7 @@ export function Header() {
                                     onClick={combined}
 
                                 >
-                                    {openmenu ? <RiCloseLargeFill /> : <MenuIcon />}
+                                    {openmenu ? <RiCloseLargeFill className='text-[30px] md:text-[50px]' /> : <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[50px]' />}
                                 </IconButton>
                             </div>
                         </div>
