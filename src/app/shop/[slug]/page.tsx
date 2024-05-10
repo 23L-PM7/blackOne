@@ -10,8 +10,7 @@ export default function Home() {
   // retrieve the params
   const params = useParams<{ slug: string }>();
 
-  //   decode the param %20 to white space
-  const decodedname = decodeURI(params.slug);
+  const decodedname = params.slug;
 
   useEffect(() => {
     loadSingleFurniture(decodedname);
@@ -20,7 +19,7 @@ export default function Home() {
   return (
     <div>
       <div>
-        <h1>{single.name}</h1>
+        <h1>{decodedname}</h1>
       </div>
     </div>
   );
