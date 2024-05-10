@@ -42,7 +42,7 @@ export async function PUT(
     filter: { _id: { $oid: id } },
     update: {
       name: name,
-      slug: slugify(`${name}-${nanoid()}`),
+      slug: slugify(`${name}-${nanoid(4)}`),
       description: description,
       details: details,
       price: price,
@@ -55,4 +55,15 @@ export async function PUT(
 
   //   response
   return Response.json(data);
+}
+
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
+
+  const _id = { $oid: id };
+  const { documents } = await dbRequest("furniture", "findOne", _id);
+  return Response.json(documents);
 }

@@ -172,9 +172,9 @@ export function Shopping() {
             </Dropdown>
             <a className="xl:grid grid-cols-2 gap-20">
               {furnitures.map((item: any, index: any) => (
-                <Link href={`/shop/${item.name}`}>
+                <Link href={`/shop/${item.slug}`}>
                   <div
-                    key={7000 - index}
+                    key={item.slug}
                     className="flex flex-col mb-[40px] lg:mt-[140px] "
                   >
                     <AspectRatio

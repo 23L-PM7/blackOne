@@ -5,24 +5,22 @@ import { useFurnitures } from "@/components/utility/utils";
 
 export default function Home() {
   // retrieve furnitures
-  const { furnitures }: any = useFurnitures();
+  const { single, loadSingleFurniture }: any = useFurnitures();
 
   // retrieve the params
-  const params = useParams<{ id: string }>();
+  const params = useParams<{ slug: string }>();
 
   //   decode the param %20 to white space
-  const decodedname = decodeURI(params.id);
+  const decodedname = decodeURI(params.slug);
 
-  //   find the right product
-  const product = furnitures.filter((item: any) => item.name === decodedname);
-
-  // console log check
-  console.log(product);
+  useEffect(() => {
+    loadSingleFurniture(decodedname);
+  }, []);
 
   return (
     <div>
       <div>
-        <h1>{decodedname}</h1>
+        <h1>{single.name}</h1>
       </div>
     </div>
   );
