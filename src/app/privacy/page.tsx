@@ -4,8 +4,8 @@ import { cinzel, quicksand } from "../theme";
 export default function Home() {
   return (
     <div className="bg-[#EDECE9] flex flex-col gap-y-5 p-[50px]">
-      <div className="flex flex-col gap-[30px]">
-        <h1 className={` pb-[20px] text-[35px] ${cinzel.className}`}>
+      <div className="flex flex-col gap-[10px]">
+        <h1 className={` pb-[10px] text-[35px] ${cinzel.className}`}>
           Data Protection & Privacy Policy
         </h1>
         <p>
@@ -17,14 +17,14 @@ export default function Home() {
           collected by the Company are subject to legal, fair and transparent
           processing.
         </p>
-        <h1>Personal Data we collect</h1>
+        <h1 className={` ${cinzel.className}`}>Personal Data we collect</h1>
         <p>
           The Company does not collect automatically information that
           personalize you, such as your full name, address, email etc when you
           visit the website “karageorgiou.gr”. Such information is collected
           only if you willingly accepted to provide them.{" "}
         </p>
-        <h3>Registered users</h3>
+        <h3 className={` ${cinzel.className}`}>Registered users</h3>
         <p>
           Users who wish to create an account in the e-shop of the website
           consent to the collection and processing by the Company of the
@@ -38,14 +38,14 @@ export default function Home() {
           conclusions for your interests). For more information about cookies,
           please see Use of Terms.
         </p>
-        <h2>Purposes of processing data</h2>
+        <h2 className={` ${cinzel.className}`}>Purposes of processing data</h2>
         <p>
           Personal Data provided in the e-shop of the Company are used only by
           Company or its affiliated businesses, in order to execute, support and
           promote the transaction. In particular, we use your personal data for
           the following purposes:
         </p>
-        <ul className="list-disc pl-4 flex flex-col gap-[30px]">
+        <ul className="list-disc pl-4 flex flex-col gap-[10px]">
           <li>
             To comply with our contractual obligations in the context of an
             order and delivery agreement of our products
@@ -98,7 +98,7 @@ export default function Home() {
             transport companies or agencies of our choice for the shipment and
             delivery of our products.
           </p>
-          <h1>Others:</h1>
+          <h1 className={` ${cinzel.className}`}>Others:</h1>
           <p>
             We may share your data with others with your consent or if we
             consider disclosure necessary to comply with a legal obligation (eg
@@ -126,9 +126,11 @@ export default function Home() {
               Court and any other public authority.
             </li>
           </ul>
-          <h2>5. Rights of data sunbjects (individuals)</h2>
+          <h2 className={` ${cinzel.className}`}>
+            5. Rights of data sunbjects (individuals)
+          </h2>
           <p>As a data subject, you have the following rights:</p>
-          <ul className="list-disc pl-4 flex flex-col gap-[30px]">
+          <ul className=" list-disc pl-4 flex flex-col gap-[30px]">
             <li>right to rectification of your personal data &nbsp</li>
             <li>
               right to erasure of part or all of personal data if they are no
@@ -176,7 +178,7 @@ export default function Home() {
             will take every possible measure to satisfy the request within (1)
             one month from its submission.{" "}
           </p>
-          <h2>6.Newsletters</h2>
+          <h2 className={` ${cinzel.className}`}>6.Newsletters</h2>
           <p>
             The Company may use your e-mail address to advertise its products
             and services. In any case, your prior consent is required through
@@ -188,7 +190,9 @@ export default function Home() {
             deleted. The e-mails of the newsletter subscribers are used
             exclusively for the purpose of advertising.
           </p>
-          <h2>7. Security of personal data</h2>
+          <h2 className={` ${cinzel.className}`}>
+            7. Security of personal data
+          </h2>
           <p>
             We protect your personal data by taking all necessary organizational
             and technical measures to avoid any form of illegal or unfair
