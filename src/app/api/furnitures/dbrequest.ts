@@ -12,7 +12,6 @@ export async function dbRequest(
     ...params,
   });
 
-  console.log({ env: `${process.env.MONGO_SECRET}` });
   const config = {
     method: "post",
     url: `https://eu-central-1.aws.data.mongodb-api.com/app/data-yrrrxzw/endpoint/data/v1/action/${action}`,

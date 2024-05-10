@@ -27,3 +27,6 @@ const [checked, setChecked] = React.useState([true, false]);
  const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked([event.target.checked, event.target.checked]);
   };
+
+
+  http://api/furnites?slug=sdfsdfsd

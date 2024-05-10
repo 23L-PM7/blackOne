@@ -26,6 +26,7 @@ import Done from "@mui/icons-material/Done";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useFurnitures } from "@/components/utility/utils";
+import { Loader } from "../loader";
 
 // sx={{
 //     ...quicksand.style
@@ -72,6 +73,10 @@ export function Shopping() {
       }
     }
   }, [furnitures]);
+
+  if (furnitures.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
@@ -172,9 +177,9 @@ export function Shopping() {
             </Dropdown>
             <a className="xl:grid grid-cols-2 gap-20">
               {furnitures.map((item: any, index: any) => (
-                <Link href={`/shop/${item.name}`}>
+                <Link href={`/shop/${item.slug}`}>
                   <div
-                    key={7000 - index}
+                    key={item.slug}
                     className="flex flex-col mb-[40px] lg:mt-[140px] "
                   >
                     <AspectRatio

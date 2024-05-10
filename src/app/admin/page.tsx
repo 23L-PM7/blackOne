@@ -7,6 +7,7 @@ import { useFurnitures } from "@/components/utility/utils";
 import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
 import Pagination from "@mui/material/Pagination";
+import { Loader } from "@/components/loader";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -49,6 +50,10 @@ export default function Home() {
     }
   }, [furnitures]);
 
+  if (furnitures.length === 0) {
+    return <Loader />;
+  }
+
   return (
     <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll ">
       <Toaster position="top-center" />
@@ -58,7 +63,7 @@ export default function Home() {
           <h1 className={cinzel.className}>Content</h1>
           <div className="grow flex flex-col justify-around">
             {currentPosts.map((item: any, index: number) => (
-              <TemplateMain key={1000 - index} item={item} />
+              <TemplateMain key={item._id} item={item} />
             ))}
           </div>
         </div>

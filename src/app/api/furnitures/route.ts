@@ -1,10 +1,21 @@
 import { dbRequest } from "./dbrequest";
+import slugify from "slugify";
+import { nanoid } from "nanoid";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const id = searchParams.get("id");
+  const slug = searchParams.get("slug");
 
-  const { documents } = await dbRequest("furniture", "find");
+  const filter: Record<string, string> = {};
+
+  if (slug) {
+    filter.slug = slug;
+  }
+
+  const { documents } = await dbRequest("furniture", "find", {
+    filter,
+  });
+
   return Response.json(documents);
 }
 
@@ -26,6 +37,7 @@ export async function POST(request: Request) {
   const data = await dbRequest("furniture", "insertOne", {
     document: {
       name: name,
+      slug: slugify(`${name}-${nanoid(4)}`),
       description: description,
       details: details,
       price: price,

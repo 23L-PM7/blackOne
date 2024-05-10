@@ -140,7 +140,8 @@ export default function EditModal(props: EditProps) {
             p: 3,
             boxShadow: "lg",
             backgroundColor: "#EDECE9",
-
+            maxHeight: "700px",
+            overflow: "scroll",
             ...cinzel.style,
           }}
         >
