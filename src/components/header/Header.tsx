@@ -93,7 +93,7 @@ export function Header() {
                                     onClick={combined}
 
                                 >
-                                    {openmenu ? <RiCloseLargeFill className='text-[30px] md:text-[50px]' /> : <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[50px]' />}
+                                    {openmenu ? <RiCloseLargeFill className='text-[30px] md:text-[40px]' /> : <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[40px]' />}
                                 </IconButton>
                             </div>
                         </div>
@@ -124,8 +124,8 @@ export function Drawer(props: DrawerProps) {
 
 
     return (
-        <Box sx={{ display: 'flex' }} className='sticky top-0'>
-            <JoyDrawer open={open} onClose={onToggleDrawer} slotProps={{
+        <Box sx={{ display: 'flex' }}>
+            <JoyDrawer open={open} onClose={onToggleDrawer} className=' mt-[70px] border-none' slotProps={{
                 content: {
                     sx: {
                         width: "100%",
@@ -134,17 +134,17 @@ export function Drawer(props: DrawerProps) {
                 }
             }}
             >
-                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                <Box sx={{ padding: 4, marginTop: 20, marginLeft: 2 }}
                     onClick={onToggleDrawer}
                     onKeyDown={onToggleDrawer}
                 >
-                    <div className='flex items-center gap-4 md:hidden'>
+                    <div className='flex items-center gap-4 md:hidden '>
                         <Search />
                         <UserPro />
                         <Favorite />
                     </div>
                     <Divider />
-                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
+                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4 '>
                         <DropDowns />
                         {sectionlists.map((sectionlist) => (
                             <Link
@@ -225,7 +225,7 @@ export function DrawerMobile(props: BagDrawerProps) {
 
 
     return (
-        <Box sx={{ display: 'flex' }} className='sticky top-0'>
+        <Box sx={{ display: 'flex' }} >
             <JoyDrawer open={open} onClose={onToggleDrawerBag} anchor='right' slotProps={{
                 content: {
                     sx: {
@@ -240,7 +240,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                     onClick={onToggleDrawerBag}
                     onKeyDown={onToggleDrawerBag}
                 >
-                    <div className='flex-col flex gap-y-8'>
+                    <div className='flex-col flex gap-y-8 mt-[70px]'>
                         <div className='flex justify-end'>
                             <Remove />
                         </div>
