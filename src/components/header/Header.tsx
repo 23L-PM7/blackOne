@@ -4,29 +4,26 @@ import AppBar from '@mui/material/AppBar';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import * as React from 'react';
 import Box from '@mui/joy/Box';
-import List from '@mui/joy/List';
-import Divider from '@mui/joy/Divider';
 import JoyDrawer from '@mui/joy/Drawer';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import { Bag, Favorite, Remove, Search, UserPro } from '../items/HeaderIcons';
-
+import React, { useState } from 'react';
 
 
 
 import AspectRatio from '@mui/joy/AspectRatio';
 import Typography from '@mui/joy/Typography';
-import Card from '@mui/joy/Card';
 import ListDivider from '@mui/joy/ListDivider';
 import ListItemContent from '@mui/joy/ListItemContent';
-import { Input, colors } from '@mui/joy';
+import { Divider, Input, colors } from '@mui/joy';
 import Link from 'next/link';
 import { sectionlists } from './HeaderList';
 import { DropDowns } from './dropdown';
 import { data } from '../shop/ShopList';
 import { cinzel, quicksand } from '@/app/theme';
+import { RiCloseLargeFill } from "react-icons/ri";
 
 
 
@@ -37,9 +34,21 @@ import { cinzel, quicksand } from '@/app/theme';
 
 
 export function Header() {
-    const [isOpenDrawer, setIsOpenDrawer] = React.useState(false);
-    const [bagOpenDrawer, setBagOpenDrawer] = React.useState(false);
-    const [isOpenDrawerTop, setIsOpenDrawerTop] = React.useState(false);
+    const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+    const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
+    const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
+    const [openmenu, setOpenMenu] = useState(false);
+
+
+    const handleClick = () => {
+        setOpenMenu(!openmenu);
+    };
+
+    const combined = () => {
+        toggleDrawer()
+        handleClick()
+    };
+
 
 
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer)
@@ -47,7 +56,7 @@ export function Header() {
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop)
     return (
         <div>
-            <Stack sx={{ flexGrow: 1, bottom: 0, left: 0, right: 0, zIndex: 5000, ...cinzel.style }} >
+            <Stack sx={{ zIndex: 6000, ...cinzel.style }} className='sticky top-0 ' >
                 <AppBar position='static' >
                     <div className='p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between '>
                         <a href='/'>
@@ -72,7 +81,7 @@ export function Header() {
                                 <Favorite />
                             </div>
 
-                            <button className='p-2 flex items-center text-black' onClick={toggleDrawerBag}> <Bag />(0)</button>
+                            <button className='p-2 flex items-center text-black z-50' onClick={toggleDrawerBag}> <Bag />(0)</button>
                             <div className='2xl:hidden '>
                                 <IconButton
                                     edge="start"
@@ -81,9 +90,10 @@ export function Header() {
                                     }}
                                     aria-label="menu"
                                     // sx={{ mr: 2, }}
-                                    onClick={toggleDrawer}
+                                    onClick={combined}
+
                                 >
-                                    <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[50px]' />
+                                    {openmenu ? <RiCloseLargeFill className='text-[30px] md:text-[50px]' /> : <MenuIcon sx={{ fontSize: '30px', }} className='md:text-[50px]' />}
                                 </IconButton>
                             </div>
                         </div>
@@ -95,6 +105,59 @@ export function Header() {
             </Stack>
 
         </div >
+    );
+}
+
+
+type DrawerProps = {
+    open: boolean;
+    onToggleDrawer: () => void
+}
+
+
+
+
+export function Drawer(props: DrawerProps) {
+    const { open, onToggleDrawer } = props
+
+
+
+
+    return (
+        <Box sx={{ display: 'flex' }} className='sticky top-0'>
+            <JoyDrawer open={open} onClose={onToggleDrawer} slotProps={{
+                content: {
+                    sx: {
+                        width: "100%",
+                        backgroundColor: 'rgba(237, 236, 233, 1)'
+                    }
+                }
+            }}
+            >
+                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                    onClick={onToggleDrawer}
+                    onKeyDown={onToggleDrawer}
+                >
+                    <div className='flex items-center gap-4 md:hidden'>
+                        <Search />
+                        <UserPro />
+                        <Favorite />
+                    </div>
+                    <Divider />
+                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
+                        <DropDowns />
+                        {sectionlists.map((sectionlist) => (
+                            <Link
+                                key={sectionlist.id}
+                                href={sectionlist.link}>
+                                {sectionlist.title}
+                            </Link>
+                        ))}
+                    </div>
+                </Box>
+            </JoyDrawer >
+        </Box >
+
     );
 }
 
@@ -148,57 +211,7 @@ export function TopDrawer(props: TopDrawerProps) {
 
 
 
-type DrawerProps = {
-    open: boolean;
-    onToggleDrawer: () => void
-}
 
-
-
-
-export function Drawer(props: DrawerProps) {
-    const { open, onToggleDrawer } = props
-
-
-
-
-    return (
-        <Box sx={{ display: 'flex' }}>
-            <JoyDrawer open={open} onClose={onToggleDrawer} slotProps={{
-                content: {
-                    sx: {
-                        width: "100%",
-                        backgroundColor: 'rgba(237, 236, 233, 1)'
-                    }
-                }
-            }}
-            >
-                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
-                    onClick={onToggleDrawer}
-                    onKeyDown={onToggleDrawer}
-                >
-                    <div className='flex items-center gap-4 md:hidden'>
-                        <Search />
-                        <UserPro />
-                        <Favorite />
-                    </div>
-                    <Divider />
-                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4'>
-                        <DropDowns />
-                        {sectionlists.map((sectionlist) => (
-                            <Link
-                                key={sectionlist.id}
-                                href={sectionlist.link}>
-                                {sectionlist.title}
-                            </Link>
-                        ))}
-                    </div>
-                </Box>
-            </JoyDrawer >
-        </Box >
-
-    );
-}
 
 type BagDrawerProps = {
     open: boolean;
@@ -212,7 +225,7 @@ export function DrawerMobile(props: BagDrawerProps) {
 
 
     return (
-        <Box sx={{ display: 'flex' }} >
+        <Box sx={{ display: 'flex' }} className='sticky top-0'>
             <JoyDrawer open={open} onClose={onToggleDrawerBag} anchor='right' slotProps={{
                 content: {
                     sx: {
