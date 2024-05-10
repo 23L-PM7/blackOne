@@ -1,8 +1,8 @@
 export function Search() {
   return (
     <svg
-      width="30"
-      height="30"
+      width="18"
+      height="18"
       viewBox="0 0 60 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,8 @@ export function Search() {
 export function UserPro() {
   return (
     <svg
-      width="40"
-      height="40"
+      width="25"
+      height="25"
       viewBox="0 0 90 90"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,8 @@ export function UserPro() {
 export function Favorite() {
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 60 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
