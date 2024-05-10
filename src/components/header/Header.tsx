@@ -53,7 +53,7 @@ export function Header() {
                         <a href='/'>
                             <img src='images/logo.png' className='w-[150px] h-[40px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
-                        <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[25px]  justify-around w-[600px] cursor-pointer text-black '>
+                        <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black '>
                             <a className='transition hover:underline'><DropDowns /></a>
                             {sectionlists.map((sectionlist) => (
                                 <Link
