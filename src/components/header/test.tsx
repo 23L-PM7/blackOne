@@ -1,28 +1,21 @@
-"use client"
-import { useState } from "react"
-import Menu from '@mui/joy/Menu';
-import MenuButton from '@mui/joy/MenuButton';
-import MenuItem from '@mui/joy/MenuItem';
-import Dropdown from '@mui/joy/Dropdown';
-import { DropDown } from "./dropdown";
+// "use client"
 
-export function TESTER() {
-    const [dropState, setDropState] = useState(false)
-    const [open, setOpen] = useState("")
+// import React, { useState } from 'react';
 
-    function mouseOver() {
-        setDropState(true)
-    }
+// function SwitchedButton() {
+//     const [displayText, setDisplayText] = useState("String 1");
 
-    function mouseLeave() {
-        setDropState(false)
-    }
+//     const handleClick = () => {
+//         // Toggle between two strings
+//         setDisplayText(displayText === "String 1" ? "String 2" : "String 1");
+//     };
 
-    return (
-        <div>
-            {/* {dropState &&  } */}
-            <DropDown />
+//     return (
+//         <div>
+//             <p>{displayText}</p>
+//             <button onClick={handleClick}>Switch</button>
+//         </div>
+//     );
+// }
 
-        </div >)
-}
-
+// export default SwitchedButton;
