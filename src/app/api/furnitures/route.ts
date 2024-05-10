@@ -1,4 +1,6 @@
 import { dbRequest } from "./dbrequest";
+import slugify from "slugify";
+import { nanoid } from "nanoid";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -26,6 +28,7 @@ export async function POST(request: Request) {
   const data = await dbRequest("furniture", "insertOne", {
     document: {
       name: name,
+      slug: slugify(`${name}-${nanoid()}`),
       description: description,
       details: details,
       price: price,

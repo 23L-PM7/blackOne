@@ -1,4 +1,6 @@
 import { dbRequest } from "../dbrequest";
+import slugify from "slugify";
+import { nanoid } from "nanoid";
 
 // delete
 
@@ -40,6 +42,7 @@ export async function PUT(
     filter: { _id: { $oid: id } },
     update: {
       name: name,
+      slug: slugify(`${name}-${nanoid()}`),
       description: description,
       details: details,
       price: price,
