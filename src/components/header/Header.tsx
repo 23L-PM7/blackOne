@@ -62,13 +62,13 @@ export function Header() {
                         <a href='/'>
                             <img src='images/logo.png' className='w-[150px] h-[40px] lg:w-[300px]  lg:h-[60px] text-6xl' />
                         </a>
-                        <div className='hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black '>
+                        <div className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}>
                             <a className='transition hover:underline'><DropDowns /></a>
                             {sectionlists.map((sectionlist) => (
                                 <Link
                                     key={sectionlist.id}
                                     href={sectionlist.link}>
-                                    <div className='hover:underline'>
+                                    <div className={`hover:underline, hover:<DropDowns/> ${quicksand.className}`}>
                                         {sectionlist.title}
                                     </div>
                                 </Link>
@@ -124,17 +124,18 @@ export function Drawer(props: DrawerProps) {
 
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <JoyDrawer open={open} onClose={onToggleDrawer} className=' mt-[70px] border-none' slotProps={{
+        <Box sx={{ display: 'flex', ...cinzel.style }}>
+            <JoyDrawer open={open} variant='plain' onClose={onToggleDrawer} className='border-none' slotProps={{
                 content: {
                     sx: {
                         width: "100%",
-                        backgroundColor: 'rgba(237, 236, 233, 1)'
+                        backgroundColor: 'rgba(237, 236, 233, 1)',
+
                     }
                 }
             }}
             >
-                <Box sx={{ padding: 4, marginTop: 20, marginLeft: 2 }}
+                <Box sx={{ padding: 4, marginTop: 10, marginLeft: 2, borderBottom: "none" }}
                     onClick={onToggleDrawer}
                     onKeyDown={onToggleDrawer}
                 >
@@ -144,8 +145,8 @@ export function Drawer(props: DrawerProps) {
                         <Favorite />
                     </div>
                     <Divider />
-                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4 '>
-                        <DropDowns />
+                    <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  '>
+                        <DropDowns className='flex justify-start' />
                         {sectionlists.map((sectionlist) => (
                             <Link
                                 key={sectionlist.id}
@@ -182,7 +183,7 @@ export function TopDrawer(props: TopDrawerProps) {
                 }
             }}
             >
-                <Box sx={{ padding: 4, marginTop: 8, marginLeft: 2 }}
+                <Box sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
                     onClick={onToggleDrawerTop}
                     onKeyDown={onToggleDrawerTop}
                 >
@@ -240,7 +241,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                     onClick={onToggleDrawerBag}
                     onKeyDown={onToggleDrawerBag}
                 >
-                    <div className='flex-col flex gap-y-8 mt-[70px]'>
+                    <div className='flex-col flex gap-y-8 mt-[50px]'>
                         <div className='flex justify-end'>
                             <Remove />
                         </div>

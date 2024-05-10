@@ -21,7 +21,7 @@ export function DropDowns() {
     }
     return (
         <Dropdown open={open}>
-            <MenuButton variant="plain" className='text-[20px]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Shop</MenuButton>
+            <MenuButton variant="plain" className='flex justify-start text-[20px]' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Shop</MenuButton>
             <Menu className='p-6' variant="plain">
                 <Grow onMouseEnter={handleMouseEnter}
                     in={open}
