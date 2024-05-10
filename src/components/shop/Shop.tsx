@@ -26,6 +26,7 @@ import Done from "@mui/icons-material/Done";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useFurnitures } from "@/components/utility/utils";
+import { Loader } from "../loader";
 
 // sx={{
 //     ...quicksand.style
@@ -72,6 +73,10 @@ export function Shopping() {
       }
     }
   }, [furnitures]);
+
+  if (furnitures.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
