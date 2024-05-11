@@ -49,7 +49,7 @@ export function Header() {
             <a href="/">
               <img
                 src="images/logo.png"
-                className="w-[150px] h-[40px] lg:w-[300px]  lg:h-[60px] text-6xl"
+                className="w-[150px] h-auto lg:w-[300px] text-6xl"
               />
             </a>
             <div
