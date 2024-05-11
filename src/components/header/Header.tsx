@@ -274,6 +274,7 @@ export function DrawerMobile(props: BagDrawerProps) {
               </React.Fragment>
             ))}
           </div>
+          <h1>{cart.totalAmount}</h1>
         </Box>
       </JoyDrawer>
     </Box>

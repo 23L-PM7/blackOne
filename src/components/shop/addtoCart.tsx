@@ -18,7 +18,7 @@ export function AddToCart(props: Many) {
       furnitureId: item._id,
       slug: item.slug,
       name: item.name,
-      price: item.saleprice,
+      price: item.price,
       amount: amount,
       description: item.description,
       details: item.details,
