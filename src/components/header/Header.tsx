@@ -48,7 +48,7 @@ export function Header() {
           <div className="p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between ">
             <a href="/">
               <img
-                src="images/logo.png"
+                src="/images/logo.png"
                 className="w-[150px] h-auto lg:w-[300px] text-6xl"
               />
             </a>
