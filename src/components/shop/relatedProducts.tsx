@@ -21,7 +21,7 @@ export function RelatedProducts() {
     const relatedProducts = furnitures.slice(0, 3);
 
     return (
-      <div className="w-full my-[50px] flex flex-col items-center gap-y-10 text-[#343434]">
+      <div className="w-full my-[50px] flex flex-col md:flex-row items-center gap-10 text-[#343434] md:px-10">
         {relatedProducts.map((item: any) => (
           <div key={item.slug} className="w-[90%] flex flex-col gap-y-4">
             <Link href={`/shop/${item.slug}`}>

@@ -37,9 +37,9 @@ export default function Home() {
   return (
     <div className="w-screen h-screen overflow-scroll bg-[#EDECE9] text-[#343434] flex flex-col items-center gap-y-4">
       <div
-        className={`${quicksand.className} w-[90%] flex flex-col items-center gap-y-3`}
+        className={`${quicksand.className} w-[90%] md:w-screen md:px-[40px] flex flex-col items-center gap-y-3`}
       >
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-y-3">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-3">
           <div className="md:w-[50%] md:flex md:flex-col gap-y-5">
             <div className="flex flex-col items-center gap-y-5">
               <div className="w-full flex justify-center md:justify-start">
@@ -59,7 +59,10 @@ export default function Home() {
             </div>
             <AddToCart />
             <AccordionGroup
-              transition="0.2s"
+              transition={{
+                initial: "0.3s ease-out",
+                expanded: "0.2s ease",
+              }}
               sx={{
                 width: "90%",
                 marginTop: "20px",
@@ -87,7 +90,7 @@ export default function Home() {
               </Accordion>
             </AccordionGroup>
           </div>
-          <div className="hidden md:flex md:flex-col md:w-[50%]">
+          <div className="hidden md:flex md:flex-col md:w-[50%] gap-y-4">
             <img src={single[0].picture} className="w-full h-auto" />
             <img src={single[0].pictureTwo} className="w-full h-auto" />
           </div>
@@ -98,10 +101,12 @@ export default function Home() {
         <img src={single[0].pictureTwo} className="w-screen h-auto" />
       </div>
 
-      <p className="w-[90%] text-[18px] text-center my-[40px]">
+      <p className="w-[90%] text-[18px] text-center my-[40px] md:text-left md:text-[40px] md:font-thin">
         {single[0].details}
       </p>
-      <h1 className={`${cinzel.className} text-[25px] font-semibold`}>
+      <h1
+        className={`${cinzel.className} text-[25px] font-semibold md:text-[45px]`}
+      >
         RELATED PRODUCTS
       </h1>
       <RelatedProducts />
