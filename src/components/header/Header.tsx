@@ -15,7 +15,7 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItemContent from "@mui/joy/ListItemContent";
-import { Divider, Input, colors } from "@mui/joy";
+import { Button, Divider, Input, colors } from "@mui/joy";
 import Link from "next/link";
 import { sectionlists } from "./HeaderList";
 import { DropDowns } from "./dropdown";
@@ -246,7 +246,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                     content: {
                         sx: {
                             backgroundColor: "white",
-                            padding: 4,
+                            padding: 2,
                             overflow: "scroll",
                         },
                     },
@@ -260,13 +260,13 @@ export function DrawerMobile(props: BagDrawerProps) {
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem >
-                                    <ListItemButton sx={{ gap: 2, flex: 'flex', flexDirection: 'column' }}>
-                                        <AspectRatio sx={{ width: 300 }}>
+                                    <ListItemButton sx={{ gap: 2, flex: 'flex', flexWrap: 'wrap', ...cinzel.style }}>
+                                        <AspectRatio sx={{ width: '100%' }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
-                                        <ListItemContent >
-                                            <Typography fontWeight="md">{item.name}</Typography>
-                                            <Typography level="body-sm">{item.price} $</Typography>
+                                        <ListItemContent sx={{ flex: 'flex', justifyContent: 'flex-start' }} >
+                                            <Typography sx={{ ...cinzel.style }} fontWeight="lg" fontSize={22}>{item.name}</Typography>
+                                            <Typography textColor='black' fontSize={16} fontWeight="md" level="body-sm">{item.price} $</Typography>
                                         </ListItemContent>
                                     </ListItemButton>
                                 </ListItem>
@@ -274,9 +274,17 @@ export function DrawerMobile(props: BagDrawerProps) {
                             </React.Fragment>
                         ))}
                     </div>
-                    <h1>{cart.totalAmount} $</h1>
+                    <div className="flex items-center gap-2">
+                        <p>Subtotal:</p>
+                        <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
+                    </div>
+                    <div className="flex gap-2 w-full mt-[30px] text-white">
+                        <button className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black">VIEW CART</button>
+                        <button className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black">CHECKOUT</button>
+                    </div>
+
                 </Box>
-            </JoyDrawer>
-        </Box>
+            </JoyDrawer >
+        </Box >
     );
 }
