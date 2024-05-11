@@ -1,5 +1,6 @@
 "use client";
 import { cinzel, quicksand } from "@/app/theme";
+import { ArrowRight } from "../vectors/arrowright";
 
 export function FirstItem() {
   return (
@@ -47,8 +48,9 @@ export function FirstItem() {
           <img src="/images/Brownlogo.png" className="w-[500px]" />
         </div>
         <div className="w-[80%]">
-          <button className="border-[#A18565] text-[#A18565] text-[30px]">
+          <button className="border-[#A18565] text-[#A18565] text-[30px] flex items-center gap-x-5">
             Swipe right for our product offerings
+            <ArrowRight />
           </button>
         </div>
       </div>

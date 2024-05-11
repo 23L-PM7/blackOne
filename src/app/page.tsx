@@ -6,6 +6,7 @@ import { useFurnitures } from "@/components/utility/utils";
 import { useEffect } from "react";
 import { cinzel, quicksand } from "./theme";
 import { FirstItem } from "@/components/homeComponents/homePageFirst";
+import { HomeItem } from "@/components/homeComponents/homeItem";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -24,12 +25,9 @@ export default function Home() {
       <div className="flex-grow">
         <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
           <FirstItem />
-          <div className="w-full h-full snap-start snap-always overflow-hidden flex-shrink-0">
-            <img
-              src="https://karageorgiou.gr/wp-content/uploads/2022/05/HighRes-11-as-Smart-Object-1-1.jpg"
-              className="object-cover h-full"
-            />
-          </div>
+          {furnitures.map((item: any) => (
+            <HomeItem key={item._id} item={item} />
+          ))}
         </div>
       </div>
     </div>
