@@ -10,12 +10,13 @@ import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import { Bag, Favorite, Remove, Search, UserPro } from "../items/HeaderIcons";
 import React, { useState } from "react";
+import { CiCircleRemove } from "react-icons/ci";
 
 import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItemContent from "@mui/joy/ListItemContent";
-import { Button, Divider, Input, colors } from "@mui/joy";
+import { Divider, Input } from "@mui/joy";
 import Link from "next/link";
 import { sectionlists } from "./HeaderList";
 import { DropDowns } from "./dropdown";
@@ -260,10 +261,11 @@ export function DrawerMobile(props: BagDrawerProps) {
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem >
-                                    <ListItemButton sx={{ gap: 2, flex: 'flex', flexWrap: 'wrap', ...cinzel.style }}>
-                                        <AspectRatio sx={{ width: '100%' }}>
+                                    <ListItemButton className="gap-2 flex flex-wrap  ">
+                                        <AspectRatio sx={{ width: '80%' }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
+                                        <CiCircleRemove className="w-[20%] items-start flex " />
                                         <ListItemContent sx={{ flex: 'flex', justifyContent: 'flex-start' }} >
                                             <Typography sx={{ ...cinzel.style }} fontWeight="lg" fontSize={22}>{item.name}</Typography>
                                             <Typography textColor='black' fontSize={16} fontWeight="md" level="body-sm">{item.price} $</Typography>
