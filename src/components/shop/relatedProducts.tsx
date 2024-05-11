@@ -23,7 +23,7 @@ export function RelatedProducts() {
     return (
       <div className="w-full my-[50px] flex flex-col items-center gap-y-10 text-[#343434]">
         {relatedProducts.map((item: any) => (
-          <div className="w-[90%] flex flex-col gap-y-4">
+          <div key={item.slug} className="w-[90%] flex flex-col gap-y-4">
             <Link href={`/shop/${item.slug}`}>
               <img src={item.picture} className="w-full h-auto" />
               <div className="">
