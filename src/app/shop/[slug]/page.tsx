@@ -60,7 +60,7 @@ export default function Home() {
                   </h1>
                 </div>
               </div>
-              <AddToCart />
+              <AddToCart item={single[0]} />
               <AccordionGroup
                 transition={{
                   initial: "0.3s ease-out",
