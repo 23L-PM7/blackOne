@@ -11,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <CssVarsProvider theme={customTheme}> */}
-      <body className={`${quicksand.className}`}>{children}</body>
+      <body className={`${quicksand.className} text-[#343434]`}>
+        {children}
+      </body>
       {/* </CssVarsProvider> */}
     </html>
   );

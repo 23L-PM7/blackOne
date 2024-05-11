@@ -27,14 +27,30 @@ export function FirstItem() {
         </div>
       </div>
       {/* desktop title */}
-      <div className="hidden w-[50%] h-full md:flex flex-col items-center relative">
-        <div className="w-[50%] flex">
-          <h1 className={`text-[65px] h-[65px]`}>Passion</h1>
+      <div className="hidden w-[50%] h-full md:flex flex-col items-center pt-[150px] gap-10">
+        <div className="w-[80%]">
+          <div className="w-[60%] flex">
+            <h1 className={`text-[65px] h-[65px]`}>Passion</h1>
+          </div>
+          <div className="w-[60%] flex justify-end">
+            <h1 className={`${cinzel.className} text-[60px]`}>For Quality</h1>
+          </div>
         </div>
-        <div className="w-[50%] flex justify-end">
-          <h1 className={`${cinzel.className} text-[60px]`}>For Quality</h1>
+
+        <p className="w-[80%] text-[25px]">
+          For three generations and nearly a century, Karageorgiou Interiors has
+          been delivering elegant, timeless spaces and made-to-measure, hand
+          crafted, fine furniture that excite the eye and nurture the soul.{" "}
+        </p>
+
+        <div className="w-[80%]">
+          <img src="/images/Brownlogo.png" className="w-[500px]" />
         </div>
-        <p></p>
+        <div className="w-[80%]">
+          <button className="border-[#A18565] text-[#A18565] text-[30px]">
+            Swipe right for our product offerings
+          </button>
+        </div>
       </div>
     </div>
   );
