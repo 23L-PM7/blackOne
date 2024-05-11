@@ -265,7 +265,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                                         <AspectRatio sx={{ width: '80%' }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
-                                        <CiCircleRemove className="w-[20%] items-start flex " />
+                                        <CiCircleRemove className="w-[20%] " />
                                         <ListItemContent sx={{ flex: 'flex', justifyContent: 'flex-start' }} >
                                             <Typography sx={{ ...cinzel.style }} fontWeight="lg" fontSize={22}>{item.name}</Typography>
                                             <Typography textColor='black' fontSize={16} fontWeight="md" level="body-sm">{item.price} $</Typography>
