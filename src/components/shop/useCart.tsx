@@ -7,10 +7,11 @@ type Cart = {
 
 type CartItem = {
   tempId: string;
-  furnitureId: number;
+  furnitureId: string;
+  slug: string;
+  name: string;
   price: number;
   amount: number;
-  name: string;
   description: string;
   details: string;
   image: string;
