@@ -179,7 +179,7 @@ export function Shopping() {
               {furnitures.map((item: any, index: any) => (
                 <Link href={`/shop/${item.slug}`}>
                   <div
-                    key={item.slug}
+                    key={item._id}
                     className="flex flex-col mb-[40px] lg:mt-[140px] "
                   >
                     <AspectRatio

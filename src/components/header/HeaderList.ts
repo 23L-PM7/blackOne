@@ -3,17 +3,17 @@ import { DropDowns } from "./dropdown";
 
 export const sectionlists = [
   {
-    id: 1,
+    id: 1345676543,
     title: "ORDERS",
     link: "/",
   },
   {
-    id: 2,
+    id: 22344,
     title: "ABOUT",
     link: "/",
   },
   {
-    id: 3,
+    id: 334545342,
     title: "PROJECT",
     link: "/",
   },
