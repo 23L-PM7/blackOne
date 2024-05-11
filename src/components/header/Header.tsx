@@ -146,7 +146,7 @@ export function Drawer(props: DrawerProps) {
                     </div>
                     <Divider />
                     <div className='flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  '>
-                        <DropDowns className='flex justify-start' />
+                        <DropDowns />
                         {sectionlists.map((sectionlist) => (
                             <Link
                                 key={sectionlist.id}
