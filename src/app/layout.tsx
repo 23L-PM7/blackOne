@@ -1,6 +1,7 @@
+"use client";
 import { CssVarsProvider } from "@mui/joy";
 import "./globals.css";
-import customTheme from "./theme";
+import customTheme, { quicksand } from "./theme";
 
 export default function RootLayout({
   children,
@@ -10,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <CssVarsProvider theme={customTheme}> */}
-      <body>{children}</body>
+      <body className={`${quicksand.className} text-[#343434]`}>
+        {children}
+      </body>
       {/* </CssVarsProvider> */}
     </html>
   );
