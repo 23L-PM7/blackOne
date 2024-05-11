@@ -17,8 +17,22 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="w-screen h-screen flex flex-col overflow-scroll">
       <Header />
+      <div className="w-full flex-grow overflow-scroll snap-x snap-mandatory flex">
+        <div className="w-screen h-full snap-center snap-always overflow-hidden">
+          <img
+            src="https://karageorgiou.gr/wp-content/uploads/2022/05/HighRes-11-as-Smart-Object-1-1.jpg"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="w-inherit h-full snap-center snap-always overflow-hidden">
+          <img
+            src="https://karageorgiou.gr/wp-content/uploads/2022/05/HighRes-11-as-Smart-Object-1-1.jpg"
+            className="h-full object-cover"
+          />
+        </div>
+      </div>
     </div>
   );
 }
