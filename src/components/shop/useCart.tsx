@@ -14,7 +14,8 @@ type CartItem = {
   amount: number;
   description: string;
   details: string;
-  image: string;
+  picture: string;
+  pictureTwo: string;
 };
 
 type State = {
@@ -34,6 +35,7 @@ export const useCart = create<State & Action>((set) => ({
     cartItems: [],
     totalAmount: 0,
   },
+  //
   addCart: (product) => {
     set((state) => {
       return {
@@ -46,6 +48,7 @@ export const useCart = create<State & Action>((set) => ({
       };
     });
   },
+  //
   removeCart: (id) => {
     set((state) => {
       const newList = state.cart.cartItems.filter((item) => item.tempId !== id);
@@ -63,6 +66,7 @@ export const useCart = create<State & Action>((set) => ({
       };
     });
   },
+  //
   clearCart: () => {
     set((state) => {
       const clearList: any = [];
@@ -77,6 +81,7 @@ export const useCart = create<State & Action>((set) => ({
       };
     });
   },
+  //
   subtractCartItem: (id) => {
     set((state) => {
       const map1 = state.cart.cartItems.map((x: any) => {
@@ -100,6 +105,7 @@ export const useCart = create<State & Action>((set) => ({
       };
     });
   },
+  //
   addCartItem: (id) => {
     set((state) => {
       const map1 = state.cart.cartItems.map((x: any) => {

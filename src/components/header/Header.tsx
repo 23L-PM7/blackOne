@@ -23,11 +23,14 @@ import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
 
+import { useCart } from "../shop/useCart";
+
 export function Header() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
   const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
   const [openmenu, setOpenMenu] = useState(false);
+  const { cart } = useCart();
 
   const handleClick = () => {
     setOpenMenu(!openmenu);
@@ -82,8 +85,7 @@ export function Header() {
                 onClick={toggleDrawerBag}
               >
                 {" "}
-                <Bag />
-                (0)
+                <Bag />({cart.cartItems.length})
               </button>
               <div className="2xl:hidden ">
                 <IconButton
@@ -232,6 +234,7 @@ type BagDrawerProps = {
 
 export function DrawerMobile(props: BagDrawerProps) {
   const { open, onToggleDrawerBag } = props;
+  const { cart } = useCart();
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -254,19 +257,15 @@ export function DrawerMobile(props: BagDrawerProps) {
             <div className="flex justify-end">
               <Remove />
             </div>
-            {data.map((item, index) => (
-              <React.Fragment key={item.title}>
+            {cart.cartItems.map((item, index) => (
+              <React.Fragment key={item.tempId}>
                 <ListItem>
                   <ListItemButton sx={{ gap: 2 }}>
                     <AspectRatio sx={{ flexBasis: 160 }}>
-                      <img
-                        srcSet={`${item.src}?w=120&fit=crop&auto=format&dpr=2 2x`}
-                        src={`${item.src}?w=120&fit=crop&auto=format`}
-                        alt={item.title}
-                      />
+                      <img src={item.picture} alt={item.name} />
                     </AspectRatio>
                     <ListItemContent>
-                      <Typography fontWeight="md">{item.title}</Typography>
+                      <Typography fontWeight="md">{item.name}</Typography>
                       <Typography level="body-sm">{item.price}</Typography>
                     </ListItemContent>
                   </ListItemButton>

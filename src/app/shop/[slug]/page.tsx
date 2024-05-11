@@ -16,6 +16,7 @@ import AccordionSummary, {
 import { Loader } from "@/components/loader";
 import { RelatedProducts } from "@/components/shop/relatedProducts";
 import { Header } from "@/components/header/Header";
+import { SasukeLoader } from "@/components/loader copy";
 
 export default function Home() {
   // retrieve furnitures

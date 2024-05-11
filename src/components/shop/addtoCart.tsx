@@ -22,7 +22,8 @@ export function AddToCart(props: Many) {
       amount: amount,
       description: item.description,
       details: item.details,
-      image: item.picture,
+      picture: item.picture,
+      pictureTwo: item.pictureTwo,
     });
   };
 
