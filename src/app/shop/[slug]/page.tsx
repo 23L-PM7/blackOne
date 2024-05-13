@@ -28,11 +28,8 @@ export default function Home() {
 
   const decodedname = params.slug;
 
-  useEffect(() => {
-    loadSingleFurniture(decodedname);
-  }, []);
-
   if (single.length === 0) {
+    loadSingleFurniture(decodedname);
     return <Loader />;
   }
 
