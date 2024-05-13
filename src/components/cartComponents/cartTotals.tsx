@@ -12,6 +12,7 @@ export function CartTotals() {
   const [shipping, setShipping] = useState(cart.totalAmount);
   const [current, setCurrent] = useState("");
 
+  // shipping calculator
   const calculate = (e: any) => {
     setCurrent(e.target.value);
     if (e.target.value === "free") {
@@ -24,6 +25,7 @@ export function CartTotals() {
     }
   };
 
+  // quick feature
   useEffect(() => {
     setShipping(cart.totalAmount);
     calculate({
