@@ -55,6 +55,13 @@ export function Shopping() {
     loadFurnitures();
   };
 
+  const boxHover = {
+    boxShadow: 3,
+    "&:hover": {
+      background: 'lightblue'
+    }
+  }
+
   React.useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
@@ -83,8 +90,8 @@ export function Shopping() {
             sx={{ maxWidth: 400, ...quicksand.style }}
             className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
-            <Accordion>
-              <AccordionSummary>CATEGORY</AccordionSummary>
+            <Accordion sx={boxHover}>
+              <AccordionSummary >CATEGORY</AccordionSummary>
               <AccordionDetails>
                 <Checkbox
                   className="bg-[#EDECE9]"
@@ -116,11 +123,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -134,11 +141,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
