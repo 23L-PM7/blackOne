@@ -1,5 +1,5 @@
 "use client";
-import { quicksand } from "@/app/theme";
+import { cinzel, quicksand } from "@/app/theme";
 import { useEffect, useState } from "react";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
@@ -31,7 +31,10 @@ export function BillingInput() {
   };
 
   return (
-    <div className="w-[90%] flex flex-col gap-y-4">
+    <div className="w-[90%] sm:w-[50%] sm:p-10 flex flex-col gap-y-4">
+      <div className="w-full my-[40px]">
+        <h1 className={`${cinzel.className} text-[26px]`}>BILLING DETAILS</h1>
+      </div>
       <div className="">
         <h1 className={`text-[#A18565] text-lg ${quicksand.className}`}>
           FIRST NAME<span className="text-[#FF0000]"> *</span>
@@ -165,7 +168,6 @@ export function BillingInput() {
         />
       </div>
 
-      <YourOrder />
       <button className="w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
         PLACE ORDER
       </button>

@@ -12,18 +12,20 @@ import AccordionSummary from "@mui/joy/AccordionSummary";
 import { YourData } from "./yourdata";
 import Typography from "@mui/joy/Typography";
 import { useState } from "react";
+import { useCart } from "../shop/useCart";
 
 export function YourOrder() {
   const [selectedValue, setSelectedValue] = useState("free");
+  const { cart }: any = useCart();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
   };
 
   return (
-    <div className="w-[90%] flex flex-col gap-y-4 mt-[30px]">
+    <div className="w-[90%] sm:w-[50%] sm:p-10 flex flex-col gap-y-4 mt-[30px]">
       <div className="w-full my-[30px]">
-        <h1 className={`${cinzel.className} text-[26px]`}>BILLING DETAILS</h1>
+        <h1 className={`${cinzel.className} text-[26px]`}>YOUR ORDER</h1>
       </div>
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>PRODUCT</h1>
@@ -31,10 +33,13 @@ export function YourOrder() {
       </div>
 
       {/* mapping */}
-      <YourOrderItem />
+      {cart.cartItems.map((item: any, index: number) => (
+        <YourOrderItem key={432 - index} item={item} />
+      ))}
+
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>SUBTOTAL</h1>
-        <h1>3190$</h1>
+        <h1>{cart.totalAmount}$</h1>
       </div>
       <div className="flex flex-col">
         <FormControl>
@@ -68,7 +73,7 @@ export function YourOrder() {
       </div>
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>TOTAL</h1>
-        <h1>3190$</h1>
+        <h1>{cart.totalAmount}$</h1>
       </div>
       <div className="w-full my-[30px]">
         <h1 className={`${cinzel.className} text-[26px]`}>PAYMENT METHODS</h1>

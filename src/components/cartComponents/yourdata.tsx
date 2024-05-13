@@ -27,7 +27,7 @@ export function YourData() {
             color: "#A18565",
           }}
           label="I have read and agreed to the website"
-          checked={checked[0]}
+          checked={checked[1]}
           onChange={handleCheck}
         />
         <Link href="#">
