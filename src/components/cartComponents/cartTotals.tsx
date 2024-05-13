@@ -4,7 +4,7 @@ import FormControl from "@mui/joy/FormControl";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import { useCart } from "../shop/useCart";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export function CartTotals() {
@@ -23,6 +23,14 @@ export function CartTotals() {
       setShipping(newPrice);
     }
   };
+
+  useEffect(() => {
+    calculate({
+      target: {
+        value: cart.totalAmount,
+      },
+    });
+  }, [cart.totalAmount]);
 
   return (
     <div className="w-[90%] flex flex-col items-center gap-y-3">
