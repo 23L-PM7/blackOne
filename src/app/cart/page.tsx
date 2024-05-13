@@ -9,14 +9,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
-  const {
-    addCart,
-    removeCart,
-    clearCart,
-    subtractCartItem,
-    addCartItem,
-    cart,
-  } = useCart();
+  const { addCart, clearCart, subtractCartItem, addCartItem, cart } = useCart();
 
   if (furnitures.length === 0) {
     loadFurnitures();
