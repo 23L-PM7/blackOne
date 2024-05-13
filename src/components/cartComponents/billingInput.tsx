@@ -31,7 +31,7 @@ export function BillingInput() {
   };
 
   return (
-    <div className="w-[90%] sm:w-[50%] sm:p-10 flex flex-col gap-y-4">
+    <div className="w-[90%] sm:w-[50%] sm:p-10 flex flex-col gap-y-4 sm:gap-y-10">
       <div className="w-full my-[40px]">
         <h1 className={`${cinzel.className} text-[26px]`}>BILLING DETAILS</h1>
       </div>
@@ -168,7 +168,7 @@ export function BillingInput() {
         />
       </div>
 
-      <button className="w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
+      <button className="w-[90%] sm:hidden h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
         PLACE ORDER
       </button>
     </div>
