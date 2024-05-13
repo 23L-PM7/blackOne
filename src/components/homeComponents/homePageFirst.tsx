@@ -44,7 +44,7 @@ export function FirstItem() {
           </div>
         </div>
 
-        <p className="w-[80%] text-[20px]">
+        <p className="w-[80%] pt-[70px] text-[20px]">
           For three generations and nearly a century, Karageorgiou Interiors has
           been delivering elegant, timeless spaces and made-to-measure, hand
           crafted, fine furniture that excite the eye and nurture the soul.{" "}
@@ -53,11 +53,11 @@ export function FirstItem() {
         <div className="w-[80%]"></div>
         <div className="w-[80%]">
           <button className="border-[#A18565] text-[#A18565] text-[30px] flex items-center gap-x-5">
-            <div className="pb-[50px]">
+            <div className="pb-[20px]">
               Swipe right for our product offerings
               <img
                 src="/images/Brownlogo.png"
-                className="w-[200px] pt-[50px]"
+                className="w-[200px] pt-[20px]"
               />
             </div>
           </button>
