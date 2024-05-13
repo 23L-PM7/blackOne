@@ -271,7 +271,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                 }}
             >
                 <Box sx={{}} onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
-                    <div className="flex-col flex gap-y-8 mt-[50px] lg:mt-[80px]">
+                    <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[80px] lg:mt-[80px]">
                         <div className="flex justify-end">
                             <Remove />
                         </div>
