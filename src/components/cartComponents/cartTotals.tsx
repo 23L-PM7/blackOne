@@ -36,13 +36,13 @@ export function CartTotals() {
   }, [cart.totalAmount]);
 
   return (
-    <div className="w-[90%] flex flex-col items-center gap-y-3">
+    <div className="w-[90%] flex flex-col items-center gap-y-3 lg:items-end">
       <h1 className={`${cinzel.className} text-[25px] my-10`}>CART TOTALS</h1>
-      <div className="w-[90%] flex justify-between">
+      <div className="w-[90%] lg:w-[30%] flex justify-between">
         <h1 className="text-[20px]">Subtotal : </h1>
         <h1 className="text-[20px]">{cart.totalAmount}$</h1>
       </div>
-      <div className="w-[90%] flex justify-between border-[#343434] border-b-[1px]">
+      <div className="w-[90%] lg:w-[30%] flex justify-between border-[#343434] border-b-[1px]">
         <h1 className="text-[20px]">Shipping</h1>
         <div className="flex flex-col">
           <FormControl>
@@ -73,13 +73,13 @@ export function CartTotals() {
           </FormControl>
         </div>
       </div>
-      <div className="w-[90%] flex justify-between">
+      <div className="w-[90%] lg:w-[30%] flex justify-between">
         <h1 className="text-[20px] font-semibold">Total : </h1>
         <h1 className="text-[20px] font-semibold">{shipping}$</h1>
       </div>
       <Link
         href="/cart/checkout"
-        className="flex justify-center items-center w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]"
+        className="flex justify-center items-center w-[90%] lg:w-[30%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]"
       >
         PROCEED TO CHECKOUT
       </Link>
