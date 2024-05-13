@@ -25,6 +25,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
 
 
+
 import { useCart } from "../shop/useCart";
 
 export function Header() {
@@ -190,10 +191,10 @@ export function TopDrawer(props: TopDrawerProps) {
     const { open, onToggleDrawerTop } = props;
 
     return (
-        <Modal>
-            <ModalDialog
-                open={open}
-                onClose={onToggleDrawerTop}
+
+        <Modal open={open} onClose={onToggleDrawerTop}>
+            <ModalDialog onClick={onToggleDrawerTop}
+                onKeyDown={onToggleDrawerTop}
                 color="warning"
                 layout="fullscreen"
                 size="lg"
@@ -203,6 +204,8 @@ export function TopDrawer(props: TopDrawerProps) {
                 <Typography>Modal title</Typography>
             </ModalDialog>
         </Modal>
+
+
         // <Box sx={{ display: "flex" }}>
         //     <JoyDrawer
         //         open={open}
