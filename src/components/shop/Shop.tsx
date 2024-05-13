@@ -177,7 +177,7 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <div className=" xl:grid grid-cols-2  gap-20">
+            <a className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link
                   key={345 - index}
@@ -224,11 +224,13 @@ export function Shopping() {
                   </div>
                 </Link>
               ))}
-              <Pagination page={currentPage} onChange={handlePage} count={pages} />
+              <div className=" flex justify-center items-center mt-[120px]">
+                <Pagination page={currentPage} onChange={handlePage} count={pages} />
+              </div>
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
