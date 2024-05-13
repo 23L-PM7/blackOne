@@ -16,13 +16,14 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItemContent from "@mui/joy/ListItemContent";
-import { Divider, Input } from "@mui/joy";
+import { Divider, Input, Modal, ModalClose, ModalDialog } from "@mui/joy";
 import Link from "next/link";
 import { sectionlists } from "./HeaderList";
 import { DropDowns } from "./dropdown";
 import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
+
 
 import { useCart } from "../shop/useCart";
 
@@ -189,42 +190,55 @@ export function TopDrawer(props: TopDrawerProps) {
     const { open, onToggleDrawerTop } = props;
 
     return (
-        <Box sx={{ display: "flex" }}>
-            <JoyDrawer
+        <Modal>
+            <ModalDialog
                 open={open}
                 onClose={onToggleDrawerTop}
-                slotProps={{
-                    content: {
-                        sx: {
-                            width: "100%",
-                            backgroundColor: "rgba(237, 236, 233, 1)",
-                        },
-                    },
-                }}
+                color="warning"
+                layout="fullscreen"
+                size="lg"
+                variant="soft"
             >
-                <Box
-                    sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
-                    onClick={onToggleDrawerTop}
-                    onKeyDown={onToggleDrawerTop}
-                >
-                    <div className="flex items-center gap-4 md:hidden">
-                        <Search />
-                        <UserPro />
-                        <Favorite />
-                    </div>
-                    <Divider />
-                    <div className="flex justify-center">
-                        <Input
-                            color="neutral"
-                            disabled={false}
-                            placeholder="Search Products..."
-                            size="lg"
-                            variant="plain"
-                        />
-                    </div>
-                </Box>
-            </JoyDrawer>
-        </Box>
+                <ModalClose />
+                <Typography>Modal title</Typography>
+            </ModalDialog>
+        </Modal>
+        // <Box sx={{ display: "flex" }}>
+        //     <JoyDrawer
+        //         open={open}
+        //         onClose={onToggleDrawerTop}
+        //         slotProps={{
+        //             content: {
+        //                 sx: {
+        //                     width: "100%",
+        //                     backgroundColor: "rgba(237, 236, 233, 1)",
+        //                 },
+        //             },
+        //         }}
+        //     >
+        //         <Box
+        //             sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
+        //             onClick={onToggleDrawerTop}
+        //             onKeyDown={onToggleDrawerTop}
+        //         >
+        //             <div className="flex items-center gap-4 md:hidden">
+        //                 <Search />
+        //                 <UserPro />
+        //                 <Favorite />
+        //             </div>
+        //             <Divider />
+        //             <div className="flex justify-center">
+        //                 <Input
+        //                     color="neutral"
+        //                     disabled={false}
+        //                     placeholder="Search Products..."
+        //                     size="lg"
+        //                     variant="plain"
+        //                 />
+        //             </div>
+        //         </Box>
+        //     </JoyDrawer>
+        // </Box>
     );
 }
 
