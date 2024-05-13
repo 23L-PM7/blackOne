@@ -59,10 +59,6 @@ export function Shopping() {
   };
 
   React.useEffect(() => {
-    loadFurnitures();
-  }, []);
-
-  React.useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
         const temporary = Math.round(furnitures.length / perPage);
@@ -75,6 +71,7 @@ export function Shopping() {
   }, [furnitures]);
 
   if (furnitures.length === 0) {
+    loadFurnitures();
     return <Loader />;
   }
 

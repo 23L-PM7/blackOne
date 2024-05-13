@@ -30,14 +30,6 @@ export default function Home() {
     setCurrentPage(value);
   };
 
-  const mainLoad = async () => {
-    loadFurnitures();
-  };
-
-  useEffect(() => {
-    mainLoad();
-  }, []);
-
   useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
@@ -51,11 +43,12 @@ export default function Home() {
   }, [furnitures]);
 
   if (furnitures.length === 0) {
+    loadFurnitures();
     return <Loader />;
   }
 
   return (
-    <div className="bg-[#EDECE9] w-screen overflow-scroll ">
+    <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll ">
       <Toaster position="top-center" />
       <div className="my-[80px] h-full w-full flex flex-col items-center gap-y-4">
         <Title />
