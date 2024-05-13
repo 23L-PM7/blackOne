@@ -31,7 +31,9 @@ export default function Home() {
           <h2 className={`${cinzel.className} text-[50px] h-[54px]`}>CART</h2>
         </div>
         <div className="w-[90%]">
-          <CartItem />
+          {cart.cartItems.map((item) => (
+            <CartItem key={item.slug} item={item} />
+          ))}
         </div>
         <CartTotals />
       </div>
