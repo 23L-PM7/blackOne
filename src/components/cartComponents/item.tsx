@@ -10,7 +10,7 @@ type MainProps = {
 };
 
 export function CartItem(props: MainProps) {
-  const { removeCart }: any = props;
+  const { removeCart }: any = useCart();
   const { item } = props;
 
   const confirm = () => {
