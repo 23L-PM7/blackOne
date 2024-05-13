@@ -48,11 +48,11 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-[#EDECE9] w-screen h-screen overflow-scroll ">
+    <div className="bg-[#EDECE9] w-screen h-screen flex flex-col justify-between">
       <Toaster position="top-center" />
       <div className="my-[80px] h-full w-full flex flex-col items-center gap-y-4">
         <Title />
-        <div className="w-[90%] h-[60%] border-y-[1px] border-[#343434] flex flex-col gap-y-4">
+        <div className="w-[90%] h-[60%] border-y-[1px] border-[#343434] flex flex-col gap-y-4 overflow-scroll">
           <h1 className={cinzel.className}>Content</h1>
           <div className="grow flex flex-col justify-around">
             {currentPosts.map((item: any, index: number) => (
