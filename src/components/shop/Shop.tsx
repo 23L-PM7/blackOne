@@ -8,25 +8,24 @@ import Dropdown from "@mui/joy/Dropdown";
 import Link from "next/link";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
-import { ButtonGroup, Checkbox } from "@mui/joy";
+import { Checkbox } from "@mui/joy";
 import Button from "@mui/joy/Button";
 import IconButton from "@mui/joy/IconButton";
 import { MdFavoriteBorder } from "react-icons/md";
-import { data } from "./ShopList";
 import { cinzel, quicksand } from "@/app/theme";
-import Tabs from "@mui/joy/Tabs";
-import TabList from "@mui/joy/TabList";
-import Tab from "@mui/joy/Tab";
-import TabPanel from "@mui/joy/TabPanel";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Done from "@mui/icons-material/Done";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "../loader";
+import { Toaster } from "sonner";
+import { Title } from "../adminComponents/title";
+import { TemplateMain } from "../adminComponents/templateMain";
+import Pagination from "@mui/material/Pagination";
+import { ShopTemplate } from "./ShopTemplate";
 
 // sx={{
 //     ...quicksand.style
@@ -37,7 +36,7 @@ export function Shopping() {
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [perPage, setPerPage] = React.useState(5);
-  const [pages, setPages] = React.useState(3);
+  const [pages, setPages] = React.useState(4);
 
   const indexOfLastPost = currentPage * perPage;
   const indexOfFirstPost = indexOfLastPost - perPage;
@@ -55,12 +54,6 @@ export function Shopping() {
     loadFurnitures();
   };
 
-  const boxHover = {
-    boxShadow: 2,
-    "&:hover": {
-      background: "none",
-    },
-  };
 
   React.useEffect(() => {
     if (furnitures) {
@@ -77,6 +70,13 @@ export function Shopping() {
   if (furnitures.length === 0) {
     loadFurnitures();
     return <Loader />;
+  }
+
+  const boxHover = {
+    boxShadow: 2,
+    "&:hover": {
+      background: 'none'
+    }
   }
 
   return (
@@ -123,11 +123,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -141,11 +141,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -177,7 +177,7 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <div className=" xl:grid grid-cols-2  gap-20">
+            <a className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link
                   key={345 - index}
@@ -225,33 +225,12 @@ export function Shopping() {
                 </Link>
               ))}
               <div className=" flex justify-center items-center mt-[120px]">
-                <Tabs
-                  aria-label="Basic tabs"
-                  defaultValue={0}
-                  className="lg:w-6/12"
-                >
-                  <TabList className="text-[60px]">
-                    <Tab>1</Tab>
-                    <Tab>2</Tab>
-                    <Tab>3</Tab>
-                    <Tab>4</Tab>
-                    <Tab>5</Tab>
-                  </TabList>
-                  <TabPanel value={0}>
-                    <b>First</b> tab panel
-                  </TabPanel>
-                  <TabPanel value={1}>
-                    <b>Second</b> tab panel
-                  </TabPanel>
-                  <TabPanel value={2}>
-                    <b>Third</b> tab panel
-                  </TabPanel>
-                </Tabs>
+                <Pagination page={currentPage} onChange={handlePage} count={pages} />
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
