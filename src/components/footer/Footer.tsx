@@ -52,7 +52,7 @@ export default function Footer() {
 
   return (
     <footer className="pt-[90px] block bg-[#edece9]">
-      <div className="px-[18px] pb-[70px]">
+      <div className="px-[18px] pb-[70px] container mx-auto">
         <div className="md:grid md:grid-cols-3 md:gap-x-[50px]">
           <div className="mb-[20px] md:mb-0">
             <div className="cursor-default text-[#a18565] text-[30px] font-[300] items-center flex justify-center mx-auto mb-[10px]">
