@@ -56,9 +56,9 @@ export function Shopping() {
   };
 
   const boxHover = {
-    boxShadow: 3,
+    boxShadow: 2,
     "&:hover": {
-      background: 'lightblue'
+      background: 'none'
     }
   }
 
@@ -91,7 +91,7 @@ export function Shopping() {
             className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
             <Accordion sx={boxHover}>
-              <AccordionSummary >CATEGORY</AccordionSummary>
+              <AccordionSummary sx={boxHover} >CATEGORY</AccordionSummary>
               <AccordionDetails>
                 <Checkbox
                   className="bg-[#EDECE9]"
@@ -159,11 +159,13 @@ export function Shopping() {
                 <MenuButton
                   variant="plain"
                   size="lg"
-                  className="text-[30px] md:text-[20px] "
+                  className={`text-[30px] md:text-[20px] `}
                   sx={{
+                    boxHover,
                     ...quicksand.style,
                     justifyContent: "space-between",
                     width: "100%",
+
                   }}
                 >
                   SORT BY
@@ -248,7 +250,7 @@ export function Shopping() {
             </a>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
