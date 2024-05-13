@@ -2,8 +2,27 @@
 import { CartItem } from "@/components/cartComponents/item";
 import { cinzel, quicksand } from "../theme";
 import { CartTotals } from "@/components/cartComponents/cartTotals";
+import { useCart } from "@/components/shop/useCart";
+import { useFurnitures } from "@/components/utility/utils";
+import { Loader } from "@/components/loader";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { furnitures, loadFurnitures }: any = useFurnitures();
+  const {
+    addCart,
+    removeCart,
+    clearCart,
+    subtractCartItem,
+    addCartItem,
+    cart,
+  } = useCart();
+
+  if (furnitures.length === 0) {
+    loadFurnitures();
+    return <Loader />;
+  }
+
   return (
     <div className="w-screen bg-[#EDECE9] text-[#343434] flex flex-col">
       <div className="flex flex-col items-center">
