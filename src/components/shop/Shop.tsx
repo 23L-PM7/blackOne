@@ -34,7 +34,7 @@ import { Loader } from "../loader";
 
 export function Shopping() {
   const router = useRouter();
-  const { furnitures, loadFurnitures }: any = useFurnitures();
+  const { furnitures, loadFurnitures, empty }: any = useFurnitures();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [perPage, setPerPage] = React.useState(5);
   const [pages, setPages] = React.useState(3);
@@ -83,8 +83,7 @@ export function Shopping() {
             sx={{ maxWidth: 400, ...quicksand.style }}
             className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
-            <Accordion
-            >
+            <Accordion>
               <AccordionSummary>CATEGORY</AccordionSummary>
               <AccordionDetails>
                 <Checkbox
@@ -117,11 +116,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                          "& svg": { opacity: focusVisible ? 1 : 0 },
-                          "&:hover svg": {
-                            opacity: 1,
-                          },
-                        }
+                            "& svg": { opacity: focusVisible ? 1 : 0 },
+                            "&:hover svg": {
+                              opacity: 1,
+                            },
+                          }
                         : undefined,
                     }),
                   }}
@@ -135,11 +134,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                          "& svg": { opacity: focusVisible ? 1 : 0 },
-                          "&:hover svg": {
-                            opacity: 1,
-                          },
-                        }
+                            "& svg": { opacity: focusVisible ? 1 : 0 },
+                            "&:hover svg": {
+                              opacity: 1,
+                            },
+                          }
                         : undefined,
                     }),
                   }}
@@ -172,7 +171,7 @@ export function Shopping() {
             </Dropdown>
             <a className=" xl:grid grid-cols-2 gap-20">
               {furnitures.map((item: any, index: any) => (
-                <Link href={`/shop/${item.slug}`}>
+                <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
                   <div
                     key={item._id}
                     className="flex flex-col mb-[40px] mt-[80px] lg:mt-[140px] "
@@ -243,6 +242,6 @@ export function Shopping() {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
