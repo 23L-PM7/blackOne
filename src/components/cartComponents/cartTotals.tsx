@@ -13,13 +13,14 @@ export function CartTotals() {
   const [current, setCurrent] = useState("");
 
   const calculate = (e: any) => {
+    console.log(e.target.value);
     setCurrent(e.target.value);
     setShipping(cart.totalAmount);
-    if (current === "free") {
+    if (e.target.value === "free") {
       return;
-    } else if (current === "local") {
+    } else if (e.target.value === "local") {
       return;
-    } else if (current === "flat") {
+    } else if (e.target.value === "flat") {
       const newPrice = shipping + 10;
       setShipping(newPrice);
     }
@@ -31,7 +32,7 @@ export function CartTotals() {
         value: current,
       },
     });
-  }, [cart.totalAmount]);
+  }, [cart]);
 
   return (
     <div className="w-[90%] flex flex-col items-center gap-y-3">
