@@ -11,16 +11,38 @@ import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { YourData } from "./yourdata";
 import Typography from "@mui/joy/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../shop/useCart";
 
 export function YourOrder() {
   const [selectedValue, setSelectedValue] = useState("free");
   const { cart }: any = useCart();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
+  const [shipping, setShipping] = useState(cart.totalAmount);
+  const [current, setCurrent] = useState("");
+
+  // shipping calculator
+  const handleChange = (e: any) => {
+    setCurrent(e.target.value);
+    if (e.target.value === "free") {
+      setShipping(cart.totalAmount);
+    } else if (e.target.value === "local") {
+      setShipping(cart.totalAmount);
+    } else if (e.target.value === "flat") {
+      const newPrice = cart.totalAmount + 10;
+      setShipping(newPrice);
+    }
   };
+
+  // quick feature
+  useEffect(() => {
+    setShipping(cart.totalAmount);
+    handleChange({
+      target: {
+        value: current,
+      },
+    });
+  }, [cart.totalAmount]);
 
   return (
     <div className="w-[90%] sm:w-[50%] sm:p-10 flex flex-col gap-y-4 mt-[30px]">
