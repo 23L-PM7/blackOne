@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 type Cart = {
   totalAmount: number;
@@ -30,103 +31,116 @@ type Action = {
   addCartItem: (id: string) => void;
 };
 
-export const useCart = create<State & Action>((set) => ({
-  cart: {
-    cartItems: [],
-    totalAmount: 0,
-  },
-  //
-  addCart: (product) => {
-    set((state) => {
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: [...state.cart.cartItems, product],
-          totalAmount: state.cart.totalAmount + product.price * product.amount,
-        },
-      };
-    });
-  },
-  //
-  removeCart: (id) => {
-    set((state) => {
-      const newList = state.cart.cartItems.filter((item) => item.tempId !== id);
-      const newPrice = newList.reduce((totalPrice, item) => {
-        return totalPrice + item.price * item.amount;
-      }, 0);
+type CartState = State & Action;
 
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: newList,
-          totalAmount: 0 + newPrice,
-        },
-      };
-    });
-  },
-  //
-  clearCart: () => {
-    set((state) => {
-      const clearList: any = [];
+export const useCart = create<CartState, [["zustand/persist", CartState]]>(
+  persist(
+    (set) => ({
+      cart: {
+        cartItems: [],
+        totalAmount: 0,
+      },
+      //
+      addCart: (product) => {
+        set((state) => {
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: [...state.cart.cartItems, product],
+              totalAmount:
+                state.cart.totalAmount + product.price * product.amount,
+            },
+          };
+        });
+      },
+      //
+      removeCart: (id) => {
+        set((state) => {
+          const newList = state.cart.cartItems.filter(
+            (item) => item.tempId !== id
+          );
+          const newPrice = newList.reduce((totalPrice, item) => {
+            return totalPrice + item.price * item.amount;
+          }, 0);
 
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: clearList,
-          totalAmount: 0,
-        },
-      };
-    });
-  },
-  //
-  subtractCartItem: (id) => {
-    set((state) => {
-      const map1 = state.cart.cartItems.map((x: any) => {
-        if (x.tempId == id) {
-          x.amount = x.amount - 1;
-        }
-        return x;
-      });
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: newList,
+              totalAmount: 0 + newPrice,
+            },
+          };
+        });
+      },
+      //
+      clearCart: () => {
+        set((state) => {
+          const clearList: any = [];
 
-      const newPrice = map1.reduce((totalPrice, item) => {
-        return totalPrice + item.price * item.amount;
-      }, 0);
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: clearList,
+              totalAmount: 0,
+            },
+          };
+        });
+      },
+      //
+      subtractCartItem: (id) => {
+        set((state) => {
+          const map1 = state.cart.cartItems.map((x: any) => {
+            if (x.tempId == id) {
+              x.amount = x.amount - 1;
+            }
+            return x;
+          });
 
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: map1,
-          totalAmount: 0 + newPrice,
-        },
-      };
-    });
-  },
-  //
-  addCartItem: (id) => {
-    set((state) => {
-      const map1 = state.cart.cartItems.map((x: any) => {
-        if (x.tempId == id) {
-          x.amount = x.amount + 1;
-        }
-        return x;
-      });
+          const newPrice = map1.reduce((totalPrice, item) => {
+            return totalPrice + item.price * item.amount;
+          }, 0);
 
-      const newPrice = map1.reduce((totalPrice, item) => {
-        return totalPrice + item.price * item.amount;
-      }, 0);
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: map1,
+              totalAmount: 0 + newPrice,
+            },
+          };
+        });
+      },
+      //
+      addCartItem: (id) => {
+        set((state) => {
+          const map1 = state.cart.cartItems.map((x: any) => {
+            if (x.tempId == id) {
+              x.amount = x.amount + 1;
+            }
+            return x;
+          });
 
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          cartItems: map1,
-          totalAmount: 0 + newPrice,
-        },
-      };
-    });
-  },
-}));
+          const newPrice = map1.reduce((totalPrice, item) => {
+            return totalPrice + item.price * item.amount;
+          }, 0);
+
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: map1,
+              totalAmount: 0 + newPrice,
+            },
+          };
+        });
+      },
+    }),
+    {
+      name: "cart-storage", // name of the item in the storage (must be unique)
+      storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+    }
+  )
+);
