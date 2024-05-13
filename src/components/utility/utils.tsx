@@ -13,4 +13,7 @@ export const useFurnitures = create((set) => ({
     const { data } = await axios.get(`/api/furnitures?slug=${slug}`);
     set(() => ({ single: data }));
   },
+  empty: () => {
+    set(() => ({ single: [] }));
+  },
 }));
