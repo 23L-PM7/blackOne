@@ -3,12 +3,12 @@ import { Button, Checkbox, Input } from "@mui/joy";
 export default function Footer() {
   const companyList = [
     {
-      id: 1,
+      id: 1987,
       name: "Philosophy",
       href: "/shop",
     },
     {
-      id: 2,
+      id: 2555,
       name: "Get in Touch",
       href: "/shop",
     },
@@ -16,22 +16,22 @@ export default function Footer() {
 
   const generalList = [
     {
-      id: 1,
+      id: 1654,
       name: "Use of terms",
       href: "/shop",
     },
     {
-      id: 2,
+      id: 2321,
       name: "Order policy",
       href: "/shop",
     },
     {
-      id: 3,
+      id: 3000,
       name: "Return policy",
       href: "/shop",
     },
     {
-      id: 4,
+      id: 400,
       name: "Privacy policy",
       href: "/shop",
     },
@@ -39,12 +39,12 @@ export default function Footer() {
 
   const socialList = [
     {
-      id: 1,
+      id: 1000,
       name: "Instagram",
       href: "https://www.instagram.com/boredurus/",
     },
     {
-      id: 2,
+      id: 2000,
       name: "Facebook",
       href: "https://www.facebook.com/profile.php?id=100024929370714",
     },
@@ -122,8 +122,8 @@ export default function Footer() {
               </h3>
               <div>
                 <ul>
-                  {companyList.map((company) => (
-                    <li>
+                  {companyList.map((company, index) => (
+                    <li key={888 - index}>
                       <a
                         href={company.href}
                         className="my-[10px] font-[100] text-[#A1855F] text-[16px] hover:underline cursor-pointer"
@@ -141,8 +141,8 @@ export default function Footer() {
               </h3>
               <div>
                 <ul>
-                  {generalList.map((general) => (
-                    <li>
+                  {generalList.map((general, index) => (
+                    <li key={general.id}>
                       <a
                         href={general.href}
                         className="my-[10px] font-[100] text-[#A1855F] text-[16px] hover:underline cursor-pointer"
@@ -163,7 +163,7 @@ export default function Footer() {
               <div>
                 <ul>
                   {socialList.map((social) => (
-                    <li>
+                    <li key={social.id}>
                       <a
                         href={social.href}
                         target="_blank"
