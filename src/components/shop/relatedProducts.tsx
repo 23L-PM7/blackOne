@@ -7,15 +7,12 @@ import { HeartBrown } from "../vectors/heart";
 import Link from "next/link";
 
 export function RelatedProducts() {
-  const { furnitures, loadFurnitures }: any = useFurnitures();
+  const { furnitures, loadFurnitures, empty }: any = useFurnitures();
   const [random, setRandom] = useState(0);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    loadFurnitures();
-  }, []);
-
   if (furnitures.length === 0) {
+    loadFurnitures();
     return <Loader />;
   }
 
@@ -35,7 +32,7 @@ export function RelatedProducts() {
       <div className="w-full my-[50px] flex flex-col md:flex-row items-center gap-10 text-[#343434] md:px-10">
         {relatedProducts.map((item: any) => (
           <div key={item.slug} className="w-[90%] flex flex-col gap-y-4">
-            <Link href={`/shop/${item.slug}`}>
+            <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
               <div className="w-[400px] h-[400px] overflow-hidden">
                 <img src={item.picture} className="object-cover" />
               </div>
