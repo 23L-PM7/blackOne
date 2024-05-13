@@ -55,7 +55,6 @@ export function Shopping() {
   };
 
 
-
   React.useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
@@ -92,7 +91,7 @@ export function Shopping() {
             className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
             <Accordion sx={boxHover}>
-              <AccordionSummary sx={boxHover} >CATEGORY</AccordionSummary>
+              <AccordionSummary sx={boxHover}>CATEGORY</AccordionSummary>
               <AccordionDetails>
                 <Checkbox
                   className="bg-[#EDECE9]"
@@ -166,7 +165,6 @@ export function Shopping() {
                     ...quicksand.style,
                     justifyContent: "space-between",
                     width: "100%",
-
                   }}
                 >
                   SORT BY
@@ -179,17 +177,18 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <a className=" xl:grid grid-cols-2  gap-20">
+            <div className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
-                <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
-                  <div
-                    key={item._id}
-                    className="flex flex-col mb-[40px] mt-[80px] lg:mt-[140px] "
-                  >
+                <Link
+                  key={345 - index}
+                  onClick={() => empty()}
+                  href={`/shop/${item.slug}`}
+                >
+                  <div className="flex flex-col mb-[40px] mt-[80px] lg:mt-[140px] ">
                     <AspectRatio
                       variant="outlined"
                       ratio="4/4"
-                      className='col-start-2'
+                      className="col-start-2"
                       sx={{
                         width: "100%",
                         bgcolor: "background.level2",
@@ -229,7 +228,7 @@ export function Shopping() {
             </a>
           </div>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }

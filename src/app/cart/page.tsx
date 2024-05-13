@@ -7,6 +7,8 @@ import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "@/components/loader";
 import { useEffect } from "react";
 import { Toaster } from "sonner";
+import { Header } from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -20,6 +22,7 @@ export default function Home() {
   return (
     <div className="w-screen h-screen overflow-scroll bg-[#EDECE9] text-[#343434] flex flex-col">
       <Toaster position="top-center" />
+      <Header />
       <div className="flex flex-col items-center">
         <div className="flex flex-col justify-center items-center">
           <h1 className={`${quicksand.className} text-[50px] h-[50px]`}>MY</h1>
@@ -32,6 +35,7 @@ export default function Home() {
         </div>
         <CartTotals />
       </div>
+      <Footer />
     </div>
   );
 }
