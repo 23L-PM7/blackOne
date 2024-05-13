@@ -34,9 +34,6 @@ import { Loader } from "../loader";
 
 export function Shopping() {
   const router = useRouter();
-  // const [name, setName] = React.useState("");
-  // const [price, setPrice] = React.useState("");
-  // const [picture, setPicture] = React.useState("");
   const { furnitures, loadFurnitures }: any = useFurnitures();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [perPage, setPerPage] = React.useState(5);
@@ -81,15 +78,16 @@ export function Shopping() {
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div className="container mx-auto py-[50px] lg:py-[100px] px-[20px]">
-        <div className="text-black flex justify-center items-center text-[50px] lg:justify-start ">
+        <div className="text-black flex justify-center items-center text-[50px] lg:justify-start  md:justify-start md:mb-10 ">
           OUR <br></br>PRODUCTS
         </div>
-        <div className="lg:flex lg:gap-[90px] lg:items-start w-full">
+        <div className="lg:flex md:flex md:gap-20 lg:gap-[90px]  md:items-start lg:items-start w-full">
           <AccordionGroup
             sx={{ maxWidth: 400, ...quicksand.style }}
-            className="bg-[#EDECE9] lg:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
+            className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
-            <Accordion>
+            <Accordion
+            >
               <AccordionSummary>CATEGORY</AccordionSummary>
               <AccordionDetails>
                 <Checkbox
@@ -122,11 +120,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -140,11 +138,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -158,7 +156,7 @@ export function Shopping() {
                 <MenuButton
                   variant="plain"
                   size="lg"
-                  className="text-[30px]"
+                  className="text-[30px] md:text-[20px] "
                   sx={{
                     ...quicksand.style,
                     justifyContent: "space-between",
@@ -175,12 +173,12 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <a className="xl:grid grid-cols-2 gap-20">
+            <a className=" xl:grid grid-cols-2 gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link href={`/shop/${item.slug}`}>
                   <div
                     key={item._id}
-                    className="flex flex-col mb-[40px] lg:mt-[140px] "
+                    className="flex flex-col mb-[40px] mt-[80px] lg:mt-[140px] "
                   >
                     <AspectRatio
                       variant="outlined"
@@ -248,6 +246,6 @@ export function Shopping() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
