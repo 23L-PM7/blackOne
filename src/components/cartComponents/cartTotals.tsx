@@ -10,16 +10,17 @@ import Link from "next/link";
 export function CartTotals() {
   const { cart } = useCart();
   const [shipping, setShipping] = useState(cart.totalAmount);
+  const [current, setCurrent] = useState("");
 
   const calculate = (e: any) => {
+    setCurrent(e.target.value);
     setShipping(cart.totalAmount);
-    const choice = e.target.value;
-    if (choice === "free") {
+    if (current === "free") {
       return;
-    } else if (choice === "local") {
+    } else if (current === "local") {
       return;
-    } else if (choice === "flat") {
-      const newPrice = shipping * 0.05;
+    } else if (current === "flat") {
+      const newPrice = shipping + 10;
       setShipping(newPrice);
     }
   };
@@ -27,7 +28,7 @@ export function CartTotals() {
   useEffect(() => {
     calculate({
       target: {
-        value: cart.totalAmount,
+        value: current,
       },
     });
   }, [cart.totalAmount]);
@@ -72,11 +73,11 @@ export function CartTotals() {
       </div>
       <div className="w-[90%] flex justify-between">
         <h1 className="text-[20px] font-semibold">Total : </h1>
-        <h1 className="text-[20px] font-semibold">{shipping}</h1>
+        <h1 className="text-[20px] font-semibold">{shipping}$</h1>
       </div>
       <Link
         href="/cart/checkout"
-        className="w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]"
+        className="flex justify-center items-center w-[90%] h-[40px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]"
       >
         PROCEED TO CHECKOUT
       </Link>
