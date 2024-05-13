@@ -178,7 +178,7 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <a className=" xl:grid grid-cols-2 gap-20">
+            <a className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
                   <div
@@ -187,7 +187,8 @@ export function Shopping() {
                   >
                     <AspectRatio
                       variant="outlined"
-                      ratio="4/3"
+                      ratio="4/4"
+                      className='col-start-2'
                       sx={{
                         width: "100%",
                         bgcolor: "background.level2",

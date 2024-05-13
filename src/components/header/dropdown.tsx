@@ -9,6 +9,7 @@ import { Box, Switch } from '@mui/joy';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
+import { quicksand } from '@/app/theme';
 
 export function DropDowns() {
     const [open, setOpen] = useState(false)
@@ -37,7 +38,7 @@ export function DropDowns() {
 }
 
 const sections = (
-    <div className='flex flex-col'>
+    <div className={`flex flex-col px-4 py-6 text-[25px] font-medium ${quicksand.className}`}>
         <a>Furniture</a>
         <a>Lighting</a>
         <a>Kids</a>
