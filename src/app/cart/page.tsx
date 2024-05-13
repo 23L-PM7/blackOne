@@ -24,11 +24,31 @@ export default function Home() {
       <Toaster position="top-center" />
       <Header />
       <div className="flex flex-col items-center">
-        <div className="flex flex-col justify-center items-center">
-          <h1 className={`${quicksand.className} text-[50px] h-[50px]`}>MY</h1>
-          <h2 className={`${cinzel.className} text-[50px] h-[54px]`}>CART</h2>
+        <div className="flex flex-col justify-center items-center lg:items-start lg:w-[90%] lg:h-[400px]">
+          <h1
+            className={`${quicksand.className} text-[50px] h-[50px] lg:text-[90px] lg:h-[90px]`}
+          >
+            MY
+          </h1>
+          <h2
+            className={`${cinzel.className} text-[50px] h-[54px] lg:text-[90px] lg:h-[94px]`}
+          >
+            CART
+          </h2>
         </div>
         <div className="w-[90%]">
+          <div className="mt-10 w-full hidden sm:flex border-[#343434] border-b-[1px]">
+            <h1 className={`${cinzel.className} text-[20px] w-[45%]`}>
+              PRODUCT
+            </h1>
+            <h1 className={`${cinzel.className} text-[20px] w-[17%]`}>PRICE</h1>
+            <h1 className={`${cinzel.className} text-[20px] w-[17%]`}>
+              QUANTITY
+            </h1>
+            <h1 className={`${cinzel.className} text-[20px] w-[17%]`}>
+              SUBTOTAL
+            </h1>
+          </div>
           {cart.cartItems.map((item, index) => (
             <CartItem key={555 - index} item={item} />
           ))}
