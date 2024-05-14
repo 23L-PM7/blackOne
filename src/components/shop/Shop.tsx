@@ -119,11 +119,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -137,11 +137,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                            "& svg": { opacity: focusVisible ? 1 : 0 },
-                            "&:hover svg": {
-                              opacity: 1,
-                            },
-                          }
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
                         : undefined,
                     }),
                   }}
@@ -162,7 +162,7 @@ export function Shopping() {
                     justifyContent: "space-between",
                     width: "100%",
                   }}
-                  sx={boxHover}
+
                 >
                   SORT BY
                   <GoPlus className="text-[30px]" />
