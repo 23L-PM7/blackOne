@@ -2,7 +2,6 @@
 import { quicksand, cinzel } from "@/app/theme";
 import { YourOrderItem } from "./yourOrderItem";
 import FormControl from "@mui/joy/FormControl";
-import Checkbox from "@mui/joy/Checkbox";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Accordion from "@mui/joy/Accordion";
@@ -10,7 +9,6 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { YourData } from "./yourdata";
-import Typography from "@mui/joy/Typography";
 import { useEffect, useState } from "react";
 import { useCart } from "../shop/useCart";
 
