@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useFurnitures } from "@/components/utility/utils";
 import { cinzel, quicksand } from "@/app/theme";
 import { AddToCart } from "@/components/shop/addtoCart";
@@ -27,9 +27,14 @@ export default function Home() {
 
   const decodedname = params.slug;
 
+  const scrollRef = useRef(null);
+
   useEffect(() => {
     async () => {
-      const locomotiveScroll = await new LocomotiveScroll();
+      const locomotiveScroll = await new LocomotiveScroll({
+        el: scrollRef.current ?? undefined,
+        smooth: true,
+      });
     };
   }, []);
 
@@ -39,8 +44,11 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <div className="w-screen h-screen overflow-scroll bg-[#EDECE9] text-[#343434] flex flex-col items-center gap-y-4">
+    <>
+      <div
+        ref={scrollRef}
+        className="bg-[#EDECE9] text-[#343434] flex flex-col items-center gap-y-4"
+      >
         <div
           className={`${quicksand.className} w-[90%] md:w-screen md:px-[40px] flex flex-col items-center gap-y-3`}
         >
@@ -110,6 +118,10 @@ export default function Home() {
           {single[0].details}
         </p>
         <h1
+          data-scroll
+          data-scroll-speed="2"
+          data-scroll-position="top"
+          data-scroll-direction="horizontal"
           className={`${cinzel.className} text-[25px] font-semibold md:text-[45px]`}
         >
           RELATED PRODUCTS
@@ -117,6 +129,6 @@ export default function Home() {
         <RelatedProducts />
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
