@@ -33,8 +33,23 @@ export function HomeItem(props: MainProps) {
         </div>
       </div>
       {/* desktop */}
-      <div className="hidden md:block w-[45%] h-full">
-        <h1 className={`${cinzel.className}`}>{item.name}</h1>
+      <div className="hidden md:flex w-[45%] h-[94%] flex-col justify-center gap-y-10 items-center">
+        <div className="w-[80%]">
+          <h1 className={`${cinzel.className} text-[35px]`}>{item.name}</h1>
+        </div>
+
+        <p className="text-[20px] w-[80%]">{item.details}</p>
+
+        <div className="flex w-[80%] gap-x-6">
+          <Link
+            onClick={() => empty()}
+            href={`/shop/${item.slug}`}
+            className="bg-[#A18565] text-[#F5F5F5] rounded-lg py-2 px-8 hover:bg-[#343434]"
+          >
+            View Product
+          </Link>
+          <HeartBlackSmall />
+        </div>
       </div>
     </div>
   );

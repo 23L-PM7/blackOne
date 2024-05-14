@@ -35,7 +35,6 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
       <div className="w-screen h-screen overflow-scroll bg-[#EDECE9] text-[#343434] flex flex-col items-center gap-y-4">
         <div
           className={`${quicksand.className} w-[90%] md:w-screen md:px-[40px] flex flex-col items-center gap-y-3`}
