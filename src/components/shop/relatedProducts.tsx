@@ -29,7 +29,7 @@ export function RelatedProducts() {
     const relatedProducts = reproducts.slice(0, 3);
 
     return (
-      <div className="w-full my-[50px] flex flex-col md:flex-row items-center gap-10 text-[#343434] md:px-10">
+      <div className="w-full my-[50px] flex flex-col md:flex-row items-center gap-10 text-[#343434] md:px-10 md:justify-around">
         {relatedProducts.map((item: any) => (
           <div
             key={item.slug}
