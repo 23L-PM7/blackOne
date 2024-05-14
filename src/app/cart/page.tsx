@@ -54,6 +54,7 @@ export default function Home() {
         </div>
         <CartTotals />
       </div>
+      <Footer />
     </div>
   );
 }

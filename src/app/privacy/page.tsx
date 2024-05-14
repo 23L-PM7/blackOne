@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/footer/Footer";
 import { cinzel, quicksand } from "../theme";
 
 export default function Home() {
@@ -217,6 +218,7 @@ export default function Home() {
           </p>
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }

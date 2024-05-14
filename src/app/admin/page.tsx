@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
 import Pagination from "@mui/material/Pagination";
 import { Loader } from "@/components/loader";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -63,6 +64,7 @@ export default function Home() {
         <Pagination page={currentPage} onChange={handlePage} count={pages} />
         <AdminModal />
       </div>
+      <Footer />
     </div>
   );
 }

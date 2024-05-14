@@ -16,7 +16,6 @@ export default function RootLayout({
       <body className={`${quicksand.className} text-[#343434]`}>
         <Header />
         {children}
-        <Footer />
       </body>
       {/* </CssVarsProvider> */}
     </html>

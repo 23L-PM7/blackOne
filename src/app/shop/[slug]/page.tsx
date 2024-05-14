@@ -15,6 +15,7 @@ import AccordionSummary, {
 import { Loader } from "@/components/loader";
 import { RelatedProducts } from "@/components/shop/relatedProducts";
 import LocomotiveScroll from "locomotive-scroll";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   // retrieve furnitures
@@ -25,6 +26,12 @@ export default function Home() {
   const params = useParams<{ slug: string }>();
 
   const decodedname = params.slug;
+
+  useEffect(() => {
+    async () => {
+      const locomotiveScroll = await new LocomotiveScroll();
+    };
+  }, []);
 
   if (single.length === 0) {
     loadSingleFurniture(decodedname);
@@ -109,6 +116,7 @@ export default function Home() {
         </h1>
         <RelatedProducts />
       </div>
+      <Footer />
     </div>
   );
 }
