@@ -2,19 +2,19 @@
 import { DropDowns } from "./dropdown";
 
 export const sectionlists = [
-  {
-    id: 1345676543,
-    title: "ORDERS",
-    link: "/",
-  },
+  // {
+  //   id: 1345676543,
+  //   title: "ORDERS",
+  //   link: "/",
+  // },
   {
     id: 22344,
     title: "ABOUT",
-    link: "/",
+    link: "/about",
   },
   {
     id: 334545342,
-    title: "PROJECT",
-    link: "/",
+    title: "PRIVACY",
+    link: "/privacy",
   },
 ];
