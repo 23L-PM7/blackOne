@@ -64,8 +64,7 @@ export function Header() {
                             </a>
                             {sectionlists.map((sectionlist) => (
                                 <Link key={sectionlist.id} href={sectionlist.link}>
-                                    <div
-                                        className={`hover:underline, hover:<DropDowns/> ${quicksand.className}`}
+                                    <div className={`hover:underline, hover:${quicksand.className}`}
                                     >
                                         {sectionlist.title}
                                     </div>

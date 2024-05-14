@@ -1,5 +1,6 @@
 "use client"
 import { quicksand } from '@/app/theme';
+import Link from 'next/link';
 import { useState } from 'react';
 
 
@@ -16,16 +17,17 @@ export function DropDowns() {
 
     return (
         <div className="dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <button className={`dropdown-toggle  ${quicksand.className}`}>SHOP</button>
-            {open && (
-                <ul className="dropdown-content absolute  p-2 shadow bg-white rounded-box w-52">
-                    <li><a>FURNITURE</a></li>
-                    <li><a>LIGHTING</a></li>
-                    <li><a>KIDS</a></li>
-                    <li><a>ACCESSORIES</a></li>
-                    <li><a>GIFTS</a></li>
-                </ul>
-            )
+            < button className={`dropdown-toggle  ${quicksand.className}`}>SHOP</button>
+            {
+                open && (
+                    <ul className="dropdown-content absolute  p-2 shadow bg-white rounded-box w-52">
+                        <li><a>FURNITURE</a></li>
+                        <li><a>LIGHTING</a></li>
+                        <li><a>KIDS</a></li>
+                        <li><a>ACCESSORIES</a></li>
+                        <li><a>GIFTS</a></li>
+                    </ul>
+                )
             }
         </div >
         // <Dropdown open={open}>
