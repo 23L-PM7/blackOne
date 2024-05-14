@@ -33,11 +33,14 @@ export function RelatedProducts() {
         {relatedProducts.map((item: any) => (
           <div
             key={item.slug}
-            className="w-[90%] md:w-[400px] flex flex-col gap-y-4"
+            className="w-[90%] md:w-[400px] flex flex-col gap-y-4 overflow-hidden"
           >
             <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
-              <div className="w-[400px] h-[400px] overflow-hidden">
-                <img src={item.picture} className="object-cover" />
+              <div className="w-full h-[400px] overflow-hidden">
+                <img
+                  src={item.picture}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div className="">
                 <div className="w-[60%] my-3 border-[#343434] border-t-[1px]"></div>
