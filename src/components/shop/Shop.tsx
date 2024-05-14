@@ -21,9 +21,6 @@ import Done from "@mui/icons-material/Done";
 import { useRouter } from "next/navigation";
 import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "../loader";
-import { Toaster } from "sonner";
-import { Title } from "../adminComponents/title";
-import { TemplateMain } from "../adminComponents/templateMain";
 import Pagination from "@mui/material/Pagination";
 import { ShopTemplate } from "./ShopTemplate";
 
@@ -166,6 +163,7 @@ export function Shopping() {
                     justifyContent: "space-between",
                     width: "100%",
                   }}
+                  sx={boxHover}
                 >
                   SORT BY
                   <GoPlus className="text-[30px]" />
