@@ -16,9 +16,9 @@ export function DropDowns() {
 
     return (
         <div className="dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <button className={`dropdown-toggle ${quicksand.className}`}>SHOP</button>
+            <button className={`dropdown-toggle  ${quicksand.className}`}>SHOP</button>
             {open && (
-                <ul className="dropdown-content absolute z-[1] menu p-2 shadow bg-white rounded-box w-52">
+                <ul className="dropdown-content absolute  p-2 shadow bg-white rounded-box w-52">
                     <li><a>FURNITURE</a></li>
                     <li><a>LIGHTING</a></li>
                     <li><a>KIDS</a></li>
