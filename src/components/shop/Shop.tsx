@@ -54,7 +54,6 @@ export function Shopping() {
     loadFurnitures();
   };
 
-
   React.useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
@@ -75,9 +74,9 @@ export function Shopping() {
   const boxHover = {
     boxShadow: 2,
     "&:hover": {
-      background: 'none'
-    }
-  }
+      background: "none",
+    },
+  };
 
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
@@ -123,11 +122,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                          "& svg": { opacity: focusVisible ? 1 : 0 },
-                          "&:hover svg": {
-                            opacity: 1,
-                          },
-                        }
+                            "& svg": { opacity: focusVisible ? 1 : 0 },
+                            "&:hover svg": {
+                              opacity: 1,
+                            },
+                          }
                         : undefined,
                     }),
                   }}
@@ -141,11 +140,11 @@ export function Shopping() {
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
                         ? {
-                          "& svg": { opacity: focusVisible ? 1 : 0 },
-                          "&:hover svg": {
-                            opacity: 1,
-                          },
-                        }
+                            "& svg": { opacity: focusVisible ? 1 : 0 },
+                            "&:hover svg": {
+                              opacity: 1,
+                            },
+                          }
                         : undefined,
                     }),
                   }}
@@ -177,7 +176,7 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <a className=" xl:grid grid-cols-2  gap-20">
+            <div className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link
                   key={345 - index}
@@ -225,12 +224,16 @@ export function Shopping() {
                 </Link>
               ))}
               <div className=" flex justify-center items-center mt-[120px]">
-                <Pagination page={currentPage} onChange={handlePage} count={pages} />
+                <Pagination
+                  page={currentPage}
+                  onChange={handlePage}
+                  count={pages}
+                />
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
