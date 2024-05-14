@@ -5,7 +5,7 @@ import { ArrowRight } from "../vectors/arrowright";
 export function FirstItem() {
   return (
     <div className="w-full h-full snap-start overflow-hidden flex-shrink-0 relative md:flex">
-      <div className="hidden w-full h-full md:block w-[50%]">
+      <div className="hidden w-full h-full md:block md:w-[50%]">
         <img
           src="https://www.karageorgiou.gr/wp-content/uploads/2022/11/TM4A8259.jpg"
           className="object-cover w-full h-full"
