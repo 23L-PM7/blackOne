@@ -1,6 +1,4 @@
 "use client";
-
-import { Header } from "@/components/header/Header";
 import { Loader } from "@/components/loader";
 import { useFurnitures } from "@/components/utility/utils";
 import { useEffect } from "react";
@@ -21,7 +19,6 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen flex flex-col bg-[#EDECE9] overflow-hidden">
-      <Header />
       <div className="grow">
         <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
           <FirstItem />
