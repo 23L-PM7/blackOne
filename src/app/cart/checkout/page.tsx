@@ -9,7 +9,6 @@ import { Header } from "@/components/header/Header";
 export default function Home() {
   return (
     <>
-      <Header />
       <div className="w-screen bg-[#EDECE9] text-[#343434] flex flex-col items-center gap-y-4">
         <div className="flex flex-col items-center w-[90%]">
           <div className="flex flex-col justify-center items-center sm:w-[95%] sm:items-start sm:h-[300px]">
@@ -30,7 +29,6 @@ export default function Home() {
           <YourOrder />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

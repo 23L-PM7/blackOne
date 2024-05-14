@@ -22,7 +22,6 @@ export default function Home() {
   return (
     <div className="w-screen h-screen overflow-scroll bg-[#EDECE9] text-[#343434] flex flex-col">
       <Toaster position="top-center" />
-      <Header />
       <div className="flex flex-col items-center">
         <div className="flex flex-col justify-center items-center lg:items-start lg:w-[90%] lg:h-[400px]">
           <h1
@@ -55,7 +54,6 @@ export default function Home() {
         </div>
         <CartTotals />
       </div>
-      <Footer />
     </div>
   );
 }
