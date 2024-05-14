@@ -21,7 +21,8 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen flex flex-col bg-[#EDECE9] overflow-hidden">
-      <div className="flex-grow">
+      <Header />
+      <div className="grow">
         <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
           <FirstItem />
           {furnitures.map((item: any) => (

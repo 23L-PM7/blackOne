@@ -31,10 +31,16 @@ export function RelatedProducts() {
     return (
       <div className="w-full my-[50px] flex flex-col md:flex-row items-center gap-10 text-[#343434] md:px-10">
         {relatedProducts.map((item: any) => (
-          <div key={item.slug} className="w-[90%] flex flex-col gap-y-4">
+          <div
+            key={item.slug}
+            className="w-[90%] md:w-[400px] flex flex-col gap-y-4 overflow-hidden"
+          >
             <Link onClick={() => empty()} href={`/shop/${item.slug}`}>
-              <div className="w-[400px] h-[400px] overflow-hidden">
-                <img src={item.picture} className="object-cover" />
+              <div className="w-full h-[400px] overflow-hidden">
+                <img
+                  src={item.picture}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <div className="">
                 <div className="w-[60%] my-3 border-[#343434] border-t-[1px]"></div>
@@ -46,7 +52,7 @@ export function RelatedProducts() {
                 </h1>
               </div>
             </Link>
-            <div className="w-full flex justify-between">
+            <div className="w-full flex justify-between md:justify-start md:gap-x-10">
               <Link
                 href={`/shop/${item.slug}`}
                 className={`bg-transparent text-[#A18565] ${quicksand.className} border-[#A18565] border-[1px] text-[20px] rounded-md px-4 py-1 hover:bg-[#A18565] hover:text-[#f5f5f5]`}

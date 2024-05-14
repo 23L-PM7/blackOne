@@ -2,7 +2,6 @@
 import { quicksand, cinzel } from "@/app/theme";
 import { YourOrderItem } from "./yourOrderItem";
 import FormControl from "@mui/joy/FormControl";
-import Checkbox from "@mui/joy/Checkbox";
 import Radio from "@mui/joy/Radio";
 import RadioGroup from "@mui/joy/RadioGroup";
 import Accordion from "@mui/joy/Accordion";
@@ -10,20 +9,42 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import { YourData } from "./yourdata";
-import Typography from "@mui/joy/Typography";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useCart } from "../shop/useCart";
 
 export function YourOrder() {
-  const [selectedValue, setSelectedValue] = useState("free");
+  const { cart }: any = useCart();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
+  const [shipping, setShipping] = useState(cart.totalAmount);
+  const [current, setCurrent] = useState("");
+
+  // shipping calculator
+  const handleChange = (e: any) => {
+    setCurrent(e.target.value);
+    if (e.target.value === "free") {
+      setShipping(cart.totalAmount);
+    } else if (e.target.value === "local") {
+      setShipping(cart.totalAmount);
+    } else if (e.target.value === "flat") {
+      const newPrice = cart.totalAmount + 10;
+      setShipping(newPrice);
+    }
   };
 
+  // quick feature
+  useEffect(() => {
+    setShipping(cart.totalAmount);
+    handleChange({
+      target: {
+        value: current,
+      },
+    });
+  }, [cart.totalAmount]);
+
   return (
-    <div className="w-[90%] flex flex-col gap-y-4 mt-[30px]">
+    <div className="w-[90%] sm:w-[50%] sm:items-start sm:p-10 flex flex-col gap-y-4 mt-[30px]">
       <div className="w-full my-[30px]">
-        <h1 className={`${cinzel.className} text-[26px]`}>BILLING DETAILS</h1>
+        <h1 className={`${cinzel.className} text-[26px]`}>YOUR ORDER</h1>
       </div>
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>PRODUCT</h1>
@@ -31,44 +52,45 @@ export function YourOrder() {
       </div>
 
       {/* mapping */}
-      <YourOrderItem />
+      {cart.cartItems.map((item: any, index: number) => (
+        <YourOrderItem key={432 - index} item={item} />
+      ))}
+
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>SUBTOTAL</h1>
-        <h1>3190$</h1>
+        <h1>{cart.totalAmount}$</h1>
       </div>
       <div className="flex flex-col">
         <FormControl>
-          <RadioGroup defaultValue="free" name="radio-buttons-group">
+          <RadioGroup
+            onChange={handleChange}
+            defaultValue="free"
+            name="radio-buttons-group"
+          >
             <Radio
               sx={{ flexDirection: "row-reverse" }}
               value="free"
               label="Free Shipping"
               variant="outlined"
-              checked={selectedValue === "free"}
-              onChange={handleChange}
             />
             <Radio
               sx={{ flexDirection: "row-reverse" }}
               value="local"
               label="Local Pickup"
               variant="outlined"
-              checked={selectedValue === "local"}
-              onChange={handleChange}
             />
             <Radio
               sx={{ flexDirection: "row-reverse" }}
               value="flat"
               label="Flatrate"
               variant="outlined"
-              checked={selectedValue === "flat"}
-              onChange={handleChange}
             />
           </RadioGroup>
         </FormControl>
       </div>
       <div className="w-full flex justify-between border-b-[1px] border-[#343434] py-3 text-[#343434]">
         <h1>TOTAL</h1>
-        <h1>3190$</h1>
+        <h1>{shipping}$</h1>
       </div>
       <div className="w-full my-[30px]">
         <h1 className={`${cinzel.className} text-[26px]`}>PAYMENT METHODS</h1>
@@ -123,6 +145,9 @@ export function YourOrder() {
         </RadioGroup>
       </AccordionGroup>
       <YourData />
+      <button className="hidden w-[60%] sm:block h-[50px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
+        PLACE ORDER
+      </button>
     </div>
   );
 }

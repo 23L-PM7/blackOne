@@ -11,7 +11,7 @@ export function YourData() {
   };
 
   return (
-    <div className="border-[#343434] border-t-[1px] pt-3 flex flex-col gap-y-3">
+    <div className="border-[#343434] border-t-[1px] pt-3 flex flex-col gap-y-3 sm:w-[60%]">
       <p>
         Your personal data will be used to process your order, support your
         experience throughout this website, and for other purposes described in
@@ -27,7 +27,7 @@ export function YourData() {
             color: "#A18565",
           }}
           label="I have read and agreed to the website"
-          checked={checked[0]}
+          checked={checked[1]}
           onChange={handleCheck}
         />
         <Link href="#">

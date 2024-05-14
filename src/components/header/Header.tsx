@@ -24,8 +24,6 @@ import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
 
-
-
 import { useCart } from "../shop/useCart";
 
 export function Header() {
@@ -61,10 +59,9 @@ export function Header() {
                         <div
                             className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}
                         >
-                            <div>
+                            <a className="transition hover:underline">
                                 <DropDowns />
-                            </div>
-
+                            </a>
                             {sectionlists.map((sectionlist) => (
                                 <Link key={sectionlist.id} href={sectionlist.link}>
                                     <div
@@ -192,9 +189,9 @@ export function TopDrawer(props: TopDrawerProps) {
     const { open, onToggleDrawerTop } = props;
 
     return (
-
         <Modal open={open} onClose={onToggleDrawerTop}>
-            <ModalDialog onClick={onToggleDrawerTop}
+            <ModalDialog
+                onClick={onToggleDrawerTop}
                 onKeyDown={onToggleDrawerTop}
                 color="warning"
                 layout="fullscreen"
@@ -205,7 +202,6 @@ export function TopDrawer(props: TopDrawerProps) {
                 <Typography>Modal title</Typography>
             </ModalDialog>
         </Modal>
-
 
         // <Box sx={{ display: "flex" }}>
         //     <JoyDrawer
@@ -278,15 +274,30 @@ export function DrawerMobile(props: BagDrawerProps) {
                         </div>
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
-                                <ListItem >
+                                <ListItem>
                                     <ListItemButton className="gap-2 flex flex-wrap  ">
-                                        <AspectRatio sx={{ width: '80%' }}>
+                                        <AspectRatio sx={{ width: "80%" }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
                                         <CiCircleRemove className="w-[20%] " />
-                                        <ListItemContent sx={{ flex: 'flex', justifyContent: 'flex-start' }} >
-                                            <Typography sx={{ ...cinzel.style }} fontWeight="lg" fontSize={22}>{item.name}</Typography>
-                                            <Typography textColor='black' fontSize={16} fontWeight="md" level="body-sm">{item.price} $</Typography>
+                                        <ListItemContent
+                                            sx={{ flex: "flex", justifyContent: "flex-start" }}
+                                        >
+                                            <Typography
+                                                sx={{ ...cinzel.style }}
+                                                fontWeight="lg"
+                                                fontSize={22}
+                                            >
+                                                {item.name}
+                                            </Typography>
+                                            <Typography
+                                                textColor="black"
+                                                fontSize={16}
+                                                fontWeight="md"
+                                                level="body-sm"
+                                            >
+                                                {item.price} $
+                                            </Typography>
                                         </ListItemContent>
                                     </ListItemButton>
                                 </ListItem>
@@ -299,12 +310,21 @@ export function DrawerMobile(props: BagDrawerProps) {
                         <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
                     </div>
                     <div className="flex gap-2 w-full mt-[30px] text-white">
-                        <button className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black">VIEW CART</button>
-                        <button className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black">CHECKOUT</button>
+                        <Link
+                            href="/cart"
+                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
+                        >
+                            VIEW CART
+                        </Link>
+                        <Link
+                            href="/cart/checkout"
+                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
+                        >
+                            CHECKOUT
+                        </Link>
                     </div>
-
                 </Box>
-            </JoyDrawer >
-        </Box >
+            </JoyDrawer>
+        </Box>
     );
 }

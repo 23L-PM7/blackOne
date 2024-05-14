@@ -18,6 +18,26 @@ export function HeartBlack() {
   );
 }
 
+export function HeartBlackSmall() {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 90 90"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M45.0264 79.6025L9.83407 47.7256C-9.29228 28.5992 18.8234 -8.1233 45.0264 21.5862C71.2293 -8.1233 99.218 28.7268 80.219 47.7256L45.0264 79.6025Z"
+        stroke="#343434"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function HeartBrown() {
   return (
     <svg
