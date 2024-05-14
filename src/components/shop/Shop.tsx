@@ -86,35 +86,13 @@ export function Shopping() {
             sx={{ maxWidth: 400, ...quicksand.style }}
             className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
-            <Accordion sx={boxHover}>
-              <AccordionSummary sx={boxHover}>CATEGORY</AccordionSummary>
-              <AccordionDetails>
-                <Checkbox
-                  className="bg-[#EDECE9]"
-                  color="neutral"
-                  label="KIDS"
-                  size="lg"
-                  variant="outlined"
-                />
-              </AccordionDetails>
-            </Accordion>
             <Accordion>
-              <AccordionSummary>MATERIAL</AccordionSummary>
-              <AccordionDetails>
+              <AccordionSummary >CATEGORY</AccordionSummary>
+              <AccordionDetails className='mt-[5px]'>
                 <Checkbox
-                  color="neutral"
-                  label="KIDS"
-                  size="lg"
-                  variant="outlined"
-                />
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary>COLOR</AccordionSummary>
-              <AccordionDetails>
-                <Checkbox
+                  className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="BLACK"
+                  label="FURNITURE"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -128,11 +106,11 @@ export function Shopping() {
                     }),
                   }}
                 >
-                  Beige, Blue, Brown , Gold
                 </Checkbox>
                 <Checkbox
+                  className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="Beige"
+                  label="LIGHTING"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -145,7 +123,44 @@ export function Shopping() {
                         : undefined,
                     }),
                   }}
-                />
+                >
+                </Checkbox>
+                <Checkbox
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="KIDS"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="GIFTS"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
               </AccordionDetails>
             </Accordion>
           </AccordionGroup>
@@ -232,6 +247,6 @@ export function Shopping() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
