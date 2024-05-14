@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { cinzel, quicksand } from "./theme";
 import { FirstItem } from "@/components/homeComponents/homePageFirst";
 import { HomeItem } from "@/components/homeComponents/homeItem";
+import LocomotiveScroll from "locomotive-scroll";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();

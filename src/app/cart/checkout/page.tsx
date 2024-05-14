@@ -29,6 +29,7 @@ export default function Home() {
           <YourOrder />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
