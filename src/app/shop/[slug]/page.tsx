@@ -3,7 +3,6 @@ import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useFurnitures } from "@/components/utility/utils";
 import { cinzel, quicksand } from "@/app/theme";
-import { HeartBrown } from "@/components/vectors/heart";
 import { AddToCart } from "@/components/shop/addtoCart";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import Accordion from "@mui/joy/Accordion";
@@ -15,8 +14,7 @@ import AccordionSummary, {
 } from "@mui/joy/AccordionSummary";
 import { Loader } from "@/components/loader";
 import { RelatedProducts } from "@/components/shop/relatedProducts";
-import { Header } from "@/components/header/Header";
-import { SasukeLoader } from "@/components/loader copy";
+import LocomotiveScroll from "locomotive-scroll";
 
 export default function Home() {
   // retrieve furnitures
