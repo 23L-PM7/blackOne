@@ -120,8 +120,6 @@ export default function Home() {
         <h1
           data-scroll
           data-scroll-speed="2"
-          data-scroll-position="top"
-          data-scroll-direction="horizontal"
           className={`${cinzel.className} text-[25px] font-semibold md:text-[45px]`}
         >
           RELATED PRODUCTS
