@@ -4,28 +4,20 @@ import AppBar from "@mui/material/AppBar";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Box from "@mui/joy/Box";
-import JoyDrawer from "@mui/joy/Drawer";
-import ListItem from "@mui/joy/ListItem";
-import ListItemButton from "@mui/joy/ListItemButton";
 import { Bag, Favorite, Remove, Search, UserPro } from "../items/HeaderIcons";
 import React, { useEffect, useState } from "react";
-import { CiCircleRemove } from "react-icons/ci";
 
-import AspectRatio from "@mui/joy/AspectRatio";
-import Typography from "@mui/joy/Typography";
-import ListDivider from "@mui/joy/ListDivider";
-import ListItemContent from "@mui/joy/ListItemContent";
+
 import Link from "next/link";
 import { sectionlists } from "./HeaderList";
 import { DropDowns } from "./dropdown";
-import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
 
 import { useCart } from "../shop/useCart";
 import { Drawer } from "./MenuDrawer";
 import { TopDrawer } from "./Search";
+import { DrawerMobile } from "./BagDrawer";
 
 export function Header() {
     const [isOpenDrawer, setIsOpenDrawer] = useState(false);
@@ -149,89 +141,3 @@ export function Header() {
 
 
 
-type BagDrawerProps = {
-    open: boolean;
-    onToggleDrawerBag: () => void;
-};
-
-export function DrawerMobile(props: BagDrawerProps) {
-    const { open, onToggleDrawerBag } = props;
-    const { cart } = useCart();
-
-    return (
-        <Box sx={{ display: "flex" }}>
-            <JoyDrawer
-                open={open}
-                onClose={onToggleDrawerBag}
-                anchor="right"
-                slotProps={{
-                    content: {
-                        sx: {
-                            backgroundColor: "white",
-                            padding: 2,
-                            overflow: "scroll",
-                        },
-                    },
-                }}
-            >
-                <Box sx={{}} onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
-                    <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
-                        <div className="flex justify-end">
-                            <Remove />
-                        </div>
-                        {cart.cartItems.map((item, index) => (
-                            <React.Fragment key={item.tempId}>
-                                <ListItem>
-                                    <ListItemButton className="gap-2 flex flex-wrap  ">
-                                        <AspectRatio sx={{ width: "80%" }}>
-                                            <img src={item.picture} alt={item.name} />
-                                        </AspectRatio>
-                                        <CiCircleRemove className="w-[20%] " />
-                                        <ListItemContent
-                                            sx={{ flex: "flex", justifyContent: "flex-start" }}
-                                        >
-                                            <Typography
-                                                sx={{ ...cinzel.style }}
-                                                fontWeight="lg"
-                                                fontSize={22}
-                                            >
-                                                {item.name}
-                                            </Typography>
-                                            <Typography
-                                                textColor="black"
-                                                fontSize={16}
-                                                fontWeight="md"
-                                                level="body-sm"
-                                            >
-                                                {item.price} $
-                                            </Typography>
-                                        </ListItemContent>
-                                    </ListItemButton>
-                                </ListItem>
-                                {index !== data.length - 1 && <ListDivider />}
-                            </React.Fragment>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <p>Subtotal:</p>
-                        <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
-                    </div>
-                    <div className="flex gap-2 w-full mt-[30px] text-white">
-                        <Link
-                            href="/cart"
-                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
-                        >
-                            VIEW CART
-                        </Link>
-                        <Link
-                            href="/cart/checkout"
-                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
-                        >
-                            CHECKOUT
-                        </Link>
-                    </div>
-                </Box>
-            </JoyDrawer>
-        </Box>
-    );
-}
