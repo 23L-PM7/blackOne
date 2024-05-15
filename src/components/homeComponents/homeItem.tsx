@@ -14,8 +14,8 @@ export function HomeItem(props: MainProps) {
   const { item } = props;
 
   return (
-    <div className="w-full h-screen snap-start snap-always overflow-hidden flex-shrink-0 flex">
-      <div className="w-full h-[94%] md:w-[55%] relative">
+    <div className="w-dvh h-dvh snap-start snap-always overflow-hidden flex-shrink-0 flex">
+      <div className="h-full md:w-[50%] relative">
         <img src={item.picture} className="object-cover h-full w-full" />
         <div className="absolute top-6 left-6 md:hidden">
           <h1 className={`text-[30px]`}>{item.name}</h1>
