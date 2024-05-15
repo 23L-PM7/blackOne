@@ -7,9 +7,8 @@ export default function About() {
     <div>
       <div className="flex items-center">
         <div className="w-[50%] h-full">
+          <h1 className={`${quicksand.className} text-[45px] h-[45px]`}>Our</h1>
           <h1 className={`${quicksand.className} text-[45px] h-[45px]`}>
-            Our
-            <br />
             Philosophy
           </h1>
         </div>
