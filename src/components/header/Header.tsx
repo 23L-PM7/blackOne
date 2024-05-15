@@ -87,6 +87,8 @@ export function Header() {
                 </button>
                 <UserPro />
                 <Favorite />
+                <a href="/api/auth/login">Login</a>
+                <a href="/api/auth/logout">Logout</a>
               </div>
 
               <button
