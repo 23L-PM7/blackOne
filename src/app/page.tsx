@@ -18,14 +18,12 @@ export default function Home() {
   }
 
   return (
-    <div className="w-dvh h-dvh bg-[#EDECE9] overflow-hidden">
-      <div className="grow">
-        <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
-          <FirstItem />
-          {furnitures.map((item: any) => (
-            <HomeItem key={item._id} item={item} />
-          ))}
-        </div>
+    <div className="w-dvh h-dvh bg-[#EDECE9]">
+      <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
+        <FirstItem />
+        {furnitures.map((item: any) => (
+          <HomeItem key={item._id} item={item} />
+        ))}
       </div>
     </div>
   );
