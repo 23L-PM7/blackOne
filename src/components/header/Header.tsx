@@ -46,7 +46,7 @@ export function Header() {
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
     return (
-        <div>
+        <div className="sticky top-0">
             <Stack sx={{ zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
                 <AppBar position="static">
                     <div className="p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between ">
@@ -59,9 +59,9 @@ export function Header() {
                         <div
                             className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}
                         >
-                            <a className="transition hover:underline">
+                            <div className="transition">
                                 <DropDowns />
-                            </a>
+                            </div>
                             {sectionlists.map((sectionlist) => (
                                 <Link key={sectionlist.id} href={sectionlist.link}>
                                     <div className={`hover:underline, hover:${quicksand.className}`}

@@ -172,12 +172,10 @@ export function Shopping() {
                   size="lg"
                   className={`text-[30px] md:text-[20px] `}
                   sx={{
-                    boxHover,
                     ...quicksand.style,
                     justifyContent: "space-between",
                     width: "100%",
                   }}
-
                 >
                   SORT BY
                   <GoPlus className="text-[30px]" />
