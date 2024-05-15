@@ -6,7 +6,11 @@ import { Header } from "@/components/header/Header";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import Footer from "@/components/footer/Footer";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+=======
+import { useRef } from "react";
+>>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
 =======
 import { useRef } from "react";
 >>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
