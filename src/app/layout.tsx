@@ -5,15 +5,7 @@ import customTheme, { quicksand } from "./theme";
 import { Header } from "@/components/header/Header";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import Footer from "@/components/footer/Footer";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { UserProvider } from "@auth0/nextjs-auth0/client";
-=======
 import { useRef } from "react";
->>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
-=======
-import { useRef } from "react";
->>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
 
 export default function RootLayout({
   children,
@@ -24,16 +16,6 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-<<<<<<< HEAD
-      <UserProvider>
-        {/* <CssVarsProvider theme={customTheme}> */}
-        <body className={`${quicksand.className} text-[#343434]`}>
-          <Header />
-          {children}
-        </body>
-        {/* </CssVarsProvider> */}
-      </UserProvider>
-=======
       {/* <CssVarsProvider theme={customTheme}> */}
       <body className={`${quicksand.className} text-[#343434]`}>
         <LocomotiveScrollProvider
@@ -57,7 +39,6 @@ export default function RootLayout({
         </LocomotiveScrollProvider>
       </body>
       {/* </CssVarsProvider> */}
->>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
     </html>
   );
 }
