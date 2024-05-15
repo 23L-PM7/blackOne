@@ -34,9 +34,9 @@ export default function RootLayout({
           containerRef={containerRef}
 
         >
-
+          <Header />
           <main data-scroll-container ref={containerRef}>
-            <Header />
+
             {children}
           </main>
         </LocomotiveScrollProvider>
