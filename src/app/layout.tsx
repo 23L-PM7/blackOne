@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       {/* <CssVarsProvider theme={customTheme}> */}
       <body className={`${quicksand.className} text-[#343434]`}>
+
         <LocomotiveScrollProvider
           options={{
             smooth: true,
@@ -31,12 +32,15 @@ export default function RootLayout({
             ]
           }
           containerRef={containerRef}
+
         >
+
           <main data-scroll-container ref={containerRef}>
             <Header />
             {children}
           </main>
         </LocomotiveScrollProvider>
+
       </body>
       {/* </CssVarsProvider> */}
     </html>

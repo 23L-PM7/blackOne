@@ -9,14 +9,13 @@ import JoyDrawer from "@mui/joy/Drawer";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton from "@mui/joy/ListItemButton";
 import { Bag, Favorite, Remove, Search, UserPro } from "../items/HeaderIcons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 
 import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItemContent from "@mui/joy/ListItemContent";
-import { Divider, Input, Modal, ModalClose, ModalDialog } from "@mui/joy";
 import Link from "next/link";
 import { sectionlists } from "./HeaderList";
 import { DropDowns } from "./dropdown";
@@ -25,6 +24,8 @@ import { cinzel, quicksand } from "@/app/theme";
 import { RiCloseLargeFill } from "react-icons/ri";
 
 import { useCart } from "../shop/useCart";
+import { Drawer } from "./MenuDrawer";
+import { TopDrawer } from "./Search";
 
 export function Header() {
     const [isOpenDrawer, setIsOpenDrawer] = useState(false);
@@ -32,6 +33,24 @@ export function Header() {
     const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
     const [openmenu, setOpenMenu] = useState(false);
     const { cart } = useCart();
+
+    const [header, setHeader] = useState(false);
+
+    // const scrollHeader = () => {
+    //     if (window.scrollBy >= 20) {
+    //         setHeader(true)
+    //     } else {
+    //         setHeader(true)
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', scrollHeader)
+    //     return () => {
+    //         window.addEventListener('scroll', scrollHeader)
+    //     }
+    // }, [])
+
 
     const handleClick = () => {
         setOpenMenu(!openmenu);
@@ -46,8 +65,8 @@ export function Header() {
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
     return (
-        <div className="sticky top-0">
-            <Stack sx={{ boxShadow: "none", zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
+        <div className={'fixed z-50 top-0 left-0 right-0 '}>
+            <Stack sx={{ boxShadow: "none", zIndex: 6000, ...cinzel.style }} >
                 <AppBar sx={{
                     boxShadow: "none",
                 }} position="static">
@@ -126,122 +145,9 @@ export function Header() {
     );
 }
 
-type DrawerProps = {
-    open: boolean;
-    onToggleDrawer: () => void;
-};
 
-export function Drawer(props: DrawerProps) {
-    const { open, onToggleDrawer } = props;
 
-    return (
-        <Box sx={{ display: "flex", ...cinzel.style }}>
-            <JoyDrawer
-                open={open}
-                variant="plain"
-                onClose={onToggleDrawer}
-                className="border-none"
-                slotProps={{
-                    content: {
-                        sx: {
-                            width: "100%",
-                            backgroundColor: "rgba(237, 236, 233, 1)",
-                        },
-                    },
-                }}
-            >
-                <Box
-                    sx={{
-                        padding: 4,
-                        marginTop: 10,
-                        marginLeft: 2,
-                        borderBottom: "none",
-                    }}
-                    onClick={onToggleDrawer}
-                    onKeyDown={onToggleDrawer}
-                >
-                    <div className="flex items-center gap-4 md:hidden ">
-                        <Search />
-                        <UserPro />
-                        <Favorite />
-                    </div>
-                    <Divider />
-                    <div className="flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  ">
-                        {/* className='flex justify-start' */}
-                        <DropDowns />
-                        {sectionlists.map((sectionlist) => (
-                            <Link key={sectionlist.id} href={sectionlist.link}>
-                                {sectionlist.title}
-                            </Link>
-                        ))}
-                    </div>
-                </Box>
-            </JoyDrawer>
-        </Box>
-    );
-}
 
-type TopDrawerProps = {
-    open: boolean;
-    onToggleDrawerTop: () => void;
-};
-
-export function TopDrawer(props: TopDrawerProps) {
-    const { open, onToggleDrawerTop } = props;
-
-    return (
-        <Modal open={open} onClose={onToggleDrawerTop}>
-            <ModalDialog
-                onClick={onToggleDrawerTop}
-                onKeyDown={onToggleDrawerTop}
-                color="warning"
-                layout="fullscreen"
-                size="lg"
-                variant="soft"
-            >
-                <ModalClose />
-                <Typography>Modal title</Typography>
-            </ModalDialog>
-        </Modal>
-
-        // <Box sx={{ display: "flex" }}>
-        //     <JoyDrawer
-        //         open={open}
-        //         onClose={onToggleDrawerTop}
-        //         slotProps={{
-        //             content: {
-        //                 sx: {
-        //                     width: "100%",
-        //                     backgroundColor: "rgba(237, 236, 233, 1)",
-        //                 },
-        //             },
-        //         }}
-        //     >
-        //         <Box
-        //             sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
-        //             onClick={onToggleDrawerTop}
-        //             onKeyDown={onToggleDrawerTop}
-        //         >
-        //             <div className="flex items-center gap-4 md:hidden">
-        //                 <Search />
-        //                 <UserPro />
-        //                 <Favorite />
-        //             </div>
-        //             <Divider />
-        //             <div className="flex justify-center">
-        //                 <Input
-        //                     color="neutral"
-        //                     disabled={false}
-        //                     placeholder="Search Products..."
-        //                     size="lg"
-        //                     variant="plain"
-        //                 />
-        //             </div>
-        //         </Box>
-        //     </JoyDrawer>
-        // </Box>
-    );
-}
 
 type BagDrawerProps = {
     open: boolean;
