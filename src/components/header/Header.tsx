@@ -27,28 +27,115 @@ import { RiCloseLargeFill } from "react-icons/ri";
 import { useCart } from "../shop/useCart";
 
 export function Header() {
-    const [isOpenDrawer, setIsOpenDrawer] = useState(false);
-    const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
-    const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
-    const [openmenu, setOpenMenu] = useState(false);
-    const { cart } = useCart();
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+  const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
+  const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
+  const [openmenu, setOpenMenu] = useState(false);
+  const { cart } = useCart();
 
-    const handleClick = () => {
-        setOpenMenu(!openmenu);
-    };
+  const handleClick = () => {
+    setOpenMenu(!openmenu);
+  };
 
-    const combined = () => {
-        toggleDrawer();
-        handleClick();
-    };
+  const combined = () => {
+    toggleDrawer();
+    handleClick();
+  };
 
+<<<<<<< HEAD
+  const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer);
+  const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
+  const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
+  return (
+    <div>
+      <Stack sx={{ zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
+        <AppBar position="static">
+          <div className="p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between ">
+            <a href="/">
+              <img
+                src="/images/logo.png"
+                className="w-[150px] h-auto lg:w-[300px] text-6xl"
+              />
+            </a>
+            <div
+              className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}
+            >
+              <a className="transition hover:underline">
+                <DropDowns />
+              </a>
+              {sectionlists.map((sectionlist) => (
+                <Link key={sectionlist.id} href={sectionlist.link}>
+                  <div
+                    className={`hover:underline, hover:${quicksand.className}`}
+                  >
+                    {sectionlist.title}
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="items-center flex gap-4">
+              <div className="items-center gap-6 hidden md:flex text-[40px]">
+                <button onClick={toggleDrawerBagTop}>
+                  <Search />
+                </button>
+                <UserPro />
+                <Favorite />
+                <a href="/api/auth/login">Login</a>
+                <a href="/api/auth/logout">Logout</a>
+              </div>
+
+              <button
+                className="p-2 flex items-center text-black z-50"
+                onClick={toggleDrawerBag}
+              >
+                {" "}
+                <Bag />({cart.cartItems.length})
+              </button>
+              <div className="2xl:hidden ">
+                <IconButton
+                  edge="start"
+                  sx={{
+                    color: "black",
+                  }}
+                  aria-label="menu"
+                  // sx={{ mr: 2, }}
+                  onClick={combined}
+                >
+                  {openmenu ? (
+                    <RiCloseLargeFill className="text-[30px] md:text-[40px]" />
+                  ) : (
+                    <MenuIcon
+                      sx={{ fontSize: "30px" }}
+                      className="md:text-[40px]"
+                    />
+                  )}
+                </IconButton>
+              </div>
+            </div>
+          </div>
+        </AppBar>
+        <Drawer open={isOpenDrawer} onToggleDrawer={toggleDrawer} />
+        <DrawerMobile
+          open={bagOpenDrawer}
+          onToggleDrawerBag={toggleDrawerBag}
+        />
+        <TopDrawer
+          open={isOpenDrawerTop}
+          onToggleDrawerTop={toggleDrawerBagTop}
+        />
+      </Stack>
+    </div>
+  );
+=======
     const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer);
     const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
     return (
-        <div>
-            <Stack sx={{ zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
-                <AppBar position="static">
+        <div className="sticky top-0">
+            <Stack sx={{ boxShadow: "none", zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
+                <AppBar sx={{
+                    boxShadow: "none",
+                }} position="static">
                     <div className="p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between ">
                         <a href="/">
                             <img
@@ -59,9 +146,9 @@ export function Header() {
                         <div
                             className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}
                         >
-                            <a className="transition hover:underline">
+                            <div className="transition">
                                 <DropDowns />
-                            </a>
+                            </div>
                             {sectionlists.map((sectionlist) => (
                                 <Link key={sectionlist.id} href={sectionlist.link}>
                                     <div className={`hover:underline, hover:${quicksand.className}`}
@@ -120,210 +207,211 @@ export function Header() {
                     onToggleDrawerTop={toggleDrawerBagTop}
                 />
             </Stack>
-        </div>
+        </div >
     );
+>>>>>>> a22e8a618cf9f0cdcd66e5c9cb986e62a255a880
 }
 
 type DrawerProps = {
-    open: boolean;
-    onToggleDrawer: () => void;
+  open: boolean;
+  onToggleDrawer: () => void;
 };
 
 export function Drawer(props: DrawerProps) {
-    const { open, onToggleDrawer } = props;
+  const { open, onToggleDrawer } = props;
 
-    return (
-        <Box sx={{ display: "flex", ...cinzel.style }}>
-            <JoyDrawer
-                open={open}
-                variant="plain"
-                onClose={onToggleDrawer}
-                className="border-none"
-                slotProps={{
-                    content: {
-                        sx: {
-                            width: "100%",
-                            backgroundColor: "rgba(237, 236, 233, 1)",
-                        },
-                    },
-                }}
-            >
-                <Box
-                    sx={{
-                        padding: 4,
-                        marginTop: 10,
-                        marginLeft: 2,
-                        borderBottom: "none",
-                    }}
-                    onClick={onToggleDrawer}
-                    onKeyDown={onToggleDrawer}
-                >
-                    <div className="flex items-center gap-4 md:hidden ">
-                        <Search />
-                        <UserPro />
-                        <Favorite />
-                    </div>
-                    <Divider />
-                    <div className="flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  ">
-                        {/* className='flex justify-start' */}
-                        <DropDowns />
-                        {sectionlists.map((sectionlist) => (
-                            <Link key={sectionlist.id} href={sectionlist.link}>
-                                {sectionlist.title}
-                            </Link>
-                        ))}
-                    </div>
-                </Box>
-            </JoyDrawer>
+  return (
+    <Box sx={{ display: "flex", ...cinzel.style }}>
+      <JoyDrawer
+        open={open}
+        variant="plain"
+        onClose={onToggleDrawer}
+        className="border-none"
+        slotProps={{
+          content: {
+            sx: {
+              width: "100%",
+              backgroundColor: "rgba(237, 236, 233, 1)",
+            },
+          },
+        }}
+      >
+        <Box
+          sx={{
+            padding: 4,
+            marginTop: 10,
+            marginLeft: 2,
+            borderBottom: "none",
+          }}
+          onClick={onToggleDrawer}
+          onKeyDown={onToggleDrawer}
+        >
+          <div className="flex items-center gap-4 md:hidden ">
+            <Search />
+            <UserPro />
+            <Favorite />
+          </div>
+          <Divider />
+          <div className="flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  ">
+            {/* className='flex justify-start' */}
+            <DropDowns />
+            {sectionlists.map((sectionlist) => (
+              <Link key={sectionlist.id} href={sectionlist.link}>
+                {sectionlist.title}
+              </Link>
+            ))}
+          </div>
         </Box>
-    );
+      </JoyDrawer>
+    </Box>
+  );
 }
 
 type TopDrawerProps = {
-    open: boolean;
-    onToggleDrawerTop: () => void;
+  open: boolean;
+  onToggleDrawerTop: () => void;
 };
 
 export function TopDrawer(props: TopDrawerProps) {
-    const { open, onToggleDrawerTop } = props;
+  const { open, onToggleDrawerTop } = props;
 
-    return (
-        <Modal open={open} onClose={onToggleDrawerTop}>
-            <ModalDialog
-                onClick={onToggleDrawerTop}
-                onKeyDown={onToggleDrawerTop}
-                color="warning"
-                layout="fullscreen"
-                size="lg"
-                variant="soft"
-            >
-                <ModalClose />
-                <Typography>Modal title</Typography>
-            </ModalDialog>
-        </Modal>
+  return (
+    <Modal open={open} onClose={onToggleDrawerTop}>
+      <ModalDialog
+        onClick={onToggleDrawerTop}
+        onKeyDown={onToggleDrawerTop}
+        color="warning"
+        layout="fullscreen"
+        size="lg"
+        variant="soft"
+      >
+        <ModalClose />
+        <Typography>Modal title</Typography>
+      </ModalDialog>
+    </Modal>
 
-        // <Box sx={{ display: "flex" }}>
-        //     <JoyDrawer
-        //         open={open}
-        //         onClose={onToggleDrawerTop}
-        //         slotProps={{
-        //             content: {
-        //                 sx: {
-        //                     width: "100%",
-        //                     backgroundColor: "rgba(237, 236, 233, 1)",
-        //                 },
-        //             },
-        //         }}
-        //     >
-        //         <Box
-        //             sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
-        //             onClick={onToggleDrawerTop}
-        //             onKeyDown={onToggleDrawerTop}
-        //         >
-        //             <div className="flex items-center gap-4 md:hidden">
-        //                 <Search />
-        //                 <UserPro />
-        //                 <Favorite />
-        //             </div>
-        //             <Divider />
-        //             <div className="flex justify-center">
-        //                 <Input
-        //                     color="neutral"
-        //                     disabled={false}
-        //                     placeholder="Search Products..."
-        //                     size="lg"
-        //                     variant="plain"
-        //                 />
-        //             </div>
-        //         </Box>
-        //     </JoyDrawer>
-        // </Box>
-    );
+    // <Box sx={{ display: "flex" }}>
+    //     <JoyDrawer
+    //         open={open}
+    //         onClose={onToggleDrawerTop}
+    //         slotProps={{
+    //             content: {
+    //                 sx: {
+    //                     width: "100%",
+    //                     backgroundColor: "rgba(237, 236, 233, 1)",
+    //                 },
+    //             },
+    //         }}
+    //     >
+    //         <Box
+    //             sx={{ padding: 4, marginTop: 10, marginLeft: 2 }}
+    //             onClick={onToggleDrawerTop}
+    //             onKeyDown={onToggleDrawerTop}
+    //         >
+    //             <div className="flex items-center gap-4 md:hidden">
+    //                 <Search />
+    //                 <UserPro />
+    //                 <Favorite />
+    //             </div>
+    //             <Divider />
+    //             <div className="flex justify-center">
+    //                 <Input
+    //                     color="neutral"
+    //                     disabled={false}
+    //                     placeholder="Search Products..."
+    //                     size="lg"
+    //                     variant="plain"
+    //                 />
+    //             </div>
+    //         </Box>
+    //     </JoyDrawer>
+    // </Box>
+  );
 }
 
 type BagDrawerProps = {
-    open: boolean;
-    onToggleDrawerBag: () => void;
+  open: boolean;
+  onToggleDrawerBag: () => void;
 };
 
 export function DrawerMobile(props: BagDrawerProps) {
-    const { open, onToggleDrawerBag } = props;
-    const { cart } = useCart();
+  const { open, onToggleDrawerBag } = props;
+  const { cart } = useCart();
 
-    return (
-        <Box sx={{ display: "flex" }}>
-            <JoyDrawer
-                open={open}
-                onClose={onToggleDrawerBag}
-                anchor="right"
-                slotProps={{
-                    content: {
-                        sx: {
-                            backgroundColor: "white",
-                            padding: 2,
-                            overflow: "scroll",
-                        },
-                    },
-                }}
+  return (
+    <Box sx={{ display: "flex" }}>
+      <JoyDrawer
+        open={open}
+        onClose={onToggleDrawerBag}
+        anchor="right"
+        slotProps={{
+          content: {
+            sx: {
+              backgroundColor: "white",
+              padding: 2,
+              overflow: "scroll",
+            },
+          },
+        }}
+      >
+        <Box sx={{}} onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
+          <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
+            <div className="flex justify-end">
+              <Remove />
+            </div>
+            {cart.cartItems.map((item, index) => (
+              <React.Fragment key={item.tempId}>
+                <ListItem>
+                  <ListItemButton className="gap-2 flex flex-wrap  ">
+                    <AspectRatio sx={{ width: "80%" }}>
+                      <img src={item.picture} alt={item.name} />
+                    </AspectRatio>
+                    <CiCircleRemove className="w-[20%] " />
+                    <ListItemContent
+                      sx={{ flex: "flex", justifyContent: "flex-start" }}
+                    >
+                      <Typography
+                        sx={{ ...cinzel.style }}
+                        fontWeight="lg"
+                        fontSize={22}
+                      >
+                        {item.name}
+                      </Typography>
+                      <Typography
+                        textColor="black"
+                        fontSize={16}
+                        fontWeight="md"
+                        level="body-sm"
+                      >
+                        {item.price} $
+                      </Typography>
+                    </ListItemContent>
+                  </ListItemButton>
+                </ListItem>
+                {index !== data.length - 1 && <ListDivider />}
+              </React.Fragment>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <p>Subtotal:</p>
+            <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
+          </div>
+          <div className="flex gap-2 w-full mt-[30px] text-white">
+            <Link
+              href="/cart"
+              className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
             >
-                <Box sx={{}} onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
-                    <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
-                        <div className="flex justify-end">
-                            <Remove />
-                        </div>
-                        {cart.cartItems.map((item, index) => (
-                            <React.Fragment key={item.tempId}>
-                                <ListItem>
-                                    <ListItemButton className="gap-2 flex flex-wrap  ">
-                                        <AspectRatio sx={{ width: "80%" }}>
-                                            <img src={item.picture} alt={item.name} />
-                                        </AspectRatio>
-                                        <CiCircleRemove className="w-[20%] " />
-                                        <ListItemContent
-                                            sx={{ flex: "flex", justifyContent: "flex-start" }}
-                                        >
-                                            <Typography
-                                                sx={{ ...cinzel.style }}
-                                                fontWeight="lg"
-                                                fontSize={22}
-                                            >
-                                                {item.name}
-                                            </Typography>
-                                            <Typography
-                                                textColor="black"
-                                                fontSize={16}
-                                                fontWeight="md"
-                                                level="body-sm"
-                                            >
-                                                {item.price} $
-                                            </Typography>
-                                        </ListItemContent>
-                                    </ListItemButton>
-                                </ListItem>
-                                {index !== data.length - 1 && <ListDivider />}
-                            </React.Fragment>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <p>Subtotal:</p>
-                        <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
-                    </div>
-                    <div className="flex gap-2 w-full mt-[30px] text-white">
-                        <Link
-                            href="/cart"
-                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
-                        >
-                            VIEW CART
-                        </Link>
-                        <Link
-                            href="/cart/checkout"
-                            className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
-                        >
-                            CHECKOUT
-                        </Link>
-                    </div>
-                </Box>
-            </JoyDrawer>
+              VIEW CART
+            </Link>
+            <Link
+              href="/cart/checkout"
+              className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
+            >
+              CHECKOUT
+            </Link>
+          </div>
         </Box>
-    );
+      </JoyDrawer>
+    </Box>
+  );
 }

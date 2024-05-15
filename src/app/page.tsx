@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { cinzel, quicksand } from "./theme";
 import { FirstItem } from "@/components/homeComponents/homePageFirst";
 import { HomeItem } from "@/components/homeComponents/homeItem";
-import LocomotiveScroll from "locomotive-scroll";
 
 export default function Home() {
   const { furnitures, loadFurnitures }: any = useFurnitures();
@@ -19,14 +18,12 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-[#EDECE9] overflow-hidden">
-      <div className="grow">
-        <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex">
-          <FirstItem />
-          {furnitures.map((item: any) => (
-            <HomeItem key={item._id} item={item} />
-          ))}
-        </div>
+    <div className="w-dvh h-dvh bg-[#EDECE9]">
+      <div className="w-full h-full overflow-x-scroll snap-x snap-mandatory flex z-0">
+        <FirstItem />
+        {furnitures.map((item: any) => (
+          <HomeItem key={item._id} item={item} />
+        ))}
       </div>
     </div>
   );
