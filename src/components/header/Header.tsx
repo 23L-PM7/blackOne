@@ -47,8 +47,10 @@ export function Header() {
     const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
     return (
         <div className="sticky top-0">
-            <Stack sx={{ zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
-                <AppBar position="static">
+            <Stack sx={{ boxShadow: "none", zIndex: 6000, ...cinzel.style }} className="sticky top-0 ">
+                <AppBar sx={{
+                    boxShadow: "none",
+                }} position="static">
                     <div className="p-2 md:px-[30px] md:py-[15px] flex  bg-[#EDECE9] items-center justify-between ">
                         <a href="/">
                             <img
@@ -120,7 +122,7 @@ export function Header() {
                     onToggleDrawerTop={toggleDrawerBagTop}
                 />
             </Stack>
-        </div>
+        </div >
     );
 }
 

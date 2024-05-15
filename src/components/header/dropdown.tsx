@@ -1,7 +1,7 @@
 "use client"
 import { cinzel, quicksand } from '@/app/theme';
+import Link from 'next/link';
 import { useState } from 'react';
-import Link from '@mui/joy/Link';
 
 
 
@@ -40,13 +40,13 @@ export function DropDowns() {
 
 
     return (
-        <div className="dropdown" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-            <Link href="/shop" className='text-black' underline="none">
+        <div className="dropdown z-10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+            <Link href="/shop" className='text-[#343434]'>
                 < button className={`dropdown-toggle text-[18px] ${cinzel.className}`}>SHOP</button>
             </Link>
             {
                 open && (
-                    <ul className="dropdown-content absolute  p-2 shadow bg-white rounded-box w-52 z-50">
+                    <ul className="dropdown-content absolute  p-2 shadow bg-white rounded-box w-52 z-20">
                         {categorylists.map((categorylist) => (
                             <li className='mb-[5px]'><a>{categorylist.title}</a></li>
                         ))}
