@@ -87,12 +87,20 @@ export function Header() {
               ))}
             </div>
             <div className="items-center flex md:gap-6 justify-center">
-              <button className="p-2 flex items-center text-black z-50" onClick={toggleDrawerBagTop}>
+              <button
+                className="p-2 flex items-center text-black z-50"
+                onClick={toggleDrawerBagTop}
+              >
                 <Search />
               </button>
               <div className="items-center gap-6 hidden md:flex text-[40px]">
                 <UserPro />
                 <Favorite />
+                <div>
+                  {" "}
+                  <a href="/api/auth/login">Login</a>
+                  <a href="/api/auth/logout">Logout</a>
+                </div>
               </div>
 
               <button
