@@ -86,7 +86,7 @@ export function Header() {
                 </Link>
               ))}
             </div>
-            <div className="items-center flex justify-center">
+            <div className="items-center flex md:gap-6 justify-center">
               <button className="p-2 flex items-center text-black z-50" onClick={toggleDrawerBagTop}>
                 <Search />
               </button>
