@@ -15,8 +15,10 @@ export default function About() {
         <div className="w-[50%] h-[50%]">
           <img src="images/purplee.jpeg" />
 
-          <div className="">
-            <p className={`${quicksand.className} text-[20px] gap-[30px] `}>
+          <div className="w-[50%]">
+            <p
+              className={`${quicksand.className} pt-[20px] text-[20px] gap-[30px] `}
+            >
               Introducing Karageorgiou Interiors by emphatically referring to
               their century-long heritage of artfully crafting endearing pieces
               of furniture, exceptionally designing interiors, and eclectically
@@ -36,8 +38,10 @@ export default function About() {
         </div>
       </div>
 
-      <div>
-        <h1 className={`${quicksand.className} text-[25px] `}>
+      <div className="w-[90%]">
+        <h1
+          className={`${quicksand.className} pt-[100px] pb-[100px] text-[30px] opacity-5 `}
+        >
           Creating not just a space that you inhabit, but a home you feel
           yourself in; a place with design and quality you simply find
           comforting and familiar.{" "}
@@ -48,7 +52,9 @@ export default function About() {
         <img className="h-[80dvh]" src="images/black.jpeg" />
       </div>
       <div>
-        <p className={`${quicksand.className} text-[20px] gap-[20px] `}>
+        <p
+          className={`${quicksand.className} pt-[20px] text-[20px] gap-[20px] `}
+        >
           In the beginning - in 1934, that is, when George Karageorgiou created
           his workshop in Kypseli -, there was skilled craftsmanship infused
           with instinctive creativity. Starting from this solid foundation, the
@@ -80,23 +86,80 @@ export default function About() {
         </p>
       </div>
       <div>
-        <h1 className={`${cinzel.className} text-center text-[70px] h-[70px]`}>
+        <h1
+          className={`${cinzel.className} my-[20px] text-center text-[70px] h-[70px]`}
+        >
           FAMILY VALUES
         </h1>
       </div>
-      <div className="relative pl-6 flex">
+      <div className="flex">
+        <div className="relative pl-6 flex">
+          <h1
+            className="absolute left-0 bottom-0"
+            style={{
+              writingMode: "vertical-rl",
+              textOrientation: "mixed",
+              transform: "scale(-1,-1)",
+            }}
+          >
+            LE CROISSANT TIM COOK
+          </h1>
+          <img src="images/boss.jpeg" />
+        </div>
+        <div className="relative pl-6 flex">
+          <img src="images/image.png" />
+          <h1
+            className="absolute left-0 bottom-0"
+            style={{
+              writingMode: "vertical-rl",
+              textOrientation: "mixed",
+              transform: "scale(-1,-1)",
+            }}
+          >
+            LE CROISSANT FLIP
+          </h1>
+        </div>
+        <div className="relative pl-6 flex">
+          <img src="images/woman.jpeg" />
+          <h1
+            className="absolute left-0 bottom-0"
+            style={{
+              writingMode: "vertical-rl",
+              textOrientation: "mixed",
+              transform: "scale(-1,-1)",
+            }}
+          >
+            LE CROISSANT DESIGNER
+          </h1>
+        </div>
+      </div>
+      <div>
         <h1
-          className="absolute left-0 bottom-0"
-          style={{
-            writingMode: "vertical-rl",
-            textOrientation: "mixed",
-            transform: "scale(-1,-1)",
-          }}
+          className={`${quicksand.className} text-[20px] pt-[50px] gap-[20px] `}
         >
-          TIM COOK LE CROISSANT
+          Inspired by his father, Stelios Karageorgiou, with an eye for
+          avant-garde design, went one step further, to become a pioneer in
+          importing objects created by Italian artisans, through exclusive
+          partnerships for Greece. Furthermore, growing in such a creative
+          environment meant that he had learned to respect people and their
+          stories, and that he realized the importance of personal relationships
+          in the process of creating objects of high quality and aesthetic value
+          that complete, rather than decorate, a space. This philosophy is
+          applied to every decision, suggestion, creation, and collaboration of
+          Karageorgiou Interiors, and it is the reason why the company has
+          grown, moved to a modern space in Psychiko, and built a rich portfolio
+          of different projects, in Greece and abroad. In fact, the company
+          prides on its “hereditary” clients, people that come back to
+          Karageorgiou Interiors for any new project, and for the projects of
+          their children, carrying on an unofficial tradition. Today, Aspa and
+          Eleana Karageorgiou, the third generation, bring their fresh creative
+          take to the concepts, the ideas, and creations of the company. Forged
+          with the values of a successful business, they have both developed a
+          strong opinion about creativity and the endless possibilities of
+          design, driving Karageorgiou Interiors into the future, with a keen
+          eye for style and quality, well-informed about new trends, offering
+          elevated aesthetics with layered interiors.
         </h1>
-        <img className="w-[30%] " src="images/boss.jpeg" />
-        <img src="images/image.png" />
       </div>
       <Footer />
     </div>
