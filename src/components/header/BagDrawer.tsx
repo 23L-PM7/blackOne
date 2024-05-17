@@ -12,6 +12,7 @@ import { CiCircleRemove } from "react-icons/ci";
 import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
+import { toast } from "sonner";
 
 
 type BagDrawerProps = {
@@ -19,9 +20,24 @@ type BagDrawerProps = {
     onToggleDrawerBag: () => void;
 };
 
+type MainProps = {
+    item: any;
+};
+
+
 export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props;
-    const { cart } = useCart();
+    const { cart, removeCart } = useCart();
+
+
+    const confirm = (id: string, name: string) => {
+        toast(`About to remove cart Item ${name}`, {
+            action: {
+                label: "Confirm",
+                onClick: () => removeCart(id),
+            },
+        });
+    };
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -47,11 +63,16 @@ export function DrawerMobile(props: BagDrawerProps) {
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem>
-                                    <ListItemButton className="gap-2 flex flex-wrap  ">
+                                    <ListItemButton className="gap-2 flex flex-wrap items-start ">
                                         <AspectRatio sx={{ width: "80%" }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
-                                        <CiCircleRemove className="w-[20%] " />
+                                        <button
+                                            onClick={() => confirm(item.tempId, item.name)}
+                                            className=" sm:block w-10 h-10 border-[1px] border-[#343434] rounded-full p-1   hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]"
+                                        >
+                                            X
+                                        </button>
                                         <ListItemContent
                                             sx={{ flex: "flex", justifyContent: "flex-start" }}
                                         >
