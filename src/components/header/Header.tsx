@@ -88,7 +88,7 @@ export function Header() {
             </div>
             <div className="items-center flex md:gap-6 justify-center">
               <button
-                className="p-2 flex items-center text-black z-50"
+                className="p-2 items-center text-black z-50 hidden md:flex"
                 onClick={toggleDrawerBagTop}
               >
                 <Search />
@@ -104,13 +104,13 @@ export function Header() {
               </div>
 
               <button
-                className="p-2 flex items-center text-black z-50"
+                className="p-2 flex items-center text-black z-10"
                 onClick={toggleDrawerBag}
               >
                 {" "}
                 <Bag />({cart.cartItems.length})
               </button>
-              <div className="2xl:hidden ">
+              <div className="2xl:hidden z-10">
                 <IconButton
                   edge="start"
                   sx={{
