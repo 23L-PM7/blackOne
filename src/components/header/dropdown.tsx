@@ -42,7 +42,7 @@ export function DropDowns() {
     return (
         <div className="dropdown z-10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
             <Link href="/shop" className='text-[#343434]'>
-                < button className={`dropdown-toggle text-[18px] font-semibold ${cinzel.className}`}>SHOP</button>
+                < button className={`dropdown-toggle text-[18px] font-semibold transition duration-150 ease-out hover:ease-in ${cinzel.className}`}>SHOP</button>
             </Link>
             {
                 open && (
