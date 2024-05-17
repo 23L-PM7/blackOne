@@ -20,9 +20,6 @@ type BagDrawerProps = {
     onToggleDrawerBag: () => void;
 };
 
-type MainProps = {
-    item: any;
-};
 
 
 export function DrawerMobile(props: BagDrawerProps) {
@@ -70,11 +67,12 @@ export function DrawerMobile(props: BagDrawerProps) {
                                         </AspectRatio>
                                         <button
                                             onClick={() => confirm(item.tempId, item.name)}
-                                            className=" sm:block w-10 h-10 border-[1px] border-[#343434] rounded-full p-1   hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]"
+                                            className=" w-10 h-10 border-[1px] border-[#343434] rounded-full p-1   hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]"
                                         >
                                             X
                                         </button>
                                         <ListItemContent
+
                                             sx={{ flex: "flex" }}
                                         >
                                             <Typography
