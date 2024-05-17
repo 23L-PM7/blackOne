@@ -53,9 +53,9 @@ export default function Home() {
       <Toaster position="top-center" />
       <div className="my-[80px] h-full w-full flex flex-col items-center gap-y-4">
         <Title />
-        <div className="w-[90%] h-[60%] border-y-[1px] border-[#343434] flex flex-col gap-y-4 overflow-scroll">
+        <div className="w-[90%] h-full border-t-[1px] border-[#343434] flex flex-col gap-y-4 overflow-scroll">
           <h1 className={cinzel.className}>Content</h1>
-          <div className="grow flex flex-col justify-around">
+          <div className="grow flex flex-col justify-around gap-10">
             {currentPosts.map((item: any, index: number) => (
               <TemplateMain key={item._id} item={item} />
             ))}
