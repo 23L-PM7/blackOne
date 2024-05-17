@@ -31,7 +31,8 @@ export function DrawerMobile(props: BagDrawerProps) {
 
 
     const confirm = (id: string, name: string) => {
-        toast(`About to remove cart Item ${name}`, {
+        toast.warning(`About to remove cart Item ${name}`, {
+            position: "bottom-right",
             action: {
                 label: "Confirm",
                 onClick: () => removeCart(id),
@@ -74,7 +75,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                                             X
                                         </button>
                                         <ListItemContent
-                                            sx={{ flex: "flex", justifyContent: "flex-start" }}
+                                            sx={{ flex: "flex" }}
                                         >
                                             <Typography
                                                 sx={{ ...cinzel.style }}
