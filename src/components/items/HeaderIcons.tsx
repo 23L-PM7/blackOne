@@ -106,8 +106,8 @@ export function Bag() {
 export function Remove() {
   return (
     <svg
-      width="44"
-      height="44"
+      width="30"
+      height="30"
       viewBox="0 0 44 44"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

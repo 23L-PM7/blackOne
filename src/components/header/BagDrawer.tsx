@@ -61,7 +61,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem>
-                                    <ListItemButton className="gap-2 flex flex-wrap items-start ">
+                                    <div className="gap-2 flex flex-wrap items-start justify-between ">
                                         <AspectRatio sx={{ width: "80%" }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
@@ -91,7 +91,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                                                 {item.price} $
                                             </Typography>
                                         </ListItemContent>
-                                    </ListItemButton>
+                                    </div>
                                 </ListItem>
                                 {index !== data.length - 1 && <ListDivider />}
                             </React.Fragment>

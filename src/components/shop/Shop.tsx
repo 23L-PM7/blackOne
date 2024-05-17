@@ -24,9 +24,7 @@ import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { ShopTemplate } from "./ShopTemplate";
 
-// sx={{
-//     ...quicksand.style
-// }}
+
 
 export function Shopping() {
   const router = useRouter();
