@@ -7,6 +7,8 @@ import { Bag, Favorite, Remove, Search, UserPro } from "../items/HeaderIcons";
 import { DropDowns } from "./dropdown";
 import { sectionlists } from "./HeaderList";
 import Link from "next/link";
+import { useState } from "react";
+import { TopDrawer } from "./Search";
 
 type DrawerProps = {
   open: boolean;
@@ -15,9 +17,14 @@ type DrawerProps = {
 
 export function Drawer(props: DrawerProps) {
   const { open, onToggleDrawer } = props;
+  const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
+
+
+
+  const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
 
   return (
-    <Box sx={{ display: "flex", ...cinzel.style }}>
+    <Box sx={{ display: "flex", ...cinzel.style, zIndex: 10 }}>
       <JoyDrawer
         open={open}
         variant="plain"
@@ -43,11 +50,17 @@ export function Drawer(props: DrawerProps) {
           onKeyDown={onToggleDrawer}
         >
           <div className="flex items-center gap-4 md:hidden ">
+            <button
+              className="p-2 flex items-center text-black z-50"
+              onClick={toggleDrawerBagTop}
+            >
+              <Search />
+            </button>
             <UserPro />
             <Favorite />
           </div>
           <Divider />
-          <div className="flex-col flex font-narmol text-xl text-[25px] mt-[20px] gap-y-4  ">
+          <div className={`flex-col flex font-narmol  text-[18px] mt-[20px] gap-y-4 ${cinzel.className}, font-semibold`}>
             {/* className='flex justify-start' */}
             <DropDowns />
             {sectionlists.map((sectionlist) => (
@@ -57,7 +70,11 @@ export function Drawer(props: DrawerProps) {
             ))}
           </div>
         </Box>
-      </JoyDrawer>
-    </Box>
+      </JoyDrawer >
+      <TopDrawer
+        open={isOpenDrawerTop}
+        onToggleDrawerTop={toggleDrawerBagTop}
+      />
+    </Box >
   );
 }
