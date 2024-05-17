@@ -55,8 +55,8 @@ export function Header() {
   const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
   return (
-    <div className={"fixed z-50 top-0 left-0 right-0 "}>
-      <Stack sx={{ boxShadow: "none", zIndex: 6000, ...cinzel.style }}>
+    <div className={"fixed z-[9000] top-0 left-0 right-0 "}>
+      <Stack sx={{ boxShadow: "none", ...cinzel.style }}>
         <AppBar
           sx={{
             boxShadow: "none",
@@ -71,7 +71,7 @@ export function Header() {
               />
             </a>
             <div
-              className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-narmol text-[18px] font-normal items-center justify-around w-[600px] cursor-pointer text-black `}
+              className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-semibold text-[18px]  items-center justify-around w-[600px] cursor-pointer text-black `}
             >
               <div className="transition">
                 <DropDowns />
