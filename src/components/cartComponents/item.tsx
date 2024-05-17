@@ -15,6 +15,7 @@ export function CartItem(props: MainProps) {
 
   const confirm = () => {
     toast(`About to remove cart Item ${item.name}`, {
+      position: "bottom-right",
       action: {
         label: "Confirm",
         onClick: () => removeCart(item.tempId),

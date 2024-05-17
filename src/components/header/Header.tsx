@@ -96,11 +96,11 @@ export function Header() {
               <div className="items-center gap-6 hidden md:flex text-[40px]">
                 <UserPro />
                 <Favorite />
-                <div>
+                {/* <div>
                   {" "}
                   <a href="/api/auth/login">Login</a>
                   <a href="/api/auth/logout">Logout</a>
-                </div>
+                </div> */}
               </div>
 
               <button
