@@ -13,6 +13,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
 import SearchInput from "./searchInput";
 import Sinput from "./searchInput";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 type TopDrawerProps = {
   open: boolean;
@@ -32,9 +33,15 @@ export function TopDrawer(props: TopDrawerProps) {
         size="lg"
         variant="soft"
       >
-        {/* <ModalClose onClick={onToggleDrawerTop} /> */}
+        <ModalClose onClick={onToggleDrawerTop} />
         <DialogContent>
-          <div className="flex justify-center items-center my-auto">
+          <div
+            onClick={onToggleDrawerTop}
+            className="absolute top-[75px] right-[16px] text-[#A18565] hover:text-[#000000] hover:bg-transparent font-[600] text-[15px] md:top-[100px] md:right-[38px] md:scale-125"
+          >
+            <ArrowBackIosIcon />
+          </div>
+          <div className="flex justify-center items-center my-auto scale-100 sm:scale-125 md:scale-150 lg:scale-175 xl:scale-200 2xl:scale-225">
             <Sinput />
           </div>
         </DialogContent>
