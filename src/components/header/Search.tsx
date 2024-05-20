@@ -11,6 +11,8 @@ import {
 import Typography from "@mui/joy/Typography";
 import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
+import SearchInput from "./searchInput";
+import Sinput from "./searchInput";
 
 type TopDrawerProps = {
   open: boolean;
@@ -33,32 +35,7 @@ export function TopDrawer(props: TopDrawerProps) {
         {/* <ModalClose onClick={onToggleDrawerTop} /> */}
         <DialogContent>
           <div className="flex justify-center items-center my-auto">
-            <form action="/search">
-              <Input
-                placeholder="SEARCH PRODUCTS..."
-                variant="plain"
-                name="query"
-                sx={{
-                  fontFamily: { cinzel },
-                  backgroundColor: "transparent",
-                  color: "#A18565",
-                  padding: "none",
-                  "&:hover": {
-                    color: "#A18565",
-                  },
-                  "&::before": {
-                    display: "none",
-                  },
-                  fontWeight: "100",
-                }}
-              />
-              <button
-                type="submit"
-                className="text-[#A18565] hover:text-[#000000] hover:bg-transparent font-[600] text-[15px]"
-              >
-                search
-              </button>
-            </form>
+            <Sinput />
           </div>
         </DialogContent>
       </ModalDialog>
