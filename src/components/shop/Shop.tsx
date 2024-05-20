@@ -182,13 +182,13 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <div className=" xl:flex gap-[208px]">
-              <div className=" xl:">
+            <div className=" xl:flex w-full justify-between">
+              <div className=" xl:w-5/12  xl:mt-[120px] ">
                 {currentPosts.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
-              <div className=" xl:">
+              <div className=" xl:w-5/12">
                 {currentPosts.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
