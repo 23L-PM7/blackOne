@@ -17,7 +17,7 @@ export default function About() {
 
           <div className="w-[50%]">
             <p
-              className={`${quicksand.className} pt-[20px] text-[20px] gap-[30px] `}
+              className={`${quicksand.className} pt-[30px] text-[20px] gap-[30px] `}
             >
               Introducing Karageorgiou Interiors by emphatically referring to
               their century-long heritage of artfully crafting endearing pieces
@@ -40,7 +40,7 @@ export default function About() {
 
       <div className="w-[90%]">
         <h1
-          className={`${quicksand.className} pt-[100px] pb-[100px] text-[30px] opacity-5 `}
+          className={`${quicksand.className} pt-[100px] pb-[100px] text-[30px] `}
         >
           Creating not just a space that you inhabit, but a home you feel
           yourself in; a place with design and quality you simply find
@@ -53,7 +53,7 @@ export default function About() {
       </div>
       <div>
         <p
-          className={`${quicksand.className} pt-[20px] text-[20px] gap-[20px] `}
+          className={`${quicksand.className} pt-[25px] text-[20px] gap-[20px] `}
         >
           In the beginning - in 1934, that is, when George Karageorgiou created
           his workshop in Kypseli -, there was skilled craftsmanship infused
