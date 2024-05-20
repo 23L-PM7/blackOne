@@ -48,7 +48,7 @@ export default function About() {
         </h1>
       </div>
       <div className="flex items-center gap-[60px]">
-        <img className="w-[40%] h-dvh object-cover" src="images/yaganaa.jpeg" />
+        <img className="w-[40%] h-dvh object-cover" src="images/Yaganaa.jpeg" />
         <img className="h-[80dvh]" src="images/black.jpeg" />
       </div>
       <div>
