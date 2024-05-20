@@ -57,7 +57,7 @@ export default function Footer() {
         <div className="md:grid md:grid-cols-3 md:gap-x-[50px]">
           <div className="mb-[20px] md:mb-0">
             <div
-              className={`cursor-default ${cinzel.className} text-[#a18565] text-[30px] font-[300] items-center flex justify-center mx-auto mb-[10px]`}
+              className={`cursor-default text-[#a18565] text-[30px] font-[300] items-center flex justify-center mx-auto mb-[10px]`}
             >
               <h5>
                 OUR <span className={`${quicksand.className}`}>NEWSLETTER</span>
