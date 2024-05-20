@@ -27,6 +27,8 @@ export function Header() {
 
   const [header, setHeader] = useState(false);
 
+  console.log({ isOpenDrawerTop });
+
   // const scrollHeader = () => {
   //     if (window.scrollBy >= 20) {
   //         setHeader(true)
