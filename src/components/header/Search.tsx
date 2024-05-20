@@ -23,7 +23,6 @@ export function TopDrawer(props: TopDrawerProps) {
   return (
     <Modal open={open} onClose={onToggleDrawerTop}>
       <ModalDialog
-        onKeyDown={onToggleDrawerTop}
         sx={{
           color: "#EDECE9",
         }}
@@ -31,13 +30,14 @@ export function TopDrawer(props: TopDrawerProps) {
         size="lg"
         variant="soft"
       >
-        <ModalClose onClick={onToggleDrawerTop} />
+        {/* <ModalClose onClick={onToggleDrawerTop} /> */}
         <DialogContent>
           <div className="flex justify-center items-center my-auto">
-            <div>
+            <form action="/search">
               <Input
                 placeholder="SEARCH PRODUCTS..."
                 variant="plain"
+                name="query"
                 sx={{
                   fontFamily: { cinzel },
                   backgroundColor: "transparent",
@@ -52,10 +52,13 @@ export function TopDrawer(props: TopDrawerProps) {
                   fontWeight: "100",
                 }}
               />
-            </div>
-            <Link href="/shop" className="text-[#A18565] hover:text-[#000000] hover:bg-transparent font-[600] text-[15px]">
-              search
-            </Link>
+              <button
+                type="submit"
+                className="text-[#A18565] hover:text-[#000000] hover:bg-transparent font-[600] text-[15px]"
+              >
+                search
+              </button>
+            </form>
           </div>
         </DialogContent>
       </ModalDialog>
