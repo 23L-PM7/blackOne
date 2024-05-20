@@ -13,6 +13,7 @@ import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
 import { toast } from "sonner";
+import { useFurnitures } from "../utility/utils";
 
 
 type BagDrawerProps = {
@@ -22,10 +23,14 @@ type BagDrawerProps = {
 
 
 
+
 export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props;
     const { cart, removeCart } = useCart();
 
+    // if (cart.cartItems.length === 0) {
+    //     return <div>hooson</div>;
+    // }
 
     const confirm = (id: string, name: string) => {
         toast.warning(`About to remove cart Item ${name}`, {
@@ -41,7 +46,7 @@ export function DrawerMobile(props: BagDrawerProps) {
         <Box sx={{ display: "flex" }}>
             <JoyDrawer
                 open={open}
-                onClose={onToggleDrawerBag}
+
                 anchor="right"
                 slotProps={{
                     content: {
@@ -53,9 +58,9 @@ export function DrawerMobile(props: BagDrawerProps) {
                     },
                 }}
             >
-                <Box sx={{}} onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
+                <Box>
                     <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
-                        <div className="flex justify-end">
+                        <div className="flex justify-end" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
                         {cart.cartItems.map((item, index) => (
@@ -105,12 +110,14 @@ export function DrawerMobile(props: BagDrawerProps) {
                         <Link
                             href="/cart"
                             className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
+                            onClick={onToggleDrawerBag}
                         >
                             VIEW CART
                         </Link>
                         <Link
                             href="/cart/checkout"
                             className="bg-[#A18565] p-2 rounded-md w-6/12 hover:bg-black"
+                            onClick={onToggleDrawerBag}
                         >
                             CHECKOUT
                         </Link>

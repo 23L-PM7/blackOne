@@ -28,7 +28,7 @@ export function Drawer(props: DrawerProps) {
       <JoyDrawer
         open={open}
         variant="plain"
-        onClose={onToggleDrawer}
+        // onClose={onToggleDrawer}
         className="border-none"
         slotProps={{
           content: {
