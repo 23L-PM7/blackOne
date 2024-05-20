@@ -23,15 +23,17 @@ import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { ShopTemplate } from "./ShopTemplate";
+import { useEffect, useState } from "react";
 
 
 
 export function Shopping() {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [perPage, setPerPage] = React.useState(5);
-  const [pages, setPages] = React.useState(4);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(5);
+  const [pages, setPages] = useState(3);
 
   const indexOfLastPost = currentPage * perPage;
   const indexOfFirstPost = indexOfLastPost - perPage;
@@ -49,7 +51,7 @@ export function Shopping() {
     loadFurnitures();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
         const temporary = Math.round(furnitures.length / perPage);

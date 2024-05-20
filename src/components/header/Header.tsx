@@ -17,6 +17,7 @@ import { useCart } from "../shop/useCart";
 import { Drawer } from "./MenuDrawer";
 import { TopDrawer } from "./Search";
 import { DrawerMobile } from "./BagDrawer";
+import { Toaster } from "sonner";
 
 export function Header() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
@@ -58,6 +59,7 @@ export function Header() {
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
   return (
     <div className={"fixed z-[9000] top-0 left-0 right-0 "}>
+      <Toaster />
       <Stack sx={{ boxShadow: "none", ...cinzel.style }}>
         <AppBar
           sx={{
