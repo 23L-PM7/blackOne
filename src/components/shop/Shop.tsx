@@ -182,10 +182,17 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <div className=" xl:grid grid-cols-2  gap-20">
-              {currentPosts.map((item: any, index: number) => (
-                <ShopTemplate key={item._id} item={item} />
-              ))}
+            <div className=" xl:flex gap-[208px]">
+              <div className=" xl:">
+                {currentPosts.map((item: any, index: number) => (
+                  <ShopTemplate key={item._id} item={item} />
+                ))}
+              </div>
+              <div className=" xl:">
+                {currentPosts.map((item: any, index: number) => (
+                  <ShopTemplate key={item._id} item={item} />
+                ))}
+              </div>
             </div>
             <div className=" flex justify-center items-center mt-[120px]">
               <Pagination page={currentPage} onChange={handlePage} count={pages} />
