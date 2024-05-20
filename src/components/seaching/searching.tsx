@@ -22,13 +22,15 @@ import { useRouter } from "next/navigation";
 import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
+import { useEffect, useState } from "react";
 
 export function Searching() {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
-  const [currentPage, setCurrentPage] = React.useState(1);
-  const [perPage, setPerPage] = React.useState(5);
-  const [pages, setPages] = React.useState(4);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(6);
+  const [pages, setPages] = useState(3);
 
   const indexOfLastPost = currentPage * perPage;
   const indexOfFirstPost = indexOfLastPost - perPage;
@@ -81,7 +83,7 @@ export function Searching() {
             <div className=" xl:grid grid-cols-2  gap-20">
               {furnitures.map((item: any, index: any) => (
                 <Link
-                  key={345 - index}
+                  key={345}
                   onClick={() => empty()}
                   href={`/shop/${item.slug}`}
                 >
@@ -125,13 +127,13 @@ export function Searching() {
                   </div>
                 </Link>
               ))}
-              <div className=" flex justify-center items-center mt-[120px]">
-                <Pagination
-                  page={currentPage}
-                  onChange={handlePage}
-                  count={pages}
-                />
-              </div>
+            </div>
+            <div className=" flex justify-center items-center mt-[120px]">
+              <Pagination
+                page={currentPage}
+                onChange={handlePage}
+                count={pages}
+              />
             </div>
           </div>
         </div>
