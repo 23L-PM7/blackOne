@@ -56,11 +56,9 @@ export default function Footer() {
       <div className="px-[18px] pb-[70px] container mx-auto">
         <div className="md:grid md:grid-cols-3 md:gap-x-[50px]">
           <div className="mb-[20px] md:mb-0">
-            <div
-              className={`cursor-default text-[#a18565] text-[30px] font-[300] items-center flex justify-center mx-auto mb-[10px]`}
-            >
+            <div className="cursor-default text-[#a18565] text-[30px] font-[300] items-center flex justify-center mx-auto mb-[10px]">
               <h5>
-                OUR <span className={`${quicksand.className}`}>NEWSLETTER</span>
+                OUR <span>NEWSLETTER</span>
               </h5>
             </div>
             <div className="flex flex-col gap-[10px]">
