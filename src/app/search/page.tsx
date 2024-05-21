@@ -7,11 +7,14 @@ import { Searching } from "@/components/seaching/searching";
 import { Input } from "@mui/joy";
 import { useSearchParams } from "next/navigation";
 import { cinzel } from "@/app/theme";
+import { useState } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const itemCount = 1;
+
+  console.log(query);
 
   return (
     <div className="container mx-auto py-[50px] lg:py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
@@ -26,7 +29,7 @@ export default function Home() {
         <form action="/search">
           <div className="flex flex-end justify-end items-center my-auto">
             <Input
-              placeholder={query}
+              placeholder={`${query}`}
               variant="plain"
               name="query"
               sx={{
