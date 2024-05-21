@@ -23,7 +23,7 @@ import { useFurnitures } from "@/components/utility/utils";
 import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
-import { ShopTemplate } from "../shop/ShopTemplate";
+import { SearchTemplate } from "./searchTemplate";
 
 export function Searching() {
   const router = useRouter();
@@ -75,10 +75,10 @@ export function Searching() {
 
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
-      <div className="container mx-auto py-[50px] lg:py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
+      <div>
         <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
           {currentPosts.map((item: any, index: number) => (
-            <ShopTemplate key={item._id} item={item} />
+            <SearchTemplate key={item._id} item={item} />
           ))}
         </div>
         <div className=" flex justify-center items-center mt-[120px]">
