@@ -6,12 +6,12 @@ export default function Footer() {
     {
       id: 1987,
       name: "Philosophy",
-      href: "/shop",
+      href: "/about",
     },
     {
       id: 2555,
       name: "Get in Touch",
-      href: "/shop",
+      href: "/",
     },
   ];
 
@@ -19,22 +19,22 @@ export default function Footer() {
     {
       id: 1654,
       name: "Use of terms",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 2321,
       name: "Order policy",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 3000,
       name: "Return policy",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 400,
       name: "Privacy policy",
-      href: "/shop",
+      href: "/privacy",
     },
   ];
 
@@ -62,7 +62,7 @@ export default function Footer() {
               </h5>
             </div>
             <div className="flex flex-col gap-[10px]">
-              <div className="flex justify-between py-[15px]">
+              <div className="flex justify-between py-[15px] border-b-[1px] border-[#A18565]">
                 <Input
                   placeholder="YOUR EMAIL"
                   variant="plain"
@@ -95,7 +95,7 @@ export default function Footer() {
                   SUBSCRIBE
                 </Button>
               </div>
-              <hr className="h-[2.5px] bg-[#A18565]" />
+              {/* <hr className="h-[2.5px] bg-[#A18565]" /> */}
               <Checkbox
                 color="warning"
                 disabled={false}
@@ -109,14 +109,16 @@ export default function Footer() {
                 }}
               />
               <div className="flex flex-col gap-[15px] mt-[50px] mb-[30px] text-[#a18565] font-[100] md:mb-0">
-                <p>44 Adrianiou Str.</p>
-                <p>115 25 Neo Psyhiko, Greece</p>
-                <p>+30 210 6713348</p>
-                <p>reception@karageorgiou.gr</p>
+                <p>Gurwal gol office building.</p>
+                <p>
+                  Sukhbaatar district, Chinggis Khan Ave, Ulaanbaatar, Mongolia
+                </p>
+                <p>+976 72 700 800</p>
+                <p>social@pinecone.mn</p>
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:pl-[250px] ">
             <div className="mb-[25px]">
               <h3 className="text-[20px] mb-[15px] font-[100] text-[#a18565]">
                 COMPANY
@@ -156,7 +158,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:flex md:justify-end">
             <div className="mb-[25px]">
               <h3 className="text-[20px] mb-[15px] font-[100] text-[#a18565]">
                 SOCIAL
@@ -180,9 +182,15 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-[#a18565] font-[300] md:text-end">
-          <p>© Karageorgiou 2024 All rights reserved.</p>
+          <p>© eCroissant 2024 All rights reserved.</p>
           <p>Web Design&Development by</p>
-          <a className="hover:underline cursor-pointer">LIMECREATIVE</a>
+          <a
+            href="https://github.com/23L-PM7/blackOne"
+            target="_blank"
+            className="hover:underline cursor-pointer"
+          >
+            TEAM BLACKONE
+          </a>
         </div>
       </div>
     </footer>
