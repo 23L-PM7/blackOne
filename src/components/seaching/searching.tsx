@@ -75,11 +75,8 @@ export function Searching() {
 
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
-      <div className="container mx-auto py-[50px] lg:py-[100px] px-[20px]">
-        <div className="text-black flex justify-center items-center text-[50px] lg:justify-start  md:justify-start md:mb-10 ">
-          OUR <br></br>PRODUCTS
-        </div>
-        <div className=" xl:grid grid-cols-2 xl:w-[50%] gap-20 md:mx-auto">
+      <div className="container mx-auto py-[50px] lg:py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
+        <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
           {currentPosts.map((item: any, index: number) => (
             <ShopTemplate key={item._id} item={item} />
           ))}
