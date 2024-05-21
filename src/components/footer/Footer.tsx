@@ -109,10 +109,12 @@ export default function Footer() {
                 }}
               />
               <div className="flex flex-col gap-[15px] mt-[50px] mb-[30px] text-[#a18565] font-[100] md:mb-0">
-                <p>44 Adrianiou Str.</p>
-                <p>115 25 Neo Psyhiko, Greece</p>
-                <p>+30 210 6713348</p>
-                <p>reception@karageorgiou.gr</p>
+                <p>Gurwal gol office building.</p>
+                <p>
+                  Sukhbaatar district, Chinggis Khan Ave, Ulaanbaatar, Mongolia
+                </p>
+                <p>+976 89115547</p>
+                <p>email@ecroissant.vercel</p>
               </div>
             </div>
           </div>
@@ -180,9 +182,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-[#a18565] font-[300] md:text-end">
-          <p>© Karageorgiou 2024 All rights reserved.</p>
+          <p>© eCroissant 2024 All rights reserved.</p>
           <p>Web Design&Development by</p>
-          <a className="hover:underline cursor-pointer">LIMECREATIVE</a>
+          <a className="hover:underline cursor-pointer">TEAM BLACKONE</a>
         </div>
       </div>
     </footer>
