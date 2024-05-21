@@ -13,14 +13,15 @@ export default function Home() {
   const query = searchParams.get("query");
   const itemCount = 1;
 
-  itemCount: Number;
-
   return (
     <div className="container mx-auto py-[50px] lg:py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
       <Header />
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <div className="text-[16px]">
-          Таны "{query}" хайлтаар, "{itemCount}" илэрц олдлоо.
+          Search results for
+          <div>
+            {query}({itemCount})
+          </div>
         </div>
         <form action="/search">
           <div className="flex flex-end justify-end items-center my-auto">
