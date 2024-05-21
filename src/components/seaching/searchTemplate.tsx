@@ -9,14 +9,14 @@ type MainInfo = {
   item: any;
 };
 
-export function ShopTemplate(props: MainInfo) {
+export function SearchTemplate(props: MainInfo) {
   const { empty }: any = useFurnitures();
   const { item } = props;
 
   return (
     <div className="w-full">
       <Link key={345} onClick={() => empty()} href={`/shop/${item.slug}`}>
-        <div className="flex flex-col mb-[40px] mt-[80px] lg:mt-[140px] ">
+        <div className="flex flex-col mb-[40px] mt-[40px] lg:mt-[40px] ">
           <AspectRatio
             variant="outlined"
             ratio="4/4"
@@ -58,18 +58,3 @@ export function ShopTemplate(props: MainInfo) {
     </div>
   );
 }
-
-// <div className="border-y-[1px] border-[#343434]">
-//     <div className="w-full flex justify-between items-center">
-//         <div>
-//             <h1 className={quicksand.className}>{item.name}</h1>
-//             <img
-//                 className={quicksand.className}
-//                 srcSet={item.picture}
-//                 src={item.src}
-//                 alt={item.title}
-//             />
-//             <div className={quicksand.className}>{item.price}</div>
-//         </div>
-//     </div>
-// </div>
