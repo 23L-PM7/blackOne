@@ -4,7 +4,6 @@ import Footer from "@/components/footer/Footer";
 import { Header } from "@/components/header/Header";
 import { Searching } from "@/components/seaching/searching";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -13,10 +12,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Suspense>
-        <Searching />
-      </Suspense>
 
+      <Searching />
       <div className="h-96 pt-52">Search, {query}</div>
       <Footer />
     </div>

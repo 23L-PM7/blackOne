@@ -79,7 +79,7 @@ export function Searching() {
         <div className="text-black flex justify-center items-center text-[50px] lg:justify-start  md:justify-start md:mb-10 ">
           OUR <br></br>PRODUCTS
         </div>
-        <div className=" xl:grid grid-cols-2  gap-20">
+        <div className=" xl:grid grid-cols-2 xl:w-[50%] gap-20 md:mx-auto">
           {currentPosts.map((item: any, index: number) => (
             <ShopTemplate key={item._id} item={item} />
           ))}
