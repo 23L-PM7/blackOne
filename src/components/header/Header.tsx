@@ -98,13 +98,12 @@ export function Header() {
                 <Search />
               </button>
               <div className="items-center gap-6 hidden md:flex text-[40px]">
-                <UserPro />
                 <Favorite />
-                {/* <div>
-                  {" "}
-                  <a href="/api/auth/login">Login</a>
-                  <a href="/api/auth/logout">Logout</a>
-                </div> */}
+
+                <a href="/api/auth/login">
+                  <UserPro />
+                </a>
+                <a href="/api/auth/logout">Logout</a>
               </div>
 
               <button
