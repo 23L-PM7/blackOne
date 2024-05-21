@@ -4,7 +4,7 @@ import { useFurnitures } from "../utility/utils";
 import Link from "next/link";
 import { AspectRatio, Button, IconButton, Typography } from "@mui/joy";
 import { MdFavoriteBorder } from "react-icons/md";
-import Pagination from "@mui/material/Pagination";
+
 
 
 
@@ -14,7 +14,7 @@ type MainInfo = {
 
 
 export function ShopTemplate(props: MainInfo) {
-    const { furnitures, loadFurnitures, empty }: any = useFurnitures();
+    const { empty }: any = useFurnitures();
     const { item } = props;
 
     return (
