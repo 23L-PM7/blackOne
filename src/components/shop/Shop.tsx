@@ -199,24 +199,30 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <motion.div animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
+            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
+              transition={{
+                opacity: { duration: 2 }
+              }} className="xl:hidden xl:w-6/12">
+              {currentPosts.map((item: any, index: number) => (
+                <ShopTemplate key={item._id} item={item} />
+              ))}
+            </motion.div>
+            <motion.div className="hidden xl:flex  w-full gap-16" animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 tease: "linear",
                 duration: 2,
                 x: { duration: 1 },
                 opacity: { duration: 2 }
               }}>
-              <div className=" xl:flex w-full gap-16">
-                <div className=" xl:w-6/12  xl:mt-[120px] ">
-                  {firsthalf.map((item: any, index: number) => (
-                    <ShopTemplate key={item._id} item={item} />
-                  ))}
-                </div>
-                <div className=" xl:w-6/12">
-                  {secondhalf.map((item: any, index: number) => (
-                    <ShopTemplate key={item._id} item={item} />
-                  ))}
-                </div>
+              <div className=" xl:w-6/12  xl:mt-[120px] ">
+                {firsthalf.map((item: any, index: number) => (
+                  <ShopTemplate key={item._id} item={item} />
+                ))}
+              </div>
+              <div className=" xl:w-6/12">
+                {secondhalf.map((item: any, index: number) => (
+                  <ShopTemplate key={item._id} item={item} />
+                ))}
               </div>
             </motion.div>
             <div className=" flex justify-center items-center mt-[120px]">
