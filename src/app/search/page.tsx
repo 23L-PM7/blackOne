@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <Searching />
       <div className="h-96 pt-52">Search, {query}</div>
+      <Searching />
       <Footer />
     </div>
   );
