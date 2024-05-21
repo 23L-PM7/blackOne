@@ -5,7 +5,7 @@ import customTheme, { quicksand } from "./theme";
 import { Header } from "@/components/header/Header";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import Footer from "@/components/footer/Footer";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 export default function RootLayout({
   children,
@@ -18,7 +18,6 @@ export default function RootLayout({
     <html lang="en">
       {/* <CssVarsProvider theme={customTheme}> */}
       <body className={`${quicksand.className} text-[#343434]`}>
-
         <LocomotiveScrollProvider
           options={{
             smooth: true,
@@ -32,15 +31,12 @@ export default function RootLayout({
             ]
           }
           containerRef={containerRef}
-
         >
           <Header />
           <main data-scroll-container ref={containerRef}>
-
-            {children}
+            <Suspense>{children}</Suspense>
           </main>
         </LocomotiveScrollProvider>
-
       </body>
       {/* </CssVarsProvider> */}
     </html>

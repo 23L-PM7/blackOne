@@ -26,6 +26,7 @@ import { motion } from "framer-motion"
 export function Shopping() {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
+  const [categories, setCategories] = useState();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(6);
@@ -202,12 +203,12 @@ export function Shopping() {
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 opacity: { duration: 2 }
-              }} className="xl:hidden xl:w-6/12">
+              }} className="lg:hidden  xl:w-6/12">
               {currentPosts.map((item: any, index: number) => (
                 <ShopTemplate key={item._id} item={item} />
               ))}
             </motion.div>
-            <motion.div className="hidden xl:flex  w-full gap-16" animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
+            <motion.div className="hidden 2xl:flex  w-full gap-16" animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 tease: "linear",
                 duration: 2,
