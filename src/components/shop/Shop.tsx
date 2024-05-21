@@ -194,11 +194,12 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <motion.div animate={{ x: 100 }}
+            <motion.div animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 tease: "linear",
                 duration: 2,
-                x: { duration: 1 }
+                x: { duration: 1 },
+                opacity: { duration: 2 }
               }}>
               <div className=" xl:flex w-full gap-16">
                 <div className=" xl:w-6/12  xl:mt-[120px] ">
