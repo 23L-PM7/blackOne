@@ -86,7 +86,12 @@ export function Shopping() {
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div className="container mx-auto py-[50px] lg:py-[100px] px-[20px]">
         <div className="text-black flex justify-center items-center text-[50px] lg:justify-start  md:justify-start md:mb-10 ">
-          OUR <br></br>PRODUCTS
+          <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 3 }
+            }}>
+            OUR <br></br>PRODUCTS
+          </motion.div>
         </div>
         <div className="lg:flex md:flex md:gap-20 lg:gap-[90px]  md:items-start lg:items-start w-full">
           <AccordionGroup
