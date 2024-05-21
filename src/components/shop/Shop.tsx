@@ -32,10 +32,16 @@ export function Shopping() {
 
   const indexOfLastPost = currentPage * perPage;
   const indexOfFirstPost = indexOfLastPost - perPage;
-  var currentPosts = [];
+  var currentPosts: any = [];
+
+  var firsthalf: any = []
+  var secondhalf: any = []
 
   if (furnitures) {
     currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
+    console.log(currentPosts)
+    firsthalf = currentPosts.slice(0, 3)
+    secondhalf = currentPosts.slice(3, 6)
   }
 
   const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -46,7 +52,9 @@ export function Shopping() {
     loadFurnitures();
   };
 
+
   useEffect(() => {
+
     if (furnitures) {
       if (furnitures.length % perPage == 0) {
         const temporary = Math.round(furnitures.length / perPage);
@@ -62,6 +70,9 @@ export function Shopping() {
     loadFurnitures();
     return <Loader />;
   }
+
+
+
 
   const boxHover = {
     boxShadow: 2,
@@ -184,12 +195,12 @@ export function Shopping() {
             </Dropdown>
             <div className=" xl:flex w-full justify-between">
               <div className=" xl:w-5/12  xl:mt-[120px] ">
-                {currentPosts.map((item: any, index: number) => (
+                {firsthalf.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
               <div className=" xl:w-5/12">
-                {currentPosts.map((item: any, index: number) => (
+                {secondhalf.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
