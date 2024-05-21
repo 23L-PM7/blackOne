@@ -203,12 +203,12 @@ export function Shopping() {
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 opacity: { duration: 2 }
-              }} className="xl:hidden  xl:w-6/12">
+              }} className="lg:hidden  xl:w-6/12">
               {currentPosts.map((item: any, index: number) => (
                 <ShopTemplate key={item._id} item={item} />
               ))}
             </motion.div>
-            <motion.div className="hidden lg:flex  w-full gap-16" animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
+            <motion.div className="hidden 2xl:flex  w-full gap-16" animate={{ x: 100, opacity: 1 }} initial={{ opacity: 0 }}
               transition={{
                 tease: "linear",
                 duration: 2,
