@@ -96,7 +96,7 @@ export function Shopping() {
         <div className="lg:flex md:flex md:gap-20 lg:gap-[90px]  md:items-start lg:items-start w-full">
           <AccordionGroup
             sx={{ maxWidth: 400, ...quicksand.style }}
-            className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-4/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
+            className="bg-[#EDECE9] md:text-[20px] mt-12 lg:w-4/12 md:w-3/12 xl:w-[25%] text-[30px] xl:mt-[80px] lg:scroll-none"
           >
             <Accordion>
               <AccordionSummary >CATEGORY</AccordionSummary>
@@ -176,7 +176,7 @@ export function Shopping() {
               </AccordionDetails>
             </Accordion>
           </AccordionGroup>
-          <div className="lg:w-7/12 lg:scroll-smooth ">
+          <div className="lg:w-8/12 lg:scroll-smooth ">
             <Dropdown>
               <div className="mt-[30px] flex border-b border-current items-center w-6/12   mx-auto justify-between">
                 <MenuButton
