@@ -6,12 +6,12 @@ export default function Footer() {
     {
       id: 1987,
       name: "Philosophy",
-      href: "/shop",
+      href: "/about",
     },
     {
       id: 2555,
       name: "Get in Touch",
-      href: "/shop",
+      href: "/",
     },
   ];
 
@@ -19,22 +19,22 @@ export default function Footer() {
     {
       id: 1654,
       name: "Use of terms",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 2321,
       name: "Order policy",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 3000,
       name: "Return policy",
-      href: "/shop",
+      href: "/",
     },
     {
       id: 400,
       name: "Privacy policy",
-      href: "/shop",
+      href: "/privacy",
     },
   ];
 
@@ -113,8 +113,8 @@ export default function Footer() {
                 <p>
                   Sukhbaatar district, Chinggis Khan Ave, Ulaanbaatar, Mongolia
                 </p>
-                <p>+976 89115547</p>
-                <p>email@ecroissant.vercel</p>
+                <p>+976 72 700 800</p>
+                <p>social@pinecone.mn</p>
               </div>
             </div>
           </div>
@@ -184,7 +184,13 @@ export default function Footer() {
         <div className="text-[#a18565] font-[300] md:text-end">
           <p>© eCroissant 2024 All rights reserved.</p>
           <p>Web Design&Development by</p>
-          <a className="hover:underline cursor-pointer">TEAM BLACKONE</a>
+          <a
+            href="https://github.com/23L-PM7/blackOne"
+            target="_blank"
+            className="hover:underline cursor-pointer"
+          >
+            TEAM BLACKONE
+          </a>
         </div>
       </div>
     </footer>
