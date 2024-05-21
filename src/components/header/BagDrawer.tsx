@@ -14,6 +14,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useFurnitures } from "../utility/utils";
+import { motion } from "framer-motion"
 
 
 type BagDrawerProps = {
@@ -59,7 +60,10 @@ export function DrawerMobile(props: BagDrawerProps) {
                 }}
             >
                 <Box>
-                    <div className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
+                    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
+                        transition={{
+                            opacity: { duration: 2 }
+                        }} className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
                         <div className="flex justify-end" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
@@ -101,7 +105,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                                 {index !== data.length - 1 && <ListDivider />}
                             </React.Fragment>
                         ))}
-                    </div>
+                    </motion.div>
                     <div className="flex items-center gap-2">
                         <p>Subtotal:</p>
                         <h1 className="text-[22px] font-semibold"> {cart.totalAmount} $</h1>
