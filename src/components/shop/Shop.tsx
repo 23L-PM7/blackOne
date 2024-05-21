@@ -18,6 +18,7 @@ import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { ShopTemplate } from "./ShopTemplate";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion"
 
 
 
@@ -193,18 +194,25 @@ export function Shopping() {
                 </Menu>
               </div>
             </Dropdown>
-            <div className=" xl:flex w-full justify-between">
-              <div className=" xl:w-5/12  xl:mt-[120px] ">
-                {firsthalf.map((item: any, index: number) => (
-                  <ShopTemplate key={item._id} item={item} />
-                ))}
+            <motion.div animate={{ x: 100 }}
+              transition={{
+                tease: "linear",
+                duration: 2,
+                x: { duration: 1 }
+              }}>
+              <div className=" xl:flex w-full gap-16">
+                <div className=" xl:w-6/12  xl:mt-[120px] ">
+                  {firsthalf.map((item: any, index: number) => (
+                    <ShopTemplate key={item._id} item={item} />
+                  ))}
+                </div>
+                <div className=" xl:w-6/12">
+                  {secondhalf.map((item: any, index: number) => (
+                    <ShopTemplate key={item._id} item={item} />
+                  ))}
+                </div>
               </div>
-              <div className=" xl:w-5/12">
-                {secondhalf.map((item: any, index: number) => (
-                  <ShopTemplate key={item._id} item={item} />
-                ))}
-              </div>
-            </div>
+            </motion.div>
             <div className=" flex justify-center items-center mt-[120px]">
               <Pagination page={currentPage} onChange={handlePage} count={pages} />
             </div>
