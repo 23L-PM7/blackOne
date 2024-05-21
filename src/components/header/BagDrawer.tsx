@@ -29,7 +29,7 @@ export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props;
     const { cart, removeCart } = useCart();
 
-    // if (cart.cartItems.length === 0) {
+    // if (cart.cartItems.length === null) {
     //     return <div>hooson</div>;
     // }
 
@@ -44,7 +44,7 @@ export function DrawerMobile(props: BagDrawerProps) {
     };
 
     return (
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", transition: 'right 1s ease' }}>
             <JoyDrawer
                 open={open}
 
@@ -59,11 +59,11 @@ export function DrawerMobile(props: BagDrawerProps) {
                     },
                 }}
             >
-                <Box>
+                <Box className='transition ease-in-out duration-300'>
                     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
                         transition={{
                             opacity: { duration: 2 }
-                        }} className="flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
+                        }} className="  flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
                         <div className="flex justify-end" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
