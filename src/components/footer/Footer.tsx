@@ -62,7 +62,7 @@ export default function Footer() {
               </h5>
             </div>
             <div className="flex flex-col gap-[10px]">
-              <div className="flex justify-between py-[15px]">
+              <div className="flex justify-between py-[15px] border-b-[1px] border-[#A18565]">
                 <Input
                   placeholder="YOUR EMAIL"
                   variant="plain"
@@ -95,7 +95,7 @@ export default function Footer() {
                   SUBSCRIBE
                 </Button>
               </div>
-              <hr className="h-[2.5px] bg-[#A18565]" />
+              {/* <hr className="h-[2.5px] bg-[#A18565]" /> */}
               <Checkbox
                 color="warning"
                 disabled={false}
@@ -116,7 +116,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:pl-[250px] ">
             <div className="mb-[25px]">
               <h3 className="text-[20px] mb-[15px] font-[100] text-[#a18565]">
                 COMPANY
@@ -156,7 +156,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="md:flex md:justify-end">
             <div className="mb-[25px]">
               <h3 className="text-[20px] mb-[15px] font-[100] text-[#a18565]">
                 SOCIAL
