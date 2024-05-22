@@ -103,7 +103,6 @@ export function Header() {
                 <a href="/api/auth/login">
                   <UserPro />
                 </a>
-                <a href="/api/auth/logout">Logout</a>
               </div>
 
               <button
