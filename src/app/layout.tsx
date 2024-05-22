@@ -6,6 +6,7 @@ import { Header } from "@/components/header/Header";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import Footer from "@/components/footer/Footer";
 import { Suspense, useRef } from "react";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export default function RootLayout({
   children,
@@ -34,7 +35,9 @@ export default function RootLayout({
         >
           <Header />
           <main data-scroll-container ref={containerRef}>
-            <Suspense>{children}</Suspense>
+            <Suspense>
+              <UserProvider>{children}</UserProvider>
+            </Suspense>
           </main>
         </LocomotiveScrollProvider>
       </body>
