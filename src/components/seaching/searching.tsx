@@ -25,7 +25,12 @@ import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
 import { SearchTemplate } from "./searchTemplate";
 
-export function Searching() {
+type MainProps = {
+  query: string;
+};
+
+export function Searching(props: MainProps) {
+  const { query } = props;
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
 
@@ -77,9 +82,15 @@ export function Searching() {
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div>
         <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
-          {currentPosts.map((item: any, index: number) => (
-            <SearchTemplate key={item._id} item={item} />
-          ))}
+          {currentPosts
+            .filter((item: any) => {
+              return query.toLowerCase() === ""
+                ? item
+                : item.name.toLowerCase().includes(query);
+            })
+            .map((item: any, index: number) => (
+              <SearchTemplate key={item._id} item={item} />
+            ))}
         </div>
         <div className=" flex justify-center items-center mt-[120px]">
           <Pagination page={currentPage} onChange={handlePage} count={pages} />

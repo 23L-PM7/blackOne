@@ -11,7 +11,6 @@ import {
 import Typography from "@mui/joy/Typography";
 import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
-import SearchInput from "./searchInput";
 import Sinput from "./searchInput";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
