@@ -9,8 +9,12 @@ import { Toaster } from "sonner";
 import Pagination from "@mui/material/Pagination";
 import { Loader } from "@/components/loader";
 import Footer from "@/components/footer/Footer";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
+import { log } from "console";
 
 export default function Home() {
+  const { user, error, isLoading }: any = useUser();
   const { furnitures, loadFurnitures }: any = useFurnitures();
 
   // pagination
@@ -47,6 +51,14 @@ export default function Home() {
     loadFurnitures();
     return <Loader />;
   }
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!user) return <div>Access Denied</div>;
+  console.log(user);
+
+  if (user.sub !== "google-oauth2|100881121767384542232")
+    return <div>Access Denied</div>;
 
   return (
     <div className="bg-[#EDECE9] w-screen h-screen flex flex-col justify-between">

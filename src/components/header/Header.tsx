@@ -19,7 +19,12 @@ import { TopDrawer } from "./Search";
 import { DrawerMobile } from "./BagDrawer";
 import { Toaster } from "sonner";
 
+import { useRouter } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0/client";
+
 export function Header() {
+  const router = useRouter();
+  const { user, error, isLoading }: any = useUser();
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
   const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
@@ -52,6 +57,14 @@ export function Header() {
   const combined = () => {
     toggleDrawer();
     handleClick();
+  };
+
+  const send = () => {
+    if (!user) {
+      router.push(`api/auth/login`);
+      return;
+    }
+    router.push(`/myaccount`);
   };
 
   const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer);
@@ -100,9 +113,9 @@ export function Header() {
               <div className="items-center gap-6 hidden md:flex text-[40px]">
                 <Favorite />
 
-                <a href="/api/auth/login">
+                <button onClick={send}>
                   <UserPro />
-                </a>
+                </button>
               </div>
 
               <button

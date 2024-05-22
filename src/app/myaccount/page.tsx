@@ -23,7 +23,7 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function EditButton() {
-  const { user, error, isLoading } = useUser();
+  const { user, error, isLoading }: any = useUser();
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   if (!user) return <Link href="/api/auth/login">Login</Link>;
