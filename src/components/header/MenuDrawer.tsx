@@ -24,7 +24,7 @@ export function Drawer(props: DrawerProps) {
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
 
   return (
-    <Box sx={{ display: "flex", ...cinzel.style, zIndex: 10 }} className='transition ease-out duration-300 transform'>
+    <Box sx={{ display: "flex", ...cinzel.style, zIndex: 10, }}>
       <JoyDrawer
         open={open}
         variant="plain"
@@ -35,6 +35,7 @@ export function Drawer(props: DrawerProps) {
             sx: {
               width: "100%",
               backgroundColor: "rgba(237, 236, 233, 1)",
+
             },
           },
         }}

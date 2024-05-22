@@ -26,11 +26,31 @@ import { motion } from "framer-motion"
 export function Shopping() {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
-  const [categories, setCategories] = useState();
+  const [categories, setCategories]: any = useState([]);
+
+  // 2 diff
+  const [second, setSecond]: any = useState([])
+  const [first, setFirst]: any = useState([])
+
+
+
+  const [print, setPrint] = useState(false);
+  const [armchair, setArmchair] = useState(false);
+  const [vase, setVase] = useState(false);
+  const [mirror, setMirror] = useState(false);
+  const [stool, setStool] = useState(false);
+  const [table, setTable] = useState(false);
+  const [sofa, setSofa] = useState(false);
+  const [bench, setBench] = useState(false);
+  const [furniture, setFurniture] = useState(false);
+  const [cabinet, setCabinet] = useState(false);
+  const [decorations, setDecorations] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(6);
   const [pages, setPages] = useState(3);
+
+
 
   const indexOfLastPost = currentPage * perPage;
   const indexOfFirstPost = indexOfLastPost - perPage;
@@ -39,20 +59,93 @@ export function Shopping() {
   var firsthalf: any = []
   var secondhalf: any = []
 
-  if (furnitures) {
-    currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
-    console.log(currentPosts)
-    firsthalf = currentPosts.slice(0, 3)
-    secondhalf = currentPosts.slice(3, 6)
-  }
+
 
   const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
   };
 
-  const mainLoad = async () => {
-    loadFurnitures();
-  };
+
+
+  if (furnitures) {
+    currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
+    firsthalf = currentPosts.slice(0, 3)
+    secondhalf = currentPosts.slice(3, 6)
+  }
+
+
+
+  const handlePrint = (subcat: boolean) => {
+    const brandnew = furnitures.filter((item: any) => item.category === "Print")
+
+    setCategories(brandnew)
+    setFirst(brandnew)
+    setSecond([])
+    console.log(categories)
+    setPrint(subcat)
+  }
+
+  const handleArmchair = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Armchair');
+    console.log(subcat)
+    setArmchair(subcat)
+  }
+
+
+  const handleVase = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Vase');
+    console.log(subcat)
+    setVase(subcat)
+  }
+
+  const handleMirror = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Mirror');
+    console.log(subcat)
+    setMirror(subcat)
+  }
+
+  const handleStool = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Stool');
+    console.log(subcat)
+    setStool(subcat)
+  }
+
+  const handleTable = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Table');
+    console.log(subcat)
+    setTable(subcat)
+  }
+
+  const handleCabinet = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Cabinat');
+    console.log(subcat)
+    setCabinet(subcat)
+  }
+
+  const handleSofa = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Sofa');
+    console.log(subcat)
+    setSofa(subcat)
+  }
+
+  const handleBench = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'Bench');
+    console.log(subcat)
+    setBench(subcat)
+  }
+
+
+  const handleFurniture = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'furniture');
+    console.log(subcat)
+    setFurniture(subcat)
+  }
+
+  const handledecorations = (subcat: boolean) => {
+    currentPosts = furnitures.filter((item: any) => item.category == 'decorations');
+    console.log(subcat)
+    setDecorations(subcat)
+  }
 
 
   useEffect(() => {
@@ -61,17 +154,25 @@ export function Shopping() {
       if (furnitures.length % perPage == 0) {
         const temporary = Math.round(furnitures.length / perPage);
         setPages(temporary);
+        setCategories(currentPosts)
+        setFirst(firsthalf)
+        setSecond(secondhalf)
       } else {
         const temporary = Math.ceil(furnitures.length / perPage);
         setPages(temporary);
+        setCategories(currentPosts)
+        setFirst(firsthalf)
+        setSecond(secondhalf)
       }
     }
   }, [furnitures]);
 
   if (furnitures.length === 0) {
     loadFurnitures();
+
     return <Loader />;
   }
+
 
 
 
@@ -103,9 +204,11 @@ export function Shopping() {
               <AccordionSummary >CATEGORY</AccordionSummary>
               <AccordionDetails className='mt-[5px]'>
                 <Checkbox
+                  checked={print}
+                  onChange={(e) => handlePrint(e.target.checked)}
                   className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="FURNITURE"
+                  label="Print"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -121,9 +224,11 @@ export function Shopping() {
                 >
                 </Checkbox>
                 <Checkbox
+                  checked={armchair}
+                  onChange={(event) => handleArmchair(event.target.checked)}
                   className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="LIGHTING"
+                  label="Armchair"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -139,9 +244,11 @@ export function Shopping() {
                 >
                 </Checkbox>
                 <Checkbox
+                  checked={vase}
+                  onChange={(e) => handleVase(e.target.checked)}
                   className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="KIDS"
+                  label="Vase"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -157,9 +264,151 @@ export function Shopping() {
                 >
                 </Checkbox>
                 <Checkbox
+                  checked={mirror}
+                  onChange={(e) => handleMirror(e.target.checked)}
                   className="mb-[10px]"
                   uncheckedIcon={<Done />}
-                  label="GIFTS"
+                  label="Mirror"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={stool}
+                  onChange={(e) => handleStool(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="Stool"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={cabinet}
+                  onChange={(e) => handleCabinet(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="Cabinet"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={sofa}
+                  onChange={(e) => handleSofa(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="Sofa"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={bench}
+                  onChange={(e) => handleBench(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="Bench"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={furniture}
+                  onChange={(e) => handleFurniture(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="furniture"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={table}
+                  onChange={(e) => handleTable(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="Table"
+                  slotProps={{
+                    root: ({ checked, focusVisible }) => ({
+                      sx: !checked
+                        ? {
+                          "& svg": { opacity: focusVisible ? 1 : 0 },
+                          "&:hover svg": {
+                            opacity: 1,
+                          },
+                        }
+                        : undefined,
+                    }),
+                  }}
+                >
+                </Checkbox>
+                <Checkbox
+                  checked={decorations}
+                  onChange={(e) => handledecorations(e.target.checked)}
+                  className="mb-[10px]"
+                  uncheckedIcon={<Done />}
+                  label="decorations"
                   slotProps={{
                     root: ({ checked, focusVisible }) => ({
                       sx: !checked
@@ -204,7 +453,7 @@ export function Shopping() {
               transition={{
                 opacity: { duration: 2 }
               }} className="xl:hidden  xl:w-6/12">
-              {currentPosts.map((item: any, index: number) => (
+              {categories.map((item: any, index: number) => (
                 <ShopTemplate key={item._id} item={item} />
               ))}
             </motion.div>
@@ -216,12 +465,12 @@ export function Shopping() {
                 opacity: { duration: 2 }
               }}>
               <div className=" xl:w-6/12  xl:mt-[120px] ">
-                {firsthalf.map((item: any, index: number) => (
+                {first.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
               <div className=" xl:w-6/12">
-                {secondhalf.map((item: any, index: number) => (
+                {second.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
@@ -234,5 +483,6 @@ export function Shopping() {
       </div>
     </div >
   );
+
 }
 
