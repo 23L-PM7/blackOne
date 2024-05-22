@@ -20,8 +20,6 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBTypography,
 } from "mdb-react-ui-kit";
 
 export default function EditButton() {
@@ -76,7 +74,7 @@ export default function EditButton() {
                       nickname
                     </MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
-                      {user.nickname}
+                      {user.name}
                     </MDBCardText>
                   </div>
                   <div>
