@@ -11,10 +11,8 @@ import { useState } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query");
+  const query: any = searchParams.get("query");
   const itemCount = 1;
-
-  console.log(query);
 
   return (
     <div className="container mx-auto py-[50px] lg:py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
@@ -22,8 +20,8 @@ export default function Home() {
       <div className="flex justify-between items-center">
         <div className="text-[16px]">
           Search results for
-          <div>
-            {query}({itemCount})
+          <div className="font-[500] text-[24px]">
+            {query} ({itemCount})
           </div>
         </div>
         <form action="/search">
@@ -44,14 +42,14 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="hover:bg-transparent font-[600] text-[15px]"
+              className="hover:scale-150 transition duration-300 ease-in-out bg-transparent font-[600] text-[15px]"
             >
               search
             </button>
           </div>
         </form>
       </div>
-      <Searching />
+      <Searching query={query} />
       <Footer />
     </div>
   );
