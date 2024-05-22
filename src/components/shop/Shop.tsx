@@ -77,73 +77,190 @@ export function Shopping() {
 
   const handlePrint = (subcat: boolean) => {
     const brandnew = furnitures.filter((item: any) => item.category === "Print")
-
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
     setCategories(brandnew)
-    setFirst(brandnew)
-    setSecond([])
-    console.log(categories)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setPrint(subcat)
   }
 
   const handleArmchair = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Armchair');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category === "Armchair")
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setArmchair(subcat)
   }
 
 
   const handleVase = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Vase');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Vase');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setVase(subcat)
   }
 
   const handleMirror = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Mirror');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Mirror');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setMirror(subcat)
   }
 
   const handleStool = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Stool');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Stool');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setStool(subcat)
   }
 
   const handleTable = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Table');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Table');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setTable(subcat)
   }
 
   const handleCabinet = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Cabinat');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Cabinat');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setCabinet(subcat)
   }
 
   const handleSofa = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Sofa');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Sofa');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setSofa(subcat)
   }
 
   const handleBench = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'Bench');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'Bench');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setBench(subcat)
   }
 
 
   const handleFurniture = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'furniture');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'furniture');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setFurniture(subcat)
   }
 
   const handledecorations = (subcat: boolean) => {
-    currentPosts = furnitures.filter((item: any) => item.category == 'decorations');
-    console.log(subcat)
+    const brandnew = furnitures.filter((item: any) => item.category == 'decorations');
+    const brandlength = brandnew.length
+    let half = 0
+    if (brandlength % 2 === 1) {
+      half = Math.round(brandlength / 2)
+    } else {
+      half = brandlength / 2
+    }
+    const newfirst = brandnew.slice(0, half)
+    const newsecond = brandnew.slice(half, (half + half))
+    setCategories(brandnew)
+    setFirst(newfirst)
+    setSecond(newsecond)
     setDecorations(subcat)
   }
 
