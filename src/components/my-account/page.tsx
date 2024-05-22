@@ -30,10 +30,10 @@ import VideocamRoundedIcon from "@mui/icons-material/VideocamRounded";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 
-import DropZone from "./DropZone";
-import FileUpload from "./FileUpload";
-import CountrySelector from "./CountrySelector";
-import EditorToolbar from "./EditorToolbar";
+// import DropZone from "./DropZone";
+// import FileUpload from "./FileUpload";
+// import CountrySelector from "./CountrySelector";
+// import EditorToolbar from "./EditorToolbar";
 
 export default function MyProfile() {
   return (
@@ -50,7 +50,7 @@ export default function MyProfile() {
           <Breadcrumbs
             size="sm"
             aria-label="breadcrumbs"
-            separator={<ChevronRightRoundedIcon fontSize="sm" />}
+            separator={<ChevronRightRoundedIcon className="text-sm" />}
             sx={{ pl: 0 }}
           >
             <Link
@@ -209,7 +209,7 @@ export default function MyProfile() {
                 </FormControl>
               </Stack>
               <div>
-                <CountrySelector />
+                {/* <CountrySelector /> */}
               </div>
               <div>
                 <FormControl sx={{ display: { sm: "contents" } }}>
@@ -305,7 +305,7 @@ export default function MyProfile() {
               />
             </FormControl>
             <div>
-              <CountrySelector />
+              {/* <CountrySelector /> */}
             </div>
             <div>
               <FormControl sx={{ display: { sm: "contents" } }}>
@@ -351,7 +351,7 @@ export default function MyProfile() {
           </Box>
           <Divider />
           <Stack spacing={2} sx={{ my: 1 }}>
-            <EditorToolbar />
+            {/* <EditorToolbar /> */}
             <Textarea
               size="sm"
               minRows={4}
@@ -382,8 +382,8 @@ export default function MyProfile() {
           </Box>
           <Divider />
           <Stack spacing={2} sx={{ my: 1 }}>
-            <DropZone />
-            <FileUpload
+            {/* <DropZone /> */}
+            {/* <FileUpload
               icon={<InsertDriveFileRoundedIcon />}
               fileName="Tech design requirements.pdf"
               fileSize="200 kB"
@@ -394,7 +394,7 @@ export default function MyProfile() {
               fileName="Dashboard prototype recording.mp4"
               fileSize="16 MB"
               progress={40}
-            />
+            /> */}
           </Stack>
           <CardOverflow sx={{ borderTop: "1px solid", borderColor: "divider" }}>
             <CardActions sx={{ alignSelf: "flex-end", pt: 2 }}>
