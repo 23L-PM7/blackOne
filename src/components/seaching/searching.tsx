@@ -34,41 +34,40 @@ export function Searching(props: MainProps) {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(6);
-  const [pages, setPages] = useState(3);
-
-  const indexOfLastPost = currentPage * perPage;
-  const indexOfFirstPost = indexOfLastPost - perPage;
   var currentPosts = [];
 
-  if (furnitures) {
-    currentPosts = furnitures.slice(indexOfFirstPost, indexOfLastPost);
-  }
-
-  const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
-    setCurrentPage(value);
-  };
-
-  const mainLoad = async () => {
-    loadFurnitures();
-  };
-
-  React.useEffect(() => {
-    if (furnitures) {
-      if (furnitures.length % perPage == 0) {
-        const temporary = Math.round(furnitures.length / perPage);
-        setPages(temporary);
-      } else {
-        const temporary = Math.ceil(furnitures.length / perPage);
-        setPages(temporary);
-      }
-    }
-  }, [furnitures]);
+  // const mainLoad = async () => {
+  //   loadFurnitures();
+  // };
 
   if (furnitures.length === 0) {
     loadFurnitures();
     return <Loader />;
+  }
+
+  const filtered = furnitures.filter((item: any) => {
+    return query.toLowerCase() === ""
+      ? null
+      : item.name.toLowerCase().includes(query);
+  });
+
+  let searchLength = filtered.length;
+  console.log("hhaha", { searchLength });
+
+  if (query.length === 0) {
+    return (
+      <div className="p-[50px] text-center mx-auto">
+        Empty search query. Please enter one or more keywords and try again.
+      </div>
+    );
+  }
+
+  if (searchLength === 0) {
+    return (
+      <div className="p-[50px] text-center mx-auto">
+        OOPS – NO RESULTS FOR "{query}".
+      </div>
+    );
   }
 
   const boxHover = {
@@ -82,18 +81,9 @@ export function Searching(props: MainProps) {
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div>
         <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
-          {currentPosts
-            .filter((item: any) => {
-              return query.toLowerCase() === ""
-                ? item
-                : item.name.toLowerCase().includes(query);
-            })
-            .map((item: any, index: number) => (
-              <SearchTemplate key={item._id} item={item} />
-            ))}
-        </div>
-        <div className=" flex justify-center items-center mt-[120px]">
-          <Pagination page={currentPage} onChange={handlePage} count={pages} />
+          {filtered.map((item: any, index: number) => (
+            <SearchTemplate key={item._id} item={item} />
+          ))}
         </div>
       </div>
     </div>
