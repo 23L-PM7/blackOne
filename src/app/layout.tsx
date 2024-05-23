@@ -31,16 +31,15 @@ export default function RootLayout({
               //  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
             ]
           }
-          containerRef={containerRef}
         >
-          <main data-scroll-container ref={containerRef}>
+          <main >
             <Suspense>
               <UserProvider>
                 <Header />
-                <div className="animate-fade-up animate-once animate-ease-linear animate-normal">
-                  {" "}
-                  {children}
-                </div>
+                {/* <div className="animate-fade-up animate-once animate-ease-linear animate-normal"> */}
+                {" "}
+                {children}
+                {/* </div> */}
               </UserProvider>
             </Suspense>
           </main>

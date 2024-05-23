@@ -58,11 +58,7 @@ export function Header() {
   const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
   return (
-    <div
-      className={
-        "fixed z-[10000] top-0 left-0 right-0 animate-fade-up animate-once animate-ease-linear animate-normal"
-      }
-    >
+    <div className={"fixed z-[10000] top-0 left-0 right-0 "}>
       <Toaster />
       <Stack sx={{ boxShadow: "none", ...cinzel.style }}>
         <AppBar

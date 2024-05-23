@@ -8,12 +8,10 @@ import React, { useEffect, useState } from "react";
 import { useCart } from "../shop/useCart";
 import { Remove } from "../items/HeaderIcons";
 import { ListItem, ListItemButton } from "@mui/joy";
-import { CiCircleRemove } from "react-icons/ci";
 import { data } from "../shop/ShopList";
 import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
-import { toast } from "sonner";
-import { useFurnitures } from "../utility/utils";
+import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion"
 
 
@@ -44,7 +42,7 @@ export function DrawerMobile(props: BagDrawerProps) {
     };
 
     return (
-        <Box sx={{ display: "flex", transition: 'right 1s ease' }}>
+        <Box sx={{ display: "flex" }}>
             <JoyDrawer
                 open={open}
 
@@ -59,7 +57,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                     },
                 }}
             >
-                <Box className='transition ease-in-out duration-300'>
+                <Box >
                     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
                         transition={{
                             opacity: { duration: 2 }
@@ -74,6 +72,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                                         <AspectRatio sx={{ width: "80%", justifyContent: 'flex-start' }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
+                                        <Toaster />
                                         <button
                                             onClick={() => confirm(item.tempId, item.name)}
                                             className=" w-10 h-10 border-[1px] border-[#343434] rounded-full p-1  xl:ml-8 hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]"
