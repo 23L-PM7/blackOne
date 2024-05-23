@@ -581,12 +581,12 @@ export function Shopping() {
                 x: { duration: 1 },
                 opacity: { duration: 2 }
               }}>
-              <div className=" xl:w-6/12  xl:mt-[120px] ">
+              <div className=" xl:w-6/12  xl:mt-[120px]">
                 {first.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
-              <div className=" xl:w-6/12">
+              <div className=" xl:w-6/12 xl-ml-[50px]">
                 {second.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}

@@ -62,8 +62,6 @@ export function Drawer(props: DrawerProps) {
           </div>
           <Divider />
           <div className={`flex-col flex  text-[18px] mt-[20px] gap-y-4 ${cinzel.className} font-semibold`}>
-            {/* className='flex justify-start' */}
-            <DropDowns />
             {sectionlists.map((sectionlist) => (
               <Link key={sectionlist.id} href={sectionlist.link}>
                 {sectionlist.title}

@@ -91,7 +91,6 @@ export function Header() {
               className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-semibold text-[18px]  items-center justify-around w-[600px] cursor-pointer text-black `}
             >
               <div className="transition">
-                <DropDowns />
               </div>
               {sectionlists.map((sectionlist) => (
                 <Link key={sectionlist.id} href={sectionlist.link}>
