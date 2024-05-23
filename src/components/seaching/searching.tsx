@@ -25,6 +25,8 @@ import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
 import { SearchTemplate } from "./searchTemplate";
 
+export function searchLength() {}
+
 type MainProps = {
   query: string;
 };

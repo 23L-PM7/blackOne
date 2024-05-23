@@ -3,7 +3,7 @@
 import Footer from "@/components/footer/Footer";
 import { Header } from "@/components/header/Header";
 
-import { Searching } from "@/components/seaching/searching";
+import { Searching, searchLength } from "@/components/seaching/searching";
 import { Input } from "@mui/joy";
 import { useSearchParams } from "next/navigation";
 import { cinzel } from "@/app/theme";
@@ -12,7 +12,7 @@ import { useState } from "react";
 export default function Home() {
   const searchParams = useSearchParams();
   const query: any = searchParams.get("query");
-  const itemCount = 1;
+  const itemCount = searchLength;
 
   return (
     <div className="container mx-auto py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
