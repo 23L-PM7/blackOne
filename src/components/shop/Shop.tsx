@@ -543,7 +543,7 @@ export function Shopping() {
               </AccordionDetails>
             </Accordion>
           </AccordionGroup>
-          <div className="lg:w-8/12 lg:scroll-smooth ">
+          <div className="lg:w-8/12 lg:scroll-smooth xl:scroll-smooth ">
             <Dropdown>
               <div className="mt-[30px] flex border-b border-current items-center w-6/12   mx-auto justify-between">
                 <MenuButton
@@ -586,7 +586,7 @@ export function Shopping() {
                   <ShopTemplate key={item._id} item={item} />
                 ))}
               </div>
-              <div className=" xl:w-6/12 xl-ml-[50px]">
+              <div className=" xl:w-6/12">
                 {second.map((item: any, index: number) => (
                   <ShopTemplate key={item._id} item={item} />
                 ))}
