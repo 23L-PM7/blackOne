@@ -64,7 +64,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                         transition={{
                             opacity: { duration: 2 }
                         }} className="  flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
-                        <div className="flex justify-end" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
+                        <div className="flex justify-end cursor-pointer" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
                         {cart.cartItems.map((item, index) => (
