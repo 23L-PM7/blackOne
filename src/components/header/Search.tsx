@@ -32,7 +32,6 @@ export function TopDrawer(props: TopDrawerProps) {
         size="lg"
         variant="soft"
       >
-        <ModalClose onClick={onToggleDrawerTop} />
         <DialogContent>
           <div
             onClick={onToggleDrawerTop}
