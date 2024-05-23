@@ -37,7 +37,10 @@ export default function RootLayout({
             <Suspense>
               <UserProvider>
                 <Header />
-                {children}
+                <div className="animate-fade-up animate-once animate-ease-linear animate-normal">
+                  {" "}
+                  {children}
+                </div>
               </UserProvider>
             </Suspense>
           </main>

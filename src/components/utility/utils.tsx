@@ -1,7 +1,5 @@
 import axios from "axios";
 import { create } from "zustand";
-import { searchLength } from "../seaching/searching";
-
 export const useFurnitures = create((set) => ({
   furnitures: [],
   setFurnitures: (newList: any) => set(() => ({ furnitures: newList })),

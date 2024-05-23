@@ -58,7 +58,11 @@ export function Header() {
   const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
   return (
-    <div className={"fixed z-[10000] top-0 left-0 right-0 "}>
+    <div
+      className={
+        "fixed z-[10000] top-0 left-0 right-0 animate-fade-up animate-once animate-ease-linear animate-normal"
+      }
+    >
       <Toaster />
       <Stack sx={{ boxShadow: "none", ...cinzel.style }}>
         <AppBar
@@ -77,8 +81,7 @@ export function Header() {
             <div
               className={`hidden md:hidden lg:hidden xl:hidden 2xl:flex font-semibold text-[18px]  items-center justify-around w-[600px] cursor-pointer text-black `}
             >
-              <div className="transition">
-              </div>
+              <div className="transition"></div>
               {sectionlists.map((sectionlist) => (
                 <Link key={sectionlist.id} href={sectionlist.link}>
                   <div

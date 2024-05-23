@@ -6,7 +6,7 @@ export default function Home() {
   const { cart, removeCart } = useCart();
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 animate-flip-up ">
       <div className="mt-[100px]">
         <h1 className="text-[50px] h-[50px] md:text-[100px] md:h-[100px]">
           My Orders/
