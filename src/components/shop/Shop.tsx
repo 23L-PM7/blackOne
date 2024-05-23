@@ -78,6 +78,7 @@ export function Shopping() {
   useEffect(() => {
     setFirst(firsthalf)
     setSecond(secondhalf)
+    setCategories(currentPosts)
   }, [currentPage])
 
   const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
