@@ -27,9 +27,14 @@ export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props;
     const { cart, removeCart } = useCart();
 
-    // if (cart.cartItems.length === null) {
-    //     return <div>hooson</div>;
-    // }
+    const emty = () => {
+        if (cart.cartItems.length === null) {
+            return <div>No product in the cart.</div>;
+        }
+    };
+
+
+
 
     const confirm = (id: string, name: string) => {
         toast.warning(`About to remove cart Item ${name}`, {
@@ -37,6 +42,7 @@ export function DrawerMobile(props: BagDrawerProps) {
             action: {
                 label: "Confirm",
                 onClick: () => removeCart(id),
+
             },
         });
     };
@@ -45,7 +51,6 @@ export function DrawerMobile(props: BagDrawerProps) {
         <Box sx={{ display: "flex" }}>
             <JoyDrawer
                 open={open}
-
                 anchor="right"
                 slotProps={{
                     content: {
