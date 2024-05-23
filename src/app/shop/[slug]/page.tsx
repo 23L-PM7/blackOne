@@ -119,7 +119,7 @@ export default function Home() {
         </p>
         <h1
           data-scroll
-          data-scroll-speed="2"
+          data-scroll-speed="1"
           className={`${cinzel.className} text-[25px] font-semibold md:text-[45px]`}
         >
           RELATED PRODUCTS
