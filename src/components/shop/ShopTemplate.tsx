@@ -33,7 +33,6 @@ export function ShopTemplate(props: MainInfo) {
               alt={item.title}
             />
             <Typography level="h2" component="div">
-              4/3
             </Typography>
           </AspectRatio>
 
