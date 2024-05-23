@@ -28,22 +28,10 @@ export function Header() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const [bagOpenDrawer, setBagOpenDrawer] = useState(false);
   const [isOpenDrawerTop, setIsOpenDrawerTop] = useState(false);
-  const [openmenu, setOpenMenu] = useState(false);
   const { cart } = useCart();
-
-  const [header, setHeader] = useState(false);
-
-  console.log({ isOpenDrawerTop });
-
-
-
-  const handleClick = () => {
-    setOpenMenu(!openmenu);
-  };
 
   const combined = () => {
     toggleDrawer();
-    handleClick();
   };
 
   const send = () => {
@@ -58,7 +46,7 @@ export function Header() {
   const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
   return (
-    <div className={"fixed z-[10000] top-0 left-0 right-0 "}>
+    <div className={"sticky z-[10000] top-0 left-0 right-0 "}>
       <Toaster />
       <Stack sx={{ boxShadow: "none", ...cinzel.style }}>
         <AppBar
@@ -120,7 +108,7 @@ export function Header() {
                   // sx={{ mr: 2, }}
                   onClick={combined}
                 >
-                  {openmenu ? (
+                  {isOpenDrawer ? (
                     <RiCloseLargeFill className="text-[30px] md:text-[40px]" />
                   ) : (
                     <MenuIcon

@@ -52,7 +52,7 @@ export function Drawer(props: DrawerProps) {
         >
           <div className="flex items-center gap-4 md:hidden ">
             <button
-              className="p-2 flex items-center text-black z-50"
+              className="p-2 flex items-center text-black z-10"
               onClick={toggleDrawerBagTop}
             >
               <Search />
