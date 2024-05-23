@@ -5,7 +5,7 @@ import Footer from "@/components/footer/Footer";
 export default function About() {
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center animate-fade-up">
         <div className="w-[50%] h-full">
           <h1 className={`${cinzel.className} text-[70px] h-[70px]`}>Our</h1>
           <h1 className={`${cinzel.className} text-[70px] h-[70px]`}>

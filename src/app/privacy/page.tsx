@@ -4,7 +4,7 @@ import { cinzel, quicksand } from "../theme";
 
 export default function Home() {
   return (
-    <div className="bg-[#EDECE9] flex flex-col gap-y-5 p-[50px]">
+    <div className="bg-[#EDECE9] flex flex-col gap-y-5 p-[50px] animate-fade-up">
       <div className="flex flex-col gap-[10px]">
         <h1 className={` pb-[10px] text-[35px] ${cinzel.className}`}>
           Data Protection & Privacy Policy
