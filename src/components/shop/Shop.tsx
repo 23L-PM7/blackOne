@@ -19,6 +19,7 @@ import Pagination from "@mui/material/Pagination";
 import { ShopTemplate } from "./ShopTemplate";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
+import { LuMinus } from "react-icons/lu";
 
 
 
@@ -27,6 +28,7 @@ export function Shopping() {
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
   const [categories, setCategories]: any = useState([]);
+  const [isSwitch, setIsSwitch] = useState(false);
 
   // 2 diff
   const [second, setSecond]: any = useState([])
@@ -59,11 +61,11 @@ export function Shopping() {
   var firsthalf: any = []
   var secondhalf: any = []
 
-
-
-  const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
-    setCurrentPage(value);
+  const toggleMode = () => {
+    setIsSwitch(!isSwitch);
   };
+
+
 
 
 
@@ -72,6 +74,16 @@ export function Shopping() {
     firsthalf = currentPosts.slice(0, 3)
     secondhalf = currentPosts.slice(3, 6)
   }
+
+  useEffect(() => {
+    setFirst(firsthalf)
+    setSecond(secondhalf)
+  }, [currentPage])
+
+  const handlePage = (event: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentPage(value);
+
+  };
 
 
 
@@ -83,6 +95,9 @@ export function Shopping() {
       half = Math.round(brandlength / 2)
     } else {
       half = brandlength / 2
+    }
+    if (brandnew.length === 0) {
+      return <div>Emty</div>
     }
     const newfirst = brandnew.slice(0, half)
     const newsecond = brandnew.slice(half, (half + half))
@@ -557,7 +572,7 @@ export function Shopping() {
                   }}
                 >
                   SORT BY
-                  <GoPlus className="text-[30px]" />
+                  <div className="text-[30px]" onClick={toggleMode}>{isSwitch ? <LuMinus /> : <GoPlus />}</div>
                 </MenuButton>
                 <Menu variant="plain" size="lg">
                   <MenuItem>BEST SELLING</MenuItem>
