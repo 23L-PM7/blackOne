@@ -35,20 +35,7 @@ export function Header() {
 
   console.log({ isOpenDrawerTop });
 
-  // const scrollHeader = () => {
-  //     if (window.scrollBy >= 20) {
-  //         setHeader(true)
-  //     } else {
-  //         setHeader(true)
-  //     }
-  // }
 
-  // useEffect(() => {
-  //     window.addEventListener('scroll', scrollHeader)
-  //     return () => {
-  //         window.addEventListener('scroll', scrollHeader)
-  //     }
-  // }, [])
 
   const handleClick = () => {
     setOpenMenu(!openmenu);
@@ -95,7 +82,7 @@ export function Header() {
               {sectionlists.map((sectionlist) => (
                 <Link key={sectionlist.id} href={sectionlist.link}>
                   <div
-                    className={`hover:underline, hover:${quicksand.className}`}
+                    className={`hover:underline hover:duration-300 hover:${quicksand.className}`}
                   >
                     {sectionlist.title}
                   </div>
