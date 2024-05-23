@@ -16,7 +16,7 @@ export function FirstItem() {
         className="object-cover h-full w-full md:hidden"
       />
       {/* mobile title */}
-      <div className="md:hidden absolute top-0 flex flex-col p-4 w-full h-[23%] justify-center">
+      <div className="md:hidden absolute top-5 flex flex-col p-4 w-full h-[23%] justify-center">
         <div className="w-[80%]">
           <h1 className={`${quicksand.className} text-[45px] h-[45px]`}>
             Passion
