@@ -45,6 +45,9 @@ export function Header() {
   const toggleDrawer = () => setIsOpenDrawer(!isOpenDrawer);
   const toggleDrawerBag = () => setBagOpenDrawer(!bagOpenDrawer);
   const toggleDrawerBagTop = () => setIsOpenDrawerTop(!isOpenDrawerTop);
+
+
+
   return (
     <div className={"sticky z-[10000] top-0 left-0 right-0 "}>
       <Toaster />
