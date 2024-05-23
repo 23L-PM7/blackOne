@@ -17,9 +17,9 @@ export function HomeItem(props: MainProps) {
     <div className="w-full h-full snap-start snap-always overflow-hidden flex-shrink-0 flex">
       <div className="h-full md:w-[50%] relative">
         <img src={item.picture} className="object-cover h-full w-full" />
-        <div className="absolute top-6 left-6 md:hidden">
+        <div className="absolute top-16 left-6 md:hidden">
           <h1 className={`text-[30px]`}>{item.name}</h1>
-          <h1 className={`text-[30px]`}>{item.price}</h1>
+          <h1 className={`text-[30px]`}>{item.price}$</h1>
           <h1 className={`${cinzel.className} text-[20px]`}>{item.category}</h1>
         </div>
         <div className="absolute bottom-12 left-6 flex gap-3 md:hidden">
