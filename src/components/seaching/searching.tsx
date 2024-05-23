@@ -42,7 +42,11 @@ export function Searching(props: MainProps) {
 
   if (furnitures.length === 0) {
     loadFurnitures();
-    return <Loader />;
+    return (
+      <div className="flex justify-center items-center">
+        <Loader />
+      </div>
+    );
   }
 
   const filtered = furnitures.filter((item: any) => {
@@ -56,15 +60,19 @@ export function Searching(props: MainProps) {
 
   if (query.length === 0) {
     return (
-      <div className="p-[50px] text-center mx-auto">
-        Empty search query. Please enter one or more keywords and try again.
+      <div
+        className={`scale-100 sm:scale-125 lg:scale-150 2xl:scale-175 p-[50px] text-center mx-auto bg-transparent text-[#A18565] font-[100] ${cinzel.className}`}
+      >
+        Please enter search value and try again.
       </div>
     );
   }
 
   if (searchLength === 0) {
     return (
-      <div className="p-[50px] text-center mx-auto">
+      <div
+        className={`scale-100 sm:scale-125 lg:scale-150 2xl:scale-175 p-[50px] text-center mx-auto bg-transparent text-[#A18565] font-[100] ${cinzel.className}`}
+      >
         OOPS – NO RESULTS FOR "{query}".
       </div>
     );
