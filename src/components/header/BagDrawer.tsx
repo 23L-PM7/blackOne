@@ -13,7 +13,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
 import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion"
-import { ClassNames } from "@emotion/react";
+
 
 
 type BagDrawerProps = {
