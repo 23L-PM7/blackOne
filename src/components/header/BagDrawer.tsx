@@ -58,6 +58,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                             backgroundColor: "white",
                             padding: 2,
                             overflow: "scroll",
+                            zIndex: 10
                         },
                     },
                 }}
