@@ -59,7 +59,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                             backgroundColor: "white",
                             padding: 2,
                             overflow: "scroll",
-                            zIndex: 10
+                            zIndex: 0
                         },
                     },
                 }}
@@ -68,7 +68,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                     <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}
                         transition={{
                             opacity: { duration: 2 }
-                        }} className="  flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px]">
+                        }} className="  flex-col flex gap-y-8 mt-[50px] md:mt-[75px] lg:mt-[80px] z-0">
                         <div className="flex justify-end cursor-pointer" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
