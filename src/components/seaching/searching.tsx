@@ -24,13 +24,15 @@ import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
 import { SearchTemplate } from "./searchTemplate";
+import { motion } from "framer-motion";
 
 type MainProps = {
   query: string;
+  setCount: (count: number) => void;
 };
 
 export function Searching(props: MainProps) {
-  const { query } = props;
+  const { query, setCount } = props;
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
 
@@ -55,8 +57,7 @@ export function Searching(props: MainProps) {
       : item.name.toLowerCase().includes(query);
   });
 
-  let searchLength = filtered.length;
-  console.log("hhaha", { searchLength });
+  setCount(filtered.length);
 
   if (query.length === 0) {
     return (
@@ -68,7 +69,7 @@ export function Searching(props: MainProps) {
     );
   }
 
-  if (searchLength === 0) {
+  if (filtered.length === 0) {
     return (
       <div
         className={`scale-100 sm:scale-125 lg:scale-150 2xl:scale-175 p-[50px] text-center mx-auto bg-transparent text-[#A18565] font-[100] ${cinzel.className}`}
@@ -88,11 +89,21 @@ export function Searching(props: MainProps) {
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div>
-        <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
+        <motion.div
+          animate={{ x: 100, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{
+            tease: "linear",
+            duration: 2,
+            x: { duration: 1 },
+            opacity: { duration: 2 },
+          }}
+          className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto"
+        >
           {filtered.map((item: any, index: number) => (
             <SearchTemplate key={item._id} item={item} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

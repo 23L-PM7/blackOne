@@ -12,15 +12,15 @@ export default function Home() {
   const searchParams = useSearchParams();
   const query: any = searchParams.get("query");
   const itemCount = 0;
+  const [count, setCount] = useState(0);
 
   return (
     <div className="container mx-auto py-[100px] xl:w-[75%] xl:px-[50px] px-[20px]">
-      <Header />
       <div className="flex justify-between items-center ">
         <div className="text-[12px] xl:text-[16px]">
           Search results for
           <div className="font-[500] text-[14px] xl:text-[24px]">
-            {query} ({itemCount})
+            {query} ({count})
           </div>
         </div>
         <form action="/search">
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
         </form>
       </div>
-      <Searching query={query} />
+      <Searching query={query} setCount={setCount} />
       <Footer />
     </div>
   );
