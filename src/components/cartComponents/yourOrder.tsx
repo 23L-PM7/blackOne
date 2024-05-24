@@ -11,6 +11,7 @@ import AccordionSummary from "@mui/joy/AccordionSummary";
 import { YourData } from "./yourdata";
 import { useEffect, useState } from "react";
 import { useCart } from "../shop/useCart";
+import Link from "next/link";
 
 export function YourOrder() {
   const { cart }: any = useCart();
@@ -145,9 +146,9 @@ export function YourOrder() {
         </RadioGroup>
       </AccordionGroup>
       <YourData />
-      <button className="hidden w-[60%] sm:block h-[50px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
+      <Link href="#" className="hidden w-[60%] sm:block h-[50px] rounded text-[#F5F5F5] bg-[#A18565] hover:text-[#343434] hover:bg-[#F5F5F5] mb-[50px]">
         PLACE ORDER
-      </button>
+      </Link>
     </div>
   );
 }
