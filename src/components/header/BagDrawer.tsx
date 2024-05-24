@@ -13,6 +13,7 @@ import { cinzel, quicksand } from "@/app/theme";
 import Link from "next/link";
 import { Toaster, toast } from "sonner";
 import { motion } from "framer-motion"
+import { ClassNames } from "@emotion/react";
 
 
 type BagDrawerProps = {
@@ -21,17 +22,17 @@ type BagDrawerProps = {
 };
 
 
-
+export function Empty() {
+    const { cart, removeCart } = useCart();
+    if (cart.cartItems.length === 0) {
+        return <div>No product in the cart.</div>;
+    }
+    return <div className="hidden"></div>
+}
 
 export function DrawerMobile(props: BagDrawerProps) {
     const { open, onToggleDrawerBag } = props;
     const { cart, removeCart } = useCart();
-
-    const emty = () => {
-        if (cart.cartItems.length === null) {
-            return <div>No product in the cart.</div>;
-        }
-    };
 
 
 
@@ -72,6 +73,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                             <Remove />
                         </div>
                         <Toaster />
+                        <Empty />
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem>

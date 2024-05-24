@@ -57,7 +57,7 @@ export default function Home() {
   if (!user) return <div>Access Denied</div>;
   console.log(user);
 
-  if (user.sub !== "google-oauth2|100881121767384542232")
+  if (user.sid !== "xqQfc6MkjHPdzyL5WIk7CW_bX-Mgbeu7")
     return <div>Access Denied</div>;
 
   return (
