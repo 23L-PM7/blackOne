@@ -24,6 +24,7 @@ import { Loader } from "../loader";
 import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
 import { SearchTemplate } from "./searchTemplate";
+import { motion } from "framer-motion";
 
 type MainProps = {
   query: string;
@@ -88,11 +89,21 @@ export function Searching(props: MainProps) {
   return (
     <div className={`bg-[#EDECE9] ${quicksand.className}`}>
       <div>
-        <div className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto">
+        <motion.div
+          animate={{ x: 100, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{
+            tease: "linear",
+            duration: 2,
+            x: { duration: 1 },
+            opacity: { duration: 2 },
+          }}
+          className=" xl:grid grid-cols-2 gap-20 xl:gap-x-[150px] xl:gap-y-0 md:mx-auto"
+        >
           {filtered.map((item: any, index: number) => (
             <SearchTemplate key={item._id} item={item} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

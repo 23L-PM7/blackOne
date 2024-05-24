@@ -7,8 +7,18 @@ export default function About() {
     <div>
       <div className="flex items-center animate-fade-up">
         <div className="w-[50%] h-full">
-          <h1 className={`${cinzel.className} text-[70px] h-[70px]`}>Our</h1>
-          <h1 className={`${cinzel.className} text-[70px] h-[70px]`}>
+          <h1
+            data-scroll
+            data-scroll-speed="1"
+            className={`${cinzel.className} text-[70px] h-[70px]`}
+          >
+            Our
+          </h1>
+          <h1
+            data-scroll
+            data-scroll-speed="1"
+            className={`${cinzel.className} text-[70px] h-[70px]`}
+          >
             Philosophy
           </h1>
         </div>
@@ -87,6 +97,8 @@ export default function About() {
       </div>
       <div>
         <h1
+          data-scroll
+          data-scroll-speed="1"
           className={`${cinzel.className} my-[20px] text-center text-[70px] h-[70px]`}
         >
           FAMILY VALUES
