@@ -70,6 +70,7 @@ export function DrawerMobile(props: BagDrawerProps) {
                         <div className="flex justify-end cursor-pointer" onClick={onToggleDrawerBag} onKeyDown={onToggleDrawerBag}>
                             <Remove />
                         </div>
+                        <Toaster />
                         {cart.cartItems.map((item, index) => (
                             <React.Fragment key={item.tempId}>
                                 <ListItem>
@@ -77,7 +78,6 @@ export function DrawerMobile(props: BagDrawerProps) {
                                         <AspectRatio sx={{ width: "80%", justifyContent: 'flex-start' }}>
                                             <img src={item.picture} alt={item.name} />
                                         </AspectRatio>
-                                        <Toaster />
                                         <button
                                             onClick={() => confirm(item.tempId, item.name)}
                                             className=" w-10 h-10 border-[1px] border-[#343434] rounded-full p-1  xl:ml-8 hover:bg-[#343434] font-slim text-xl hover:text-[#F5F5F5]"
