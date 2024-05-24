@@ -27,10 +27,11 @@ import { SearchTemplate } from "./searchTemplate";
 
 type MainProps = {
   query: string;
+  setCount: (count: number) => void;
 };
 
 export function Searching(props: MainProps) {
-  const { query } = props;
+  const { query, setCount } = props;
   const router = useRouter();
   const { furnitures, loadFurnitures, empty }: any = useFurnitures();
 
@@ -55,8 +56,7 @@ export function Searching(props: MainProps) {
       : item.name.toLowerCase().includes(query);
   });
 
-  let searchLength = filtered.length;
-  console.log("hhaha", { searchLength });
+  setCount(filtered.length);
 
   if (query.length === 0) {
     return (
@@ -68,7 +68,7 @@ export function Searching(props: MainProps) {
     );
   }
 
-  if (searchLength === 0) {
+  if (filtered.length === 0) {
     return (
       <div
         className={`scale-100 sm:scale-125 lg:scale-150 2xl:scale-175 p-[50px] text-center mx-auto bg-transparent text-[#A18565] font-[100] ${cinzel.className}`}
